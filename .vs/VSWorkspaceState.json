@@ -2,13 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\UserManagement",
-    "\\UserManagement\\Controllers",
-    "\\UserManagement\\Migrations",
-    "\\UserManagement\\Models",
-    "\\UserManagement\\Properties",
-    "\\UserManagement\\ViewModels",
-    "\\UserManagement\\Views"
+    "\\UserManagement\\ViewModels"
   ],
-  "SelectedNode": "\\UserManagement\\UserMangement.sln",
   "PreviewInSolutionExplorer": false
 }
