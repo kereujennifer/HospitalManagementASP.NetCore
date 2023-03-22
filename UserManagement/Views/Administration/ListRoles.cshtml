@@ -15,8 +15,9 @@
                 <h5 class="card-title">@role.Name</h5>
             </div>
             <div class="footer">
-                <a asp-action="EditRole" asp-controller="administration" asp-route-id="@role.Id" class="btn btn-primary">Edit</a>
                 <form asp-action="DeleteRole" asp-route-id="@role.Id" method="post">
+                <a asp-action="EditRole" asp-controller="administration" asp-route-id="@role.Id" class="btn btn-primary">Edit</a>
+               
                     <span id="confirmDeleteSpan_@role.Id" style="display:none">
                         <span>Are you sure you want to delete?</span>
                         <button type="submit" class="btn btn-danger">Yes</button>
