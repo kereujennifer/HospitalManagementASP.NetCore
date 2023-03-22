@@ -1,11 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using DadJokes.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using System;
+
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<DadJokesContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DadJokesContext") ?? throw new InvalidOperationException("Connection string 'DadJokesContext' not found.")));
 
-// Add services to the container.
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>((options => options.SignIn.RequireConfirmedAccount = true))
+        .AddEntityFrameworkStores<DadJokesContext>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

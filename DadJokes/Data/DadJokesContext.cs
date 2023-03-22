@@ -4,10 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using DadJokes.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace DadJokes.Data
 {
-    public class DadJokesContext : DbContext
+    public class DadJokesContext : IdentityDbContext
     {
         public DadJokesContext (DbContextOptions<DadJokesContext> options)
             : base(options)
