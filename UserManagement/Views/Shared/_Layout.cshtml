@@ -25,6 +25,21 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+                         @if(signInManger.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Manage Roles
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" asp-controller="Administration"
+                                   asp-action="ListUsers">Users</a>
+                                    <a class="dropdown-item" asp-controller="Administration"
+                                   asp-action="ListRoles">Roles</a>
+                                </div>
+                            </li>
+                        }
+
                        @* <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>*@
@@ -53,6 +68,9 @@
                                 </a>
                             </li>
                         }
+                        
+                          
+                        
                     </ul>
                 </div>
             </div>
