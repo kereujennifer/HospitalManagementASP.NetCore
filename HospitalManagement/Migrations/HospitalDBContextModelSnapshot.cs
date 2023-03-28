@@ -47,7 +47,7 @@ namespace HospitalManagement.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("DoctorViewModel");
+                    b.ToTable("DoctorViewModel", (string)null);
                 });
 
             modelBuilder.Entity("HospitalManagement.ViewModels.PatientViewModel", b =>
@@ -87,7 +87,7 @@ namespace HospitalManagement.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Hospital");
+                    b.ToTable("Hospital", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

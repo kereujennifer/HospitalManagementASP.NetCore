@@ -2,8 +2,11 @@
 {
     public class LaboratoryViewModel
     {
-        public string? TestPerfomed { get; set; }
-        public string? TestPerfomedBy { get; set; }
+        //public int PatientId { get; set; }
+        public string? TestPerformed { get; set; }
+        public string? TestPerformedBy { get; set; }
+        public string? Report { get; set; }
+
 
     }
 }

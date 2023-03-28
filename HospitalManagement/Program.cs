@@ -10,6 +10,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<HospitalDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("HospitalDBConnection")));
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    
     .AddEntityFrameworkStores<HospitalDBContext>();
 var app = builder.Build();
 
