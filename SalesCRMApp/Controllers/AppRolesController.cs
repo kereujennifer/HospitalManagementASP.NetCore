@@ -6,7 +6,7 @@ using SalesCRMApp.Models;
 
 namespace SalesCRMApp.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Admin")]
     public class AppRolesController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;
