@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "EDVANnKZ4gI7S1wBdmjUqee8rB2z1iHXStnBSb/e8/s=",
+  "Hash": "hK+WxJki/mME1WhLOcnflMIk2Mq5sCVk7iGvmMOMOzQ=",
   "Source": "HospitalManagement",
   "BasePath": "_content/HospitalManagement",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\Doctor.jpg",
+      "SourceId": "HospitalManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\",
+      "BasePath": "_content/HospitalManagement",
+      "RelativePath": "Images/Doctor.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Doctor.jpg"
     },
     {
       "Identity": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\js\\site.js",

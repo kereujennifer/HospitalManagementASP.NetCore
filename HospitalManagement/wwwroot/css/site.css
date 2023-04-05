@@ -14,5 +14,123 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    overflow-x: hidden;
+/*    max-width: 100%;
+*/    /*min-height:100vh;*/
+}
+#account {
+    min-width: 500px;
+    min-height: inherit;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 40px 30px;
+    margin-top: 250px;
+    box-shadow: 0px -3px 9px #aaa9a9a2,0px 3px 7px rgba(147, 149, 151, 0.671);
+}
+#registerForm {
+    min-width: 500px;
+    min-height:inherit;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem ;
+    border-radius: 10px;
+    padding: 40px 30px;
+    margin-top: 250px;
+    box-shadow: -3px -3px 9px #aaa9a9a2, 3px 3px 7px rgba(147, 149, 151, 0.671);
+}
+.row {
+   
+    position: relative;
+}
+#login-submit {
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
+    transition: 0.4s;
+    float:right;
+    position:relative;
+
+}
+#registerSubmit {
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
+}
+table thead{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #24a0ed;
+}
+.btn {
+    width: max-content;
+}
+.feather {
+    width: 16px;
+    height: 16px;
+}
+.sidebar {
+    position: fixed;
+    top: 60px;
+    float: left;
+
+    /* rtl:raw:
+  right: 0;
+  */
+    bottom: 60px;
+    /* rtl:remove */
+    left: 0;
+    z-index: 100; /* Behind the navbar */
+    padding: 10px 0 0; /* Height of navbar */
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+@media (max-width: 767.98px) {
+    .sidebar {
+        top: 5rem;
+    }
+}
+
+.sidebar-sticky {
+    height: calc(100vh - 48px);
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar .nav-link {
+    font-weight: 500;
+    color: #333;
+}
+
+    .sidebar .nav-link .feather {
+        margin-right: 4px;
+        color: #727272;
+    }
+
+    .sidebar .nav-link.active {
+        color: #2470dc;
+    }
+
+        .sidebar .nav-link:hover .feather,
+        .sidebar .nav-link.active .feather {
+            color: inherit;
+        }
+
+.sidebar-heading {
+    font-size: .75rem;
+}
+.container-main {
+    position: relative;
+    top: 2px;
+    bottom: 60px;
+    box-shadow: -3px -3px 9px #aaa9a9a2, 3px 3px 7px rgba(147, 149, 151, 0.671);
+    margin-left: 225px;
+    margin-right: 225px;
 }

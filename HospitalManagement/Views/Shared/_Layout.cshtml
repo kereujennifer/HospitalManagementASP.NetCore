@@ -7,10 +7,13 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/HospitalManagement.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" 
+    />
+
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 fixed-top ">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">HospitalManagement</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -22,40 +25,86 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Patients" asp-action="Index">Patients</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Doctors" asp-action="Index">Doctors</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Laboratories" asp-action="Index">Laboratory</a>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Pharmacies" asp-action="Index">Pharmacy</a>
-                        </li>
+                    
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
+                   
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3 sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                        <span class="material-symbols-outlined">
+                            personal_injury
+                        </span>                            <a class="nav-link text-dark" asp-area="" asp-controller="Patients" asp-action="Index">Patients</a>
+                        </li>
+                        <li class="nav-item">
+                        <span class="material-symbols-outlined">
+                            stethoscope
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
+                        </span>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Doctors" asp-action="Index">Doctors</a>
+                        </li>
+
+                        <li class="nav-item">
+                        <span class="material-symbols-outlined">
+                            science
+                        </span>
+
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Laboratories" asp-action="Index">Laboratory</a>
+                        <li class="nav-item">
+                        <span class="material-symbols-outlined">
+                            medication
+                        </span>
+
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Pharmacies" asp-action="Index">Pharmacy</a>
+                        </li>
+                    </ul>
+
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+                        <span>Saved reports</span>
+
+                        <a class="link-secondary" href="#" aria-label="Add a new report">
+                          
+                        </a>
+                    </h6>
+                    <ul class="nav flex-column mb-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                            Lab Reports
+                            </a>
+                    </ul>
+                 </div>
+            </nav>
+        </div>
+ 
+   
+<div class="innerwrapper-section">
+        <div class="container-main ">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+</div>
+   
+
+    <footer class="border-top footer text-muted mt-6">
+        <div class="container-fluid">
             &copy; 2023 - HospitalManagement - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.9.0/simpleicons.svg" asp-append-version="true"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/4.0.0/font/MaterialIcons-Regular.ttf" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

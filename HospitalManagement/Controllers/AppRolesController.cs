@@ -12,14 +12,19 @@ namespace HospitalManagement.Controllers
         {
             this.roleManager = roleManager;
         }
+        public IActionResult ListRoles()
+        {
+            var roles = roleManager.Roles.ToList();
+            return View(roles);
+        }
         public IActionResult EditRole()
         {
             return View();
         }
         public IActionResult Index()
         {
-            var roles =  roleManager.Roles.ToList();
-            return View(roles);
+            return View();
+
         }
         [HttpGet]
         public IActionResult CreateRole()
