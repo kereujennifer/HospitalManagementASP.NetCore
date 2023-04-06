@@ -132,8 +132,9 @@ table thead{
     bottom: 60px;
   
 }
-.innerwrapper-section {
-    margin-top: 6rem !important;
+.innerwrapper-section
+{
+       margin-top: 6rem !important;
     position: relative;
     margin: 1rem 3rem;
     max-height: 100%;
@@ -144,6 +145,6 @@ table thead{
    
    
 }
-table{
+    table{
     min-height: 100%;
 }
