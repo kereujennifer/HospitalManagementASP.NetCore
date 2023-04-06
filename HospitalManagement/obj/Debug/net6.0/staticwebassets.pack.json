@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\Images\\Doctor.jpg"
     },
     {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\patient.png",
+      "PackagePath": "staticwebassets\\Images\\patient.png"
+    },
+    {
       "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

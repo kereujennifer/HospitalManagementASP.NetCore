@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hK+WxJki/mME1WhLOcnflMIk2Mq5sCVk7iGvmMOMOzQ=",
+  "Hash": "BEhBFUqqe5gxG2JYS31bHbaG9uQ8RUUank+amghXQRo=",
   "Source": "HospitalManagement",
   "BasePath": "_content/HospitalManagement",
   "Mode": "Default",
@@ -1120,6 +1120,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Doctor.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\patient.png",
+      "SourceId": "HospitalManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\",
+      "BasePath": "_content/HospitalManagement",
+      "RelativePath": "Images/patient.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\patient.png"
     },
     {
       "Identity": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\js\\site.js",

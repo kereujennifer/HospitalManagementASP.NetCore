@@ -130,18 +130,20 @@ table thead{
     position: relative;
     top: 2px;
     bottom: 60px;
-    box-shadow: -3px -3px 9px #aaa9a9a2, 3px 3px 7px rgba(147, 149, 151, 0.671);
-    margin-left: 225px;
-    margin-right: 225px;
+  
 }
-.innerwrapper-section{
+.innerwrapper-section {
     margin-top: 6rem !important;
     position: relative;
     margin: 1rem 3rem;
-    width: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    margin-bottom: 6rem;
+    box-shadow: -3px -3px 9px #aaa9a9a2, 3px 3px 7px rgba(147, 149, 151, 0.671);
+    margin-left: 18rem;
+   
+   
 }
-position: relative;
-margin-top: 50px;
-margin-left: 225px;
-margin-bottom: 60px;
-box-shadow: -3px -3px 9px #aaa9a9a2, 3px 3px 7px rgba(147, 149, 151, 0.671);
+table{
+    min-height: 100%;
+}

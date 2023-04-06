@@ -39,32 +39,39 @@
         <div class="row">
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                 <div class="position-sticky pt-3 sidebar-sticky">
-                    <ul class="nav flex-column">
+                <ul class="nav  d-inline-block">
                         <li class="nav-item">
-                        <span class="material-symbols-outlined">
-                            personal_injury
-                        </span>                            <a class="nav-link text-dark" asp-area="" asp-controller="Patients" asp-action="Index">Patients</a>
+                                                  
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Patients" asp-action="Index">
+                            <span class="material-symbols-outlined">
+                                personal_injury
+                            </span>Patients
+                        </a>
                         </li>
                         <li class="nav-item">
-                        <span class="material-symbols-outlined">
-                            stethoscope
 
-                        </span>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Doctors" asp-action="Index">Doctors</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Doctors" asp-action="Index">
+                            <span class="material-symbols-outlined">
+                                stethoscope
+
+                            </span>Doctors
+                        </a>
                         </li>
 
                         <li class="nav-item">
-                        <span class="material-symbols-outlined">
-                            science
-                        </span>
-
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Laboratories" asp-action="Index">Laboratory</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Laboratories" asp-action="Index">
+                            <span class="material-symbols-outlined">
+                                science
+                            </span> Laboratory
+                        </a>
                         <li class="nav-item">
-                        <span class="material-symbols-outlined">
-                            medication
-                        </span>
 
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Pharmacies" asp-action="Index">Pharmacy</a>
+
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Pharmacies" asp-action="Index">
+                            <span class="material-symbols-outlined">
+                                medication
+                            </span> Pharmacy
+                        </a>
                         </li>
                     </ul>
 
@@ -87,15 +94,15 @@
  
    
 <div class="innerwrapper-section">
-        <div class="container-main ">
-            <main role="main" class="pb-3">
+       
+            <main role="main" class="m- p-3">
                 @RenderBody()
             </main>
-        </div>
+       
 </div>
    
 
-    <footer class="border-top footer text-muted mt-6">
+    <footer class="border-top footer text-muted mt-10">
         <div class="container-fluid">
             &copy; 2023 - HospitalManagement - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
