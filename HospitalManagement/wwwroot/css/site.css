@@ -19,7 +19,7 @@ body {
 /*    max-width: 100%;
 */    /*min-height:100vh;*/
 }
-#account {
+/*#account {
     min-width: 500px;
     min-height: inherit;
     position: absolute;
@@ -49,9 +49,9 @@ body {
 }
 .row {
    
-    position: relative;
-}
-#login-submit {
+  */  /*position: relative;
+}*/
+/*#login-submit {
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
     transition: 0.4s;
@@ -62,7 +62,7 @@ body {
 #registerSubmit {
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
-}
+}*/
 table thead{
     padding-top: 12px;
     padding-bottom: 12px;
@@ -94,7 +94,7 @@ table thead{
 
 @media (max-width: 767.98px) {
     .sidebar {
-        top: 5rem;
+        top: 6rem
     }
 }
 
@@ -126,11 +126,15 @@ table thead{
 .sidebar-heading {
     font-size: .75rem;
 }
+
+.nav-item{
+   
+ 
+}
 .container-main {
     position: relative;
     top: 2px;
     bottom: 60px;
-  
 }
 .innerwrapper-section
 {
@@ -147,4 +151,9 @@ table thead{
 }
     table{
     min-height: 100%;
+}
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
 }

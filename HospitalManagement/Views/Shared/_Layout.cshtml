@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<IdentityUser> signInManager;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -36,22 +38,39 @@
             </div>
         </nav>
     </header>
-        <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+   
+
+    <div class="container-fluid">
+        <div class="row flex-column">
+        <nav id="sidebarMenu" class="col-md-2 col-lg-2 col-sm-2 col-3 d-md-block bg-light sidebar sticky">
             
 
                 <div class="position-sticky pt-3 sidebar-sticky">
                 <ul class="nav d-inline-block ">
-                        <li class="nav-item">
-                                                  
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Patients" asp-action="Index">
-                            <span class="material-symbols-outlined  align-middle">
-                                personal_injury
-                            </span> Patients
-                        </a>
-                        </li>
+
                         <li class="nav-item">
 
+                            <a class="nav-link text-dark" asp-area="" asp-controller="AppRoles" asp-action="Index">
+                                <span class="material-symbols-outlined  align-middle">
+                                   dashboard
+                                </span> Dashboard
+                            </a>
+                        </li>
+                           @if (signInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Patients" asp-action="Index">
+                                    <span class="material-symbols-outlined  align-middle">
+                                        personal_injury
+                                    </span> Patients
+                                </a>
+                            </li>
+                        }
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                        <li class="nav-item">
+                           
                         <a class="nav-link text-dark" asp-area="" asp-controller="Doctors" asp-action="Index">
                             <span class="material-symbols-outlined align-middle">
                                 stethoscope
@@ -59,58 +78,70 @@
                             </span> Doctors
                         </a>
                         </li>
+                            }
+                            @if (signInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Laboratories" asp-action="Index">
+                                    <span class="material-symbols-outlined align-middle">
+                                        science
+                                    </span> Laboratory
+                                </a>
+                            </li>
+                            <li class="nav-item">
 
-                        <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Laboratories" asp-action="Index">
-                            <span class="material-symbols-outlined align-middle">
-                                science
-                            </span> Laboratory
-                        </a>
-                        <li class="nav-item">
 
-
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Pharmacies" asp-action="Index">
-                            <span class="material-symbols-outlined align-middle">
-                                medication
-                            </span> Pharmacy
-                        </a>
-                        </li>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Pharmacies" asp-action="Index">
+                                    <span class="material-symbols-outlined align-middle">
+                                        medication
+                                    </span> Pharmacy
+                                </a>
+                            </li>
+                        }
                     </ul>
+                        
 
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
-                        <span> Saved reports</span>
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                    {
 
-                        <a class="link-secondary" href="#" aria-label="Add a new report">
-                        <span class="material-symbols-outlined align-middle">
-                            add_circle
-                        </span>
-                        </a>
-                    </h6>
-                    <ul class="nav flex-column mb-2">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                            <span class="material-symbols-outlined align-middle">
-                                lab_profile
-                            </span>
-                            Lab Reports
+                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+                            <span> Saved reports</span>
+
+                            <a class="link-secondary" href="#" aria-label="Add a new report">
+                                <span class="material-symbols-outlined align-middle">
+                                    add_circle
+                                </span>
                             </a>
-                    </ul>
-                 </div>
+                        </h6>
+                        <ul class="nav flex-column mb-2">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <span class="material-symbols-outlined align-middle">
+                                        lab_profile
+                                    </span>
+                                    Lab Reports
+                                </a>
+                        </ul>
+                    }
+                </div>
             </nav>
             
         </div>
- 
-   
+
+    </div>
+                    
+
+
 <div class="innerwrapper-section">
        <div class="container">
             <main role="main" class=" p-3">
                 @RenderBody()
             </main>
        </div>
-            
-       
-</div>
-   
+
+    </div>
+
+ 
 
     <footer class="border-top footer text-muted ">
         <div class="container-fluid">

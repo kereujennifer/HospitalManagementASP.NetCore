@@ -184,12 +184,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwUm9sZXNcRWRpdFJvbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/AppRoles/EditUsersInRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwUm9sZXNcRWRpdFVzZXJzSW5Sb2xlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/AppRoles/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwUm9sZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/AppRoles/ListRoles.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwUm9sZXNcTGlzdFJvbGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/AppRoles/ListUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwUm9sZXNcTGlzdFVzZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Doctors/Create.cshtml]
