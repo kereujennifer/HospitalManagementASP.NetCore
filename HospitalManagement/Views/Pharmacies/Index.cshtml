@@ -1,26 +1,52 @@
 ﻿@model IEnumerable<HospitalManagement.Models.Pharmacy>
 
 @{
-    ViewData["Title"] = "Pharmacy";
+    ViewData["Title"] = "Index";
 }
 
-<h1>Pharmacy</h1>
+<h1>Index</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary float-right">Create New</a>
+    <a asp-action="Create">Create New</a>
 </p>
-<div class="table-responsive">
-<table class="table">
+<table class=" table-striped table-bordered ">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.MedicineId)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.MedicineName)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Batch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Manufacturer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpiryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stock)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.MedicinePrescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatientName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Doctor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateDispendsed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplier)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
             </th>
             <th></th>
         </tr>
@@ -29,25 +55,47 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.MedicineId)
+                @Html.DisplayFor(modelItem => item.MedicineName)
+             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Batch)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MedicineName)
+                @Html.DisplayFor(modelItem => item.Manufacturer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpiryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MedicinePrescription)
             </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" >Edit</a> 
-                    </td>
-                    <td>
-                    <a asp-action="Details" asp-route-id="@item.Id" >Details</a>
-                        </td>
-                        <td>
-                    <a asp-action="Delete" asp-route-id="@item.Id" >Delete</a>
+                    @Html.DisplayFor(modelItem => item.PatientName)
                 </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Doctor)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateDispendsed)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Supplier)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
         </tr>
 }
     </tbody>
 </table>
-</div>

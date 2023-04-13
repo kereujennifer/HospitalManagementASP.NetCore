@@ -18,8 +18,16 @@ namespace HospitalManagement.Data
         public DbSet<Laboratory> Laboratory { get; set; }
 
         public DbSet<Pharmacy> Pharmacy { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
 
+        public DbSet<Bill> Bills { get; set; }
+        public DbSet<Insurance> Insurance { get; set; }
+        public DbSet<Medicine> Medicine { get; set; }
+        public DbSet<PatientReport> PatientReports { get; set; }
 
+        public DbSet<MedicineReport> MedicineReports { get; set; }
+
+        public DbSet<HospitalManagement.Models.Supplier>? Supplier { get; set; }
 
     }
 

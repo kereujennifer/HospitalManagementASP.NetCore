@@ -56,7 +56,7 @@ namespace HospitalManagement.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MedicineId,MedicineName,MedicinePrescription,Id")] Pharmacy pharmacy)
+        public async Task<IActionResult> Create([Bind("Batch,Manufacturer,ExpiryDate,Stock,MedicinePrescription,DateDispendsed,UnitPrice,Total,Id")] Pharmacy pharmacy)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace HospitalManagement.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MedicineId,MedicineName,MedicinePrescription,Id")] Pharmacy pharmacy)
+        public async Task<IActionResult> Edit(int id, [Bind("Batch,Manufacturer,ExpiryDate,Stock,MedicinePrescription,DateDispendsed,UnitPrice,Total,Id")] Pharmacy pharmacy)
         {
             if (id != pharmacy.Id)
             {
