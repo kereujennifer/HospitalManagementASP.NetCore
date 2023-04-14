@@ -244,11 +244,20 @@ namespace HospitalManagement.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("BMI")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BloodPressure")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Diagnose")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DoctorId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Height")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MedicineName")
                         .HasColumnType("nvarchar(max)");
@@ -258,6 +267,12 @@ namespace HospitalManagement.Migrations
 
                     b.Property<string>("PatientId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Temprature")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Weight")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

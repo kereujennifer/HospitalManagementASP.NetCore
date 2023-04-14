@@ -21,6 +21,21 @@
             <th>
                 @Html.DisplayNameFor(model => model.MedicineName)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BloodPressure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Temprature)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BMI)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -35,6 +50,21 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MedicineName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BloodPressure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Temprature)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BMI)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

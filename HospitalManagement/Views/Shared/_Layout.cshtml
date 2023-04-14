@@ -115,8 +115,8 @@
                     </ul>
                         
 
-                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-                    {
+                      @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin") || User.IsInRole("Doctor"))
+                        {
 
                         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
                             <span> Saved reports</span>
@@ -127,16 +127,42 @@
                                 </span>
                             </a>
                         </h6>
-                        <ul class="nav flex-column mb-2">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span class="material-symbols-outlined align-middle">
-                                        lab_profile
-                                    </span>
-                                    Lab Reports
-                                </a>
-                        </ul>
-                    }
+                       
+                            <ul class="nav flex-column mb-2">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="LabReports" asp-action="Index">
+                                        <span class="material-symbols-outlined align-middle">
+                                            lab_profile
+                                        </span>
+                                        Lab Reports
+                                    </a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="PatientReports" asp-action="Index">
+                                        <span class="material-symbols-outlined align-middle">
+                                            lab_profile
+                                        </span>
+                                        Patient Reports
+                                    </a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="MedicineReports" asp-action="Index">
+                                        <span class="material-symbols-outlined align-middle">
+                                            lab_profile
+                                        </span>
+                                        Medicine Reports
+                                    </a>
+                                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                                    {
+
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="DoctorReports" asp-action="Index">
+                                        <span class="material-symbols-outlined align-middle">
+                                            lab_profile
+                                        </span>
+                                        Doctor Reports
+                                    </a>
+                                }
+                         
+                                </ul>
+                                   
+                        
+                             }
                 </div>
             </nav>
             
