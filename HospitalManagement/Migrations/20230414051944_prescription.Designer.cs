@@ -4,6 +4,7 @@ using HospitalManagement.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalManagement.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230414051944_prescription")]
+    partial class prescription
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -349,35 +351,6 @@ namespace HospitalManagement.Migrations
                     b.ToTable("Pharmacy");
                 });
 
-            modelBuilder.Entity("HospitalManagement.Models.Prescription", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<DateTime?>("DateDispendsed")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("DoctorId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("MedicinePrescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("PatientNameId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DoctorId");
-
-                    b.HasIndex("PatientNameId");
-
-                    b.ToTable("Prescriptions");
-                });
-
             modelBuilder.Entity("HospitalManagement.Models.Supplier", b =>
                 {
                     b.Property<int>("Id")
@@ -695,21 +668,6 @@ namespace HospitalManagement.Migrations
                     b.Navigation("MedicineName");
 
                     b.Navigation("Supplier");
-                });
-
-            modelBuilder.Entity("HospitalManagement.Models.Prescription", b =>
-                {
-                    b.HasOne("HospitalManagement.Models.Doctors", "Doctor")
-                        .WithMany()
-                        .HasForeignKey("DoctorId");
-
-                    b.HasOne("HospitalManagement.Models.Patients", "PatientName")
-                        .WithMany()
-                        .HasForeignKey("PatientNameId");
-
-                    b.Navigation("Doctor");
-
-                    b.Navigation("PatientName");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

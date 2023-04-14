@@ -29,6 +29,8 @@ namespace HospitalManagement.Data
 
         public DbSet<HospitalManagement.Models.Supplier>? Supplier { get; set; }
 
+        public DbSet<HospitalManagement.Models.Prescription>? Prescriptions{ get; set; }
+
     }
 
 }
