@@ -29,10 +29,10 @@ list.forEach((item) =>
 
 //change active class
 debugger
-const sideNav = sessionStorage.getItem("sidebarMenu");
-if (sideNav) {
+const sidebarMenu = sessionStorage.getItem("sidebarMenu");
+if (sidebarMenu) {
     list.forEach((item) =>
         item.classList.remove('active'));
-    const elem = document.getElementById(sideNav);
+    const elem = document.getElementById(sidebarMenu);
     elem.classList.add('active');
 }

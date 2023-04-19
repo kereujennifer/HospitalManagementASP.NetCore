@@ -69,7 +69,7 @@ body {
             }
 
                 #sidebarMenu ul li.active a,
-                #sidebarMenun ul li.active .title {
+                #sidebarMenu ul li.active .title {
                     color: var(--primary-color);
                 }
 
@@ -95,7 +95,6 @@ body {
     height: 30px;
     background: var(--primary-color);
     border-radius: 50%;
-    box-shadow: 15px 15px 0 #EAEFF5;
 }
 
 #sidebarMenu ul li.active a::after {
@@ -107,7 +106,6 @@ body {
     height: 30px;
     background: var(--primary-color);
     border-radius: 50%;
-    box-shadow: 15px -15px 0 #EAEFF5;
 }
 /*.....................
 06:Side nav Icons styling section
@@ -128,7 +126,32 @@ body {
     }
 
 
+@media (max-width:600px) {
 
+
+    #sidebarMenu {
+        position: relative;
+        height: 2000px;
+        width: 70px;
+        background: #213373;
+        overflow-x: hidden;
+        transition: width 0.5s;
+    }
+
+   
+ 
+}
+
+@media (max-width:768px) {
+    .Side-navigation {
+        position: relative;
+        height: 1800px;
+        width: 70px;
+        background: #213373;
+        overflow-x: hidden;
+        transition: width 0.5s;
+    }
+}
 
 
 /* Style the main content area */
@@ -139,48 +162,7 @@ main {
 }
 
 
-@media (max-width: 768px) {
-    #sidebarMenu {
-        position: fixed;
-        top: 0;
-        left: -100%;
-        width: 80%;
-        height: 100%;
-        transition: all 0.3s;
-        z-index: 1000;
-    }
 
-        #sidebarMenu.show {
-            left: 0;
-        }
-
-        #sidebarMenu .nav-item {
-            display: block;
-            margin: 10px 0;
-        }
-
-        #sidebarMenu .nav-link {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            height: 60px;
-            color: #333;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-        }
-
-    #sidebar .nav-link:hover {
-        background-color: #eee;
-    }
-
-    .sidebar .nav-link .material-symbols-outlined {
-        font-size: 24px;
-        margin-right: 10px;
-    }
-}
 
 
 /*#account {
