@@ -1,10 +1,10 @@
 ﻿@model HospitalManagement.Models.Pharmacy
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Pharmacy";
 }
 
-<h1>Edit</h1>
+<h1>Edit Pharmacy</h1>
 
 <h4>Pharmacy</h4>
 <hr />
@@ -39,11 +39,7 @@
                 <span asp-validation-for="Stock" class="text-danger"></span>
             </div>
           
-            <div class="form-group">
-                <label asp-for="Supplier" class="control-label"></label>
-                <input asp-for="Supplier" class="form-control" />
-                <span asp-validation-for="Supplier" class="text-danger"></span>
-            </div>
+          
             <div class="form-group">
                 <label asp-for="UnitPrice" class="control-label"></label>
                 <input asp-for="UnitPrice" class="form-control" />

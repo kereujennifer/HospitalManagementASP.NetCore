@@ -4,7 +4,7 @@
     ViewData["Title"] = "Doctor";
 }
 
-<h1>Doctors Registration</h1>
+<h1>Doctors</h1>
 
 <p>
     <a asp-action="Create" class="btn btn-primary float-right">Create New</a>
@@ -31,7 +31,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Speciality)
             </th>
-            <th></th>
+            <th>
+
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -56,13 +58,11 @@
                 @Html.DisplayFor(modelItem => item.Speciality)
             </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                </td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-                </td>
-                <td>
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+               
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+              
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
                 </td>
         </tr>
 }

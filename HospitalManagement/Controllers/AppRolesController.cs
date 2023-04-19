@@ -353,6 +353,19 @@ namespace HospitalManagement.Controllers
         }
         public IActionResult Index()
         {
+            var doctors = Doctors.ToList().Count;
+            var patients = Patients.ToList().Count;
+            var pharmacy = Pharmacy.ToList().Count;
+            var laboratory = Laboratory..ToList().Count;
+
+
+            var model = new Index
+            {
+                Doctors = doctors,
+                Patients = patients,
+                Pharmacy = pharmacy,
+                Laboratory = laboratory
+            };
             return View();
 
         }

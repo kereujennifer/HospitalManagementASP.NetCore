@@ -1,5 +1,74 @@
 ﻿@{
     ViewBag.Title = "Admin Dashboard";
-}  
+}
 
-  
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-lg-3 col-md-12 col-sm-12  col-xs-12">
+            <div class="card-counter primary d-flex">
+                <i class="fa-solid fa-list"></i>
+                <div class="ms-auto text-end">
+@*                    <h5 class="count-numbers" id="card1">@Model.Doctors</h5>
+*@                    <span class="count-name">Doctors</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-12 col-sm-12  col-xs-12">
+            <div class="card-counter danger d-flex">
+                <i class="fa-solid fa-list-list"></i>
+                <div class="ms-auto text-end">
+@*                    <h5 class="count-numbers" id="card1">@Model.Patients</h5>
+*@                    <span class="count-name">Patients</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3  col-md-12 col-sm-12 col-xs-12">
+            <div class="card-counter success d-flex">
+                <i class="fa-solid fa-clipboard-list"></i>
+                <div class="ms-auto text-end">
+@*                    <h5 class="count-numbers" id="card1">@Model.Pharmacy</h5>
+*@                    <span class="count-name">Pharmacy</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-12 col-sm-12  col-xs-12">
+            <div class="card-counter danger d-flex">
+                <i class="fa-solid fa-list-list"></i>
+                <div class="ms-auto text-end">
+                    @*                    <h5 class="count-numbers" id="card1">@Model.Patients</h5>
+                    *@                    <span class="count-name">Laboratory</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-lg-4  col-md-12 mb-5">
+            <div class="card">
+                <canvas id="myChart" style="width:100%;max-width:600px;height:350px;"></canvas>
+
+            </div>
+        </div>
+        <div class="col-lg-4  col-md-12  mb-5">
+            <div class="card">
+                <canvas id="myDoug" style="width:100%;max-width:1000px;height:350px;"></canvas>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4  col-md-12  mb-5">
+            <div class="card">
+                <canvas id="myDoug" style="width:100%;max-width:1000px;height:350px;"></canvas>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>

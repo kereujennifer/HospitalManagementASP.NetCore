@@ -46,8 +46,11 @@ body {
     transition: width 0.5s;
     
 }
+    #sidebarMenu hide {
+        width: 70px;
+    }
 
-    #sidebarMenu ul {
+        #sidebarMenu ul {
         position: absolute;
         top: 0;
         left: 0;

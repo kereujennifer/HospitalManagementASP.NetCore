@@ -9,8 +9,8 @@
 <p>
     <a asp-action="Create" class="btn btn-primary float-right">Create New</a>
 </p>
-<div class="table-responsive">
-<table class="table">
+
+    <table class="table table-striped ">
     <thead>
         <tr>
             <th>
@@ -22,7 +22,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Report)
             </th>
-            <th></th>
+            <th>
+
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -38,16 +40,13 @@
                 @Html.DisplayFor(modelItem => item.Report)
             </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                </td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-                </td>
-                <td>
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+               
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+                
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
                 </td>
         </tr>
 }
     </tbody>
 </table>
-</div>
