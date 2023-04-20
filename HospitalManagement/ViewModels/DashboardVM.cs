@@ -7,10 +7,8 @@ namespace HospitalManagement.ViewModels
    
     public class DashboardVM
     {
-        public DashboardVM() {
-           Users = new List<string>();
-
-        }
+      
+        
         public int DoctorCount { get; set; }
         public int PatientCount { get; set; }
         public int PharmacyCount { get; set; }
@@ -19,8 +17,7 @@ namespace HospitalManagement.ViewModels
         public List<Appointment>? Appointments { get; set; }
         public decimal TotalRevenue { get; set; }
         public int AppointmentsToday { get; set; }
-        public List<string>? Users { get; set; }
-
+        public List<IdentityUser>? Users { get; set; }
 
 
 

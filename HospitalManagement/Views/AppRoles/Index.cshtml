@@ -1,4 +1,7 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+
+@model HospitalManagement.ViewModels.DashboardVM
+@{
     ViewBag.Title = "Admin Dashboard";
 }
 
@@ -57,17 +60,29 @@
         </div>
     }
 *@
-
-    @if (Model.Users != null && Model.Users.Count > 0)
+    @if (Model.Users != null && Model.Users.Any())
     {
-        <div class="card">
+        <div class="card" style="width: 18rem;">
+
             <div class="card-body">
                 <h5 class="card-title">Users</h5>
                 <p class="card-text">There are @Model.Users.Count users in the system.</p>
-                <a href="@Url.Action("ListUsers", "AppRoles")" class="btn btn-primary">View Users</a>
+                <div class="list-group">
+                    @foreach (var user in Model.Users.Take(4))
+                    {
+                        <a href="@Url.Action("Edit", "User", new { id = user.Id })" class="list-group-item list-group-item-action">
+                            @user.UserName
+                        </a>
+                    }
+                </div>
+                @if (Model.Users.Count > 4)
+                {
+                    <a href="@Url.Action("ListUsers", "AppRoles")" class="btn btn-primary">View All Users</a>
+                }
             </div>
         </div>
     }
+
 
 
 

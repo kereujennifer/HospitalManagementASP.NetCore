@@ -64,7 +64,7 @@ namespace HospitalManagement.Controllers
         }
         [HttpPost]
         public async Task<IActionResult>
-    ManageUserRoles(List<UserRolesViewModel> model, string userId)
+        ManageUserRoles(List<UserRolesViewModel> model, string userId)
         {
             var user = await userManager.FindByIdAsync(userId);
 
@@ -92,7 +92,7 @@ namespace HospitalManagement.Controllers
                 return View(model);
             }
 
-            return RedirectToAction("EditUser", new { Id = userId });
+            return RedirectToAction("EditUsers", new { Id = userId });
         }
 
         [HttpPost]
@@ -364,7 +364,7 @@ namespace HospitalManagement.Controllers
             var pharmacyCount = context.Pharmacy.ToList().Count;
             var laboratoryCount = context.Laboratory.ToList().Count;
             var appointmentSchedule = context.Appointments.ToList();
-            var users = context.Users.ToList();
+            var users = userManager.Users.ToList();
 
 
 
@@ -374,8 +374,7 @@ namespace HospitalManagement.Controllers
                 PatientCount = patientCount,
                 PharmacyCount = pharmacyCount,
                 LaboratoryCount = laboratoryCount,
-                Users = users.Select(u => u.UserName).ToList(),
-
+                Users = users,
                 Appointments = appointmentSchedule.Select(a => new Appointment
                 {
                     Id = a.Id,
