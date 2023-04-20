@@ -45,7 +45,7 @@
             </div>
         </div>
     </div>
-    @foreach (var appointment in Model.Appointments)
+  @*  @foreach (var appointment in Model.Appointments)
     {
         <div class="card mb-3">
             <div class="card-body">
@@ -56,31 +56,19 @@
             </div>
         </div>
     }
+*@
 
-
-    <div class="row mt-5">
-        <div class="col-lg-4  col-md-12 mb-5">
-            <div class="card">
-                <canvas id="myChart" style="width:100%;max-width:600px;height:350px;"></canvas>
-                @*Appintments*@
+    @if (Model.Users != null && Model.Users.Count > 0)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Users</h5>
+                <p class="card-text">There are @Model.Users.Count users in the system.</p>
+                <a href="@Url.Action("ListUsers", "AppRoles")" class="btn btn-primary">View Users</a>
             </div>
         </div>
-        <div class="col-lg-4  col-md-12  mb-5">
-            <div class="card">
-                <canvas id="myDoug" style="width:100%;max-width:1000px;height:350px;"></canvas>
-                @*Insurance*@
-            </div>
+    }
 
-        </div>
-
-        <div class="col-lg-4  col-md-12  mb-5">
-            <div class="card">
-                <canvas id="myDoug" style="width:100%;max-width:1000px;height:350px;"></canvas>
-                @*Bills*@
-            </div>
-
-        </div>
-    </div>
 
 
 </div>
