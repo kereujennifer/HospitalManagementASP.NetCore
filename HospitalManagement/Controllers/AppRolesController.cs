@@ -1,4 +1,5 @@
 ﻿using HospitalManagement.Data;
+using HospitalManagement.Migrations;
 using HospitalManagement.Models;
 using HospitalManagement.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
+using System.Numerics;
 
 namespace HospitalManagement.Controllers
 {
@@ -361,6 +363,7 @@ namespace HospitalManagement.Controllers
             var patientCount = context.Patient.ToList().Count;
             var pharmacyCount = context.Pharmacy.ToList().Count;
             var laboratoryCount = context.Laboratory.ToList().Count;
+            var appointmentSchedule = context.Appointments.ToList();
 
 
             var model = new DashboardVM
@@ -368,9 +371,20 @@ namespace HospitalManagement.Controllers
                 DoctorCount = doctorCount,
                 PatientCount = patientCount,
                 PharmacyCount = pharmacyCount,
-                LaboratoryCount = laboratoryCount
-            };
+                LaboratoryCount = laboratoryCount,
+                Appointments = appointmentSchedule.Select(a => new Appointment
+                {
+                    Id = a.Id,
+                    Date = a.Date,
+                    Description = a.Description,
+                    Doctor = a.Doctor,
+                    Patient = a.Patient
+                }).ToList()
+           
+        };
 
+
+           
 
 
             return View(model);

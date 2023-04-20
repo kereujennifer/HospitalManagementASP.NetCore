@@ -45,18 +45,30 @@
             </div>
         </div>
     </div>
+    @foreach (var appointment in Model.Appointments)
+    {
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">@appointment.Date.ToShortDateString()</h5>
+                <p class="card-text">@appointment.Description</p>
+                <p class="card-text">Doctor: @appointment.Doctor.Email</p>
+                <p class="card-text">Patient: @appointment.Patient.Email</p>
+            </div>
+        </div>
+    }
+
 
     <div class="row mt-5">
         <div class="col-lg-4  col-md-12 mb-5">
             <div class="card">
                 <canvas id="myChart" style="width:100%;max-width:600px;height:350px;"></canvas>
-
+                @*Appintments*@
             </div>
         </div>
         <div class="col-lg-4  col-md-12  mb-5">
             <div class="card">
                 <canvas id="myDoug" style="width:100%;max-width:1000px;height:350px;"></canvas>
-
+                @*Insurance*@
             </div>
 
         </div>
@@ -64,7 +76,7 @@
         <div class="col-lg-4  col-md-12  mb-5">
             <div class="card">
                 <canvas id="myDoug" style="width:100%;max-width:1000px;height:350px;"></canvas>
-
+                @*Bills*@
             </div>
 
         </div>
