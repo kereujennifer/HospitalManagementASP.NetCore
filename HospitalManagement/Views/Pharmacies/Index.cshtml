@@ -28,6 +28,9 @@
                 @Html.DisplayNameFor(model => model.Stock)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Supplier)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.UnitPrice)
             </th>
             <th>
@@ -51,12 +54,14 @@
                 @Html.DisplayFor(modelItem => item.Manufacturer)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ExpiryDate)
+                    @Html.DisplayFor(modelItem => item.ExpiryDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Stock)
             </td>
-            
+                <td>
+                    @Html.DisplayFor(modelItem => item.Supplier)
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.UnitPrice)
             </td>

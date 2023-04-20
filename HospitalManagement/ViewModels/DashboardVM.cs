@@ -18,6 +18,8 @@ namespace HospitalManagement.ViewModels
         public decimal TotalRevenue { get; set; }
         public int AppointmentsToday { get; set; }
         public List<IdentityUser>? Users { get; set; }
+        public List<Pharmacy>? Pharmacy { get; set; }
+
 
 
 

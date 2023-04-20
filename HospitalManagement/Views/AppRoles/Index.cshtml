@@ -60,6 +60,43 @@
         </div>
     }
 *@
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Medicine Inventory</h5>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Medicine Name</th>
+                        <th>Batch</th>
+                        <th>Manufacturer</th>
+                        <th>Expiry Date</th>
+                        <th>Stock</th>
+                        <th>Supplier</th>
+                        <th>Unit Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Pharmacy != null)
+                    {
+                        @foreach (var medicine in Model.Pharmacy)
+                        {
+                            <tr>
+                                <td>@medicine.MedicineName</td>
+                                <td>@medicine.Batch</td>
+                                <td>@medicine.Manufacturer</td>
+                                <td>@medicine.ExpiryDate?.ToString("dd/MM/yyyy")</td>
+                                <td>@medicine.Stock</td>
+                                <td>@medicine.Supplier</td>
+                                <td>@medicine.UnitPrice</td>
+                                <td>@medicine.Total</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
     @if (Model.Users != null && Model.Users.Any())
     {
         <div class="card" style="width: 18rem;">
@@ -77,12 +114,13 @@
                 </div>
                 @if (Model.Users.Count > 4)
                 {
-                    <a href="@Url.Action("ListUsers", "AppRoles")" class="btn btn-primary">View All Users</a>
+                    <a href="@Url.Action("ListUsers", "AppRoles")" class="btn btn-primary mt-1">View All Users</a>
                 }
             </div>
         </div>
     }
 
+  
 
 
 

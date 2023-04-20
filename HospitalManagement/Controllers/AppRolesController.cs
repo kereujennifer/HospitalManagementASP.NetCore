@@ -365,6 +365,7 @@ namespace HospitalManagement.Controllers
             var laboratoryCount = context.Laboratory.ToList().Count;
             var appointmentSchedule = context.Appointments.ToList();
             var users = userManager.Users.ToList();
+            var pharmacy = context.Pharmacy.ToList();
 
 
 
@@ -375,6 +376,7 @@ namespace HospitalManagement.Controllers
                 PharmacyCount = pharmacyCount,
                 LaboratoryCount = laboratoryCount,
                 Users = users,
+                Pharmacy = pharmacy,
                 Appointments = appointmentSchedule.Select(a => new Appointment
                 {
                     Id = a.Id,

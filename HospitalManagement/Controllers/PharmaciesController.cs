@@ -56,7 +56,7 @@ namespace HospitalManagement.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Batch,Manufacturer,ExpiryDate,Stock,MedicinePrescription,DateDispendsed,UnitPrice,Total,Id")] Pharmacy pharmacy)
+        public async Task<IActionResult> Create([Bind("MedicineName, Batch, Manufacturer, ExpiryDate, Stock, Supplier, UnitPrice, Total, Id")]Pharmacy pharmacy)
         {
             if (ModelState.IsValid)
             {

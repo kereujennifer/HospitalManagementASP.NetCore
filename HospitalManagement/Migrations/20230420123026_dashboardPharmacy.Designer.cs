@@ -4,6 +4,7 @@ using HospitalManagement.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalManagement.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230420123026_dashboardPharmacy")]
+    partial class dashboardPharmacy
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -340,14 +342,14 @@ namespace HospitalManagement.Migrations
                     b.Property<string>("Manufacturer")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MedicineName")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("MedicineNameId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Stock")
                         .HasColumnType("int");
 
-                    b.Property<string>("Supplier")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("SupplierId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Total")
                         .HasColumnType("int");
@@ -356,6 +358,10 @@ namespace HospitalManagement.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("MedicineNameId");
+
+                    b.HasIndex("SupplierId");
 
                     b.ToTable("Pharmacy");
                 });
@@ -691,6 +697,21 @@ namespace HospitalManagement.Migrations
                     b.Navigation("Doctor");
 
                     b.Navigation("Patient");
+                });
+
+            modelBuilder.Entity("HospitalManagement.Models.Pharmacy", b =>
+                {
+                    b.HasOne("HospitalManagement.Models.Medicine", "MedicineName")
+                        .WithMany()
+                        .HasForeignKey("MedicineNameId");
+
+                    b.HasOne("HospitalManagement.Models.Supplier", "Supplier")
+                        .WithMany()
+                        .HasForeignKey("SupplierId");
+
+                    b.Navigation("MedicineName");
+
+                    b.Navigation("Supplier");
                 });
 
             modelBuilder.Entity("HospitalManagement.Models.Prescription", b =>
