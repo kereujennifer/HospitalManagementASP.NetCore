@@ -1,8 +1,10 @@
-﻿using HospitalManagement.Models;
+﻿using HospitalManagement.Data;
+using HospitalManagement.Models;
 using HospitalManagement.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Data;
 
 namespace HospitalManagement.Controllers
@@ -13,11 +15,13 @@ namespace HospitalManagement.Controllers
     {
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly UserManager<IdentityUser> userManager;
+        private readonly ApplicationDBContext context;
 
-        public AppRolesController(RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager) 
+        public AppRolesController(RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager, ApplicationDBContext context) 
         {
             this.roleManager = roleManager;
             this.userManager = userManager;
+            this.context = context;
         }
         [HttpGet]
         public async Task<IActionResult> ManageUserRoles(string userId)
@@ -353,20 +357,23 @@ namespace HospitalManagement.Controllers
         }
         public IActionResult Index()
         {
-            var doctors = Doctors.ToList().Count;
-            var patients = Patients.ToList().Count;
-            var pharmacy = Pharmacy.ToList().Count;
-            var laboratory = Laboratory..ToList().Count;
+            var doctorCount = context.Doctors.ToList().Count;
+            var patientCount = context.Patient.ToList().Count;
+            var pharmacyCount = context.Pharmacy.ToList().Count;
+            var laboratoryCount = context.Laboratory.ToList().Count;
 
 
-            var model = new Index
+            var model = new DashboardVM
             {
-                Doctors = doctors,
-                Patients = patients,
-                Pharmacy = pharmacy,
-                Laboratory = laboratory
+                DoctorCount = doctorCount,
+                PatientCount = patientCount,
+                PharmacyCount = pharmacyCount,
+                LaboratoryCount = laboratoryCount
             };
-            return View();
+
+
+
+            return View(model);
 
         }
         [HttpGet]
