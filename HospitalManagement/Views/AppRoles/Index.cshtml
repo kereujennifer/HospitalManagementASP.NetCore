@@ -1,6 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@using HospitalManagement.Models;
 
 @model HospitalManagement.ViewModels.DashboardVM
+
 @{
     ViewBag.Title = "Admin Dashboard";
 }
@@ -116,6 +118,8 @@
             </div>
         </div>
     }
+    <div id='calendar'></div>
+
     @if (Model.Appointments != null)
     {
         @foreach (var appointment in Model.Appointments)
