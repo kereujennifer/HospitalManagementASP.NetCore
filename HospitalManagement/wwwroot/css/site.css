@@ -146,7 +146,7 @@ body {
 }
 
 @media (max-width:768px) {
-    .Side-navigation {
+    #sidebarMenu {
         position: relative;
         height: 1800px;
         width: 70px;

@@ -19,6 +19,8 @@ namespace HospitalManagement.ViewModels
         public int AppointmentsToday { get; set; }
         public List<IdentityUser>? Users { get; set; }
         public List<Pharmacy>? Pharmacy { get; set; }
+        public List<Patients>? Patients { get; set; }
+        public List<Doctors>? Doctor { get; set; }
 
 
 

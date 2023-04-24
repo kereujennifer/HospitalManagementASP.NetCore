@@ -12,7 +12,7 @@
         <div class="col-lg-3 col-md-12 col-sm-12  col-xs-12">
             <div class="card-counter primary d-flex">
                 <span class="material-symbols-outlined">
-                    admin_meds
+                    clinical_notes
                 </span>
                           
                 <div class="ms-auto text-end">
@@ -36,7 +36,9 @@
 
         <div class="col-lg-3  col-md-12 col-sm-12 col-xs-12">
             <div class="card-counter primary d-flex">
-                <i class="fa-solid fa-clipboard-list"></i>
+                <span class="material-symbols-outlined">
+                    vaccines
+                </span>
                 <div class="ms-auto text-end">
                     <h5 class="count-numbers">@Model.PharmacyCount</h5>
                         <span class="count-name">Pharmacy</span>
@@ -45,26 +47,16 @@
         </div>
         <div class="col-lg-3 col-md-12 col-sm-12  col-xs-12">
             <div class="card-counter danger d-flex">
-                <i class="fa-solid fa-list-list"></i>
-                <div class="ms-auto text-end">
+                <span class="material-symbols-outlined">
+                    biotech
+                </span>                <div class="ms-auto text-end">
                     <h5 class="count-numbers" id="card1">@Model.LaboratoryCount </h5>
                     <span class="count-name">Laboratory Results</span>
                 </div>
             </div>
         </div>
     </div>
-  @*  @foreach (var appointment in Model.Appointments)
-    {
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">@appointment.Date.ToShortDateString()</h5>
-                <p class="card-text">@appointment.Description</p>
-                <p class="card-text">Doctor: @appointment.Doctor.Email</p>
-                <p class="card-text">Patient: @appointment.Patient.Email</p>
-            </div>
-        </div>
-    }
-*@
+ 
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Medicine Inventory</h5>
@@ -123,6 +115,24 @@
                 }
             </div>
         </div>
+    }
+    @if (Model.Appointments != null)
+    {
+        @foreach (var appointment in Model.Appointments)
+        {
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">@appointment.Date.ToShortDateString()</h5>
+                    <p class="card-text">@appointment.Description</p>
+                    <p class="card-text">Doctor: @appointment.Doctor</p>
+                    <p class="card-text">Patient: @appointment.Patient.</p>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p>No appointments found.</p>
     }
 
   
