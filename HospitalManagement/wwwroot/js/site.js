@@ -2,6 +2,12 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+// Get the current year
+const currentYear = new Date().getFullYear();
+
+// Update the content of the span element with the current year
+document.getElementById("current-year").textContent = currentYear;
+
 function confirmDelete(uniqueId, isDeleteClicked) {
     var deleteSpan = 'deleteSpan_' + uniqueId;
     var confirmDeleteSpan = 'confirmDeleteSpan_' + uniqueId;
@@ -43,7 +49,25 @@ $(document).ready(function () {
             center: 'title',
             right: 'month,agendaWeek,agendaDay'
         },
-        events: [
-        ]
+        events: function (start, end, timezone, callback) {
+            $.ajax({
+                url: '/Appointments/GetAppointments',
+                type: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    var events = [];
+                    $.each(response, function (index, appointment) {
+                        events.push({
+                            id: appointment.id,
+                            title: appointment.title,
+                            start: moment(appointment.start),
+                            end: moment(appointment.end),
+                            url: '/Appointments/Edit/' + appointment.id
+                        });
+                    });
+                    callback(events);
+                }
+            });
+        }
     });
 });

@@ -58,9 +58,63 @@
             </div>
         </div>
     </div>
+    <div class="row">
+
+        <div class="card m-3" style="max-width: 10rem;">
+            <div class="card-body">
+                
+                <a asp-action="Create" asp-controller="patients" class="nav-link text-black">
+                    <span class="material-symbols-outlined">
+                        person_add
+                    </span>
+                    <h5 class="card-title">New Patient</h5>
+                </a>
+              
+               
+            </div>
+            </div>
+            <div class="card m-3" style="max-width: 10rem;">
+
+            <div class="card-body">
+                <a asp-action="Create" asp-controller="doctors" class="nav-link text-black">
+                    <span class="material-symbols-outlined ">
+                        thermometer_gain
+                    </span>
+                    <h5 class="card-title">New Doctor</h5>
+
+                </a>
+            </div>
+            </div>
+        <div class="card m-3" style="max-width: 10rem;">
+
+            <div class="card-body">
+
+                <a asp-action="Create" asp-controller="doctors" class="nav-link text-black">
+                    <span class="material-symbols-outlined">
+                        note_add
+                    </span>
+                    <h5 class="card-title">New Lab Results</h5>
+
+                </a>
+            </div>
+         </div>
+        <div class="card m-3" style="max-width: 10rem;">
+
+            <div class="card-body">
+
+                <a asp-action="Create" asp-controller="doctors" class="nav-link text-black">
+                    <span class="material-symbols-outlined">
+                        medication_liquid
+                    </span>
+                    <h5 class="card-title">New Inventory</h5>
+
+                </a>
+            </div>
+        </div>
+
+            </div>
  
-    <div class="card">
-        <div class="card-body">
+   
             <h5 class="card-title">Medicine Inventory</h5>
             <table class="table">
                 <thead>
@@ -94,8 +148,7 @@
                     }
                 </tbody>
             </table>
-        </div>
-    </div>
+     
     @if (Model.Users != null && Model.Users.Any())
     {
         <div class="card" style="width: 18rem;">
@@ -118,28 +171,7 @@
             </div>
         </div>
     }
-    <div id='calendar'></div>
-
-    @if (Model.Appointments != null)
-    {
-        @foreach (var appointment in Model.Appointments)
-        {
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">@appointment.Date.ToShortDateString()</h5>
-                    <p class="card-text">@appointment.Description</p>
-                    <p class="card-text">Doctor: @appointment.Doctor</p>
-                    <p class="card-text">Patient: @appointment.Patient.</p>
-                </div>
-            </div>
-        }
-    }
-    else
-    {
-        <p>No appointments found.</p>
-    }
-
-  
+ 
 
 
 

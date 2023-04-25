@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\Images\\docs.png"
     },
     {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\images.jpeg",
+      "PackagePath": "staticwebassets\\Images\\images.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\login.jpg",
+      "PackagePath": "staticwebassets\\Images\\login.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\loginlegit.jpg",
+      "PackagePath": "staticwebassets\\Images\\loginlegit.jpg"
+    },
+    {
       "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\patient.png",
       "PackagePath": "staticwebassets\\Images\\patient.png"
     },
@@ -31,6 +43,10 @@
     {
       "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\reports.jpg",
       "PackagePath": "staticwebassets\\Images\\reports.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\signuplegit.jpg",
+      "PackagePath": "staticwebassets\\Images\\signuplegit.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\css\\site.css",

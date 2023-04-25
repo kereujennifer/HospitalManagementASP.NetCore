@@ -4,10 +4,17 @@
     ViewData["Title"] = "Register";
 }
 
+<div class="form-floating">
 
 <div class="row">
-    <div class="col-md-4">
+            <div class="col-md-6">
+            <section>
+                <img src="~/images/signuplegit.jpg" class="w-100" />
+            </section>
+            </div>
+        <div class="col-md-6">
 
+        <section>
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <h2>Create a new account.</h2>
             <hr />
@@ -30,9 +37,12 @@
           
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary mt-3">Register</button>
         </form>
+        </section>
+
     </div>
-  
+  </div>
 </div>
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
