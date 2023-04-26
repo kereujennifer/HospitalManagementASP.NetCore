@@ -38,12 +38,28 @@ body {
     /*    max-width: 100%;
 */ /*min-height:100vh;*/
 }
-.landing {
-    background: hsla(225, 68%, 45%, 1);
-    background: radial-gradient(circle, hsla(225, 68%, 45%, 1) 0%, hsla(250, 89%, 17%, 1) 100%);
-    background: -moz-radial-gradient(circle, hsla(225, 68%, 45%, 1) 0%, hsla(250, 89%, 17%, 1) 100%);
-    background: -webkit-radial-gradient(circle, hsla(225, 68%, 45%, 1) 0%, hsla(250, 89%, 17%, 1) 100%);
+.landing-page {
+    background-color: white; /* Replace with your desired background color */
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.image-section {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .image-section img {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: cover;
+    }
+
 /* Style the fixed navbar */
 
 #sidebarMenu {
