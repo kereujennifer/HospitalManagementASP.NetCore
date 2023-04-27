@@ -359,61 +359,12 @@ namespace HospitalManagement.Controllers
         }
         public IActionResult Index()
         {
-            var doctorCount = context.Doctors.ToList().Count;
-            var patientCount = context.Patient.ToList().Count;
-            var pharmacyCount = context.Pharmacy.ToList().Count;
-            var laboratoryCount = context.Laboratory.ToList().Count;
-            var appointmentSchedule = context.Appointments.ToList();
-            var users = userManager.Users.ToList();
-            var pharmacy = context.Pharmacy.ToList();
-            var patients = context.Patient.ToList();
-            var doctors = context.Doctors.ToList();
-
-
-
-            var today = DateTime.Today;
-            var endOfMonth = new DateTime(today.Year, today.Month, DateTime.DaysInMonth(today.Year, today.Month));
-            var appointments = new List<Appointment>();
-            for (var date = today; date <= endOfMonth; date = date.AddDays(1))
-            {
-                var dayOfWeek = date.DayOfWeek;
-                if (dayOfWeek != DayOfWeek.Saturday && dayOfWeek != DayOfWeek.Sunday)
-                {
-                    appointments.Add(new Appointment
-                    {
-                        Date = date,
-                        Description = $"Appointment on {date.ToShortDateString()}",
-                        Doctor = new List<Doctors> { context.Doctors.FirstOrDefault() },
-                        Patient = new List<Patients> { context.Patient.FirstOrDefault() },
-                    });
-                }
-            }
-
-
-            var model = new DashboardVM
-            {
-                DoctorCount = doctorCount,
-                PatientCount = patientCount,
-                PharmacyCount = pharmacyCount,
-                LaboratoryCount = laboratoryCount,
-                Users = users,
-                Pharmacy = pharmacy,
-                Appointments = appointmentSchedule.Select(a => new Appointment
-                {
-                    Id = a.Id,
-                    Date = a.Date,
-                    Description = a.Description,
-                    Doctor = a.Doctor,
-                    Patient = a.Patient
-                }).ToList()
            
-        };
-
 
            
 
 
-            return View(model);
+            return View();
 
         }
         [HttpGet]

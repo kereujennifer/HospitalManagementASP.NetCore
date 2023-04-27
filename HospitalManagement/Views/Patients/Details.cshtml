@@ -8,58 +8,107 @@
 
 <div>
     <h4>Patients</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Age)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Age)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NextOfKin)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NextOfKin)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NextOfKinPhone)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NextOfKinPhone)
-        </dd>
-       
-    </dl>
+    @using (Html.BeginForm())
+    {
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label col-form-label-sm">
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </label>
+                    <div class="col-sm-8">
+                        @Html.DisplayFor(model => model.FirstName)
+                    </div>
+                </div> 
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label col-form-label-sm">
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </label>
+                    <div class="col-sm-8">
+                        @Html.DisplayFor(model => model.LastName)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label col-form-label-sm">
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </label>
+                    <div class="col-sm-8">
+                        @Html.DisplayFor(model => model.Phone)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label col-form-label-sm">
+                        @Html.DisplayNameFor(model => model.Address)
+                    </label>
+                    <div class="col-sm-8">
+                        @Html.DisplayFor(model => model.Address)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label col-form-label-sm">
+                        @Html.DisplayNameFor(model => model.Age)
+                    </label>
+                    <div class="col-sm-8">
+                        @Html.DisplayFor(model => model.Age)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label col-form-label-sm">
+                        @Html.DisplayNameFor(model => model.Gender)
+                    </label>
+                    <div class="col-sm-8">
+                        @Html.DisplayFor(model => model.Gender)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label col-form-label-sm">
+                        @Html.DisplayNameFor(model => model.NextOfKin)
+                    </label>
+                    <div class="col-sm-8">
+                        @Html.DisplayFor(model => model.NextOfKin)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label col-form-label-sm">
+                        @Html.DisplayNameFor(model => model.NextOfKinPhone)
+                    </label>
+                    <div class="col-sm-8">
+                        @Html.DisplayFor(model => model.NextOfKinPhone)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                           <a class="nav-link " asp-area="" asp-controller="VitalSigns" asp-action="Index">Vital Signs</a>
+
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Medical History</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Prescpriptions</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="#">Lab Results</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+        </div>
+
+          
+            
+        </div>
+
+    }
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a> |

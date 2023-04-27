@@ -21,7 +21,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 fixed-top ">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">HospitalManagement</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="landing">HospitalManagement</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -62,15 +62,15 @@
         <div class="row">
                @if (signInManager.IsSignedIn(User))
             {
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block ">
+                <nav id="sidebarMenu" class="col-md-2 col-lg-2 d-md-block ">
 
 
                     <div class="position-sticky pt-3 sidebar-sticky">
                         <ul class="nav d-inline-block pt-3 ">
 
-                            <li class="list active">
+                            <li class="list active" id="dashboard">
 
-                                <a class="nav-link text-white" asp-area="" asp-controller="AppRoles" asp-action="Index">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">
                                     <span class="material-symbols-outlined  align-middle">
                                         dashboard
                                     </span> <span class="title">DashBoard</span>
@@ -139,7 +139,7 @@
 
 
 
-           <main role="main" class="col-md-8 m-sm-auto col-lg-9 px-4 shadow p-4 mt-5 ms-5 mb-5 me-5">
+           <main role="main" class="col-md-10 m-sm-auto col-lg-9 px-4 shadow p-4 mt-5 ms-5 mb-5 me-5">
                 @RenderBody()
             </main>
        </div>

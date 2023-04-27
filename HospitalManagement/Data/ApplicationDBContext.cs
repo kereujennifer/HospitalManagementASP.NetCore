@@ -31,6 +31,8 @@ namespace HospitalManagement.Data
 
         public DbSet<HospitalManagement.Models.Prescription>? Prescriptions{ get; set; }
 
+        public DbSet<HospitalManagement.Models.VitalSigns>? VitalSigns { get; set; }
+
     }
 
 }
