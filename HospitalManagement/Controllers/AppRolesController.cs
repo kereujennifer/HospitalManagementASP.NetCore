@@ -1,5 +1,5 @@
 ﻿using HospitalManagement.Data;
-using HospitalManagement.Migrations;
+
 using HospitalManagement.Models;
 using HospitalManagement.ViewModels;
 using Microsoft.AspNetCore.Authorization;

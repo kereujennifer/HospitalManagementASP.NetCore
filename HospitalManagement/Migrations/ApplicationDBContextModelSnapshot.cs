@@ -331,6 +331,9 @@ namespace HospitalManagement.Migrations
                     b.Property<string>("NextOfKinPhone")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ParentGuardianName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Payment")
                         .HasColumnType("nvarchar(max)");
 
@@ -342,6 +345,9 @@ namespace HospitalManagement.Migrations
 
                     b.Property<int>("RegistrationNumber")
                         .HasColumnType("int");
+
+                    b.Property<bool>("UnderEighteen")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 

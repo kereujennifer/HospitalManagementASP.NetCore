@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalManagement.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20230424093209_doctorandpatientdashboardvm")]
-    partial class doctorandpatientdashboardvm
+    [Migration("20230428124810_databasehospital1")]
+    partial class databasehospital1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,7 +32,7 @@ namespace HospitalManagement.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<DateTime>("Date")
+                    b.Property<DateTime?>("Date")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
@@ -297,7 +297,13 @@ namespace HospitalManagement.Migrations
                     b.Property<int?>("AppointmentId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime?>("DateOfBirth")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmploymentStatus")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
@@ -309,14 +315,41 @@ namespace HospitalManagement.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("MaritalStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MiddleName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("NextOfKin")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NextOfKinAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NextOfKinName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NextOfKinPhone")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ParentGuardianName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Payment")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RegDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("RegistrationNumber")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("UnderEighteen")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -414,6 +447,37 @@ namespace HospitalManagement.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Supplier");
+                });
+
+            modelBuilder.Entity("HospitalManagement.Models.VitalSigns", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("BMI")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BloodPressure")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Height")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PatientId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Temprature")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Weight")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("VitalSigns");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

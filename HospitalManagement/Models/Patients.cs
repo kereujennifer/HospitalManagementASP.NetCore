@@ -18,6 +18,9 @@ namespace HospitalManagement.Models
 
         public string? Address { get; set; }
         public string? Email { get; set; }
+        public bool UnderEighteen { get; set; }
+
+        public string? ParentGuardianName { get; set; }
 
         public string? MaritalStatus { get; set; }
 

@@ -71,3 +71,30 @@ $(document).ready(function () {
         }
     });
 });
+//var subcounties = {
+//    mombasa: ["Changamwe", "Jomvu", "Kisauni", "Nyali", "Likoni", "Mvita"],
+//    kwale: ["Kinango", "Lunga Lunga", "Msambweni", "Matuga"],
+//    kilifi: ["Kaloleni", "Kilifi North", "Kilifi South", "Magarini", "Malindi", "Rabai"]
+//    // add more sub-counties for the remaining counties
+//};
+//var countySelect = document.getElementById("county");
+//var subcountySelect = document.getElementById("subcounty");
+
+//countySelect.addEventListener("change", function () {
+//    var county = this.value;
+//    subcountySelect.innerHTML = ""; // clear previous options
+//    subcountySelect.disabled = (county === "");
+//    if (county in subcounties) {
+//        subcounties[county].forEach(function (subcounty) {
+//            var option = document.createElement("option");
+//            option.value = subcounty;
+//            option.textContent = subcounty;
+//            subcountySelect.appendChild(option);
+//        });
+//    }
+//});
+
+
+
+
+
