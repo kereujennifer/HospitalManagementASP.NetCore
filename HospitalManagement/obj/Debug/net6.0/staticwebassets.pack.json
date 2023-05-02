@@ -41,6 +41,10 @@
       "PackagePath": "staticwebassets\\Images\\patientsdashoard.png"
     },
     {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\person.png",
+      "PackagePath": "staticwebassets\\Images\\person.png"
+    },
+    {
       "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\pharmacydashbooard.jpg",
       "PackagePath": "staticwebassets\\Images\\pharmacydashbooard.jpg"
     },

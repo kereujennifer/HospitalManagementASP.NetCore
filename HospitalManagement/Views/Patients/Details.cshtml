@@ -10,9 +10,18 @@
     <h4>Patients</h4>
     @using (Html.BeginForm())
     {
+        
         <div class="row">
             <div class="col-md-4">
                 <div class="form-group row">
+                    <label class="col-sm-4 col-form-label col-form-label-sm">
+                        @Html.DisplayNameFor(model => model.RegistrationNumber)
+                    </label>
+                    <div class="col-sm-8">
+                        @Html.DisplayFor(model => model.RegistrationNumber)
+                    </div>
+                    </div>
+                    <div class="form-group row">
                     <label class="col-sm-4 col-form-label col-form-label-sm">
                         @Html.DisplayNameFor(model => model.FirstName)
                     </label>

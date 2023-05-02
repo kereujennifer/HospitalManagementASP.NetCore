@@ -5,6 +5,12 @@
 }
 
 <h1>Patients</h1>
+<form method="get" action="@Url.Action("Index", "Patients")">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" name="searchQuery" placeholder="Search by name or ID" value="@ViewBag.SearchQuery">
+        <button class="btn btn-primary" type="submit">Search</button>
+    </div>
+</form>
 <div class="table-responsive">
 <p>
     <a asp-action="Create" class="btn btn-primary">Create New</a>
@@ -12,6 +18,9 @@
 <table class="table table-striped ">
     <thead>
         <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.RegistrationNumber)
+                </th>
             <th>
                 @Html.DisplayNameFor(model => model.FirstName)
             </th>
@@ -21,22 +30,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Phone)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Age)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Gender)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NextOfKin)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NextOfKinPhone)
-            </th>
-           
+            
             <th>
             </th>
           
@@ -47,6 +41,9 @@
 @foreach (var item in Model) {
         <tr>
                 <td>
+                    @Html.DisplayFor(modelItem => item.RegistrationNumber)
+                 </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.FirstName)
                 </td>
                 <td>
@@ -55,21 +52,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Phone)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Address)
-                </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Age)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NextOfKin)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NextOfKinPhone)
-            </td>
+            
 
             <td>
                     <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>

@@ -13,10 +13,13 @@ namespace HospitalManagement.Controllers
     public class PatientsController : Controller
     {
         private readonly ApplicationDBContext _context;
+        private readonly RegistrationNumberGenerator _registrationNumberGenerator;
 
         public PatientsController(ApplicationDBContext context)
         {
             _context = context;
+            _registrationNumberGenerator = new RegistrationNumberGenerator();
+
         }
 
         // GET: Patients
@@ -25,6 +28,7 @@ namespace HospitalManagement.Controllers
               return _context.Patient != null ? 
                           View(await _context.Patient.ToListAsync()) :
                           Problem("Entity set 'ApplicationDBContext.Patients'  is null.");
+
         }
 
         // GET: Patients/Details/5
@@ -56,10 +60,14 @@ namespace HospitalManagement.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Age,Gender,NextOfKin,NextOfKinPhone,Id,FirstName,LastName,Phone,Address")] Patients patients)
+        public async Task<IActionResult> Create([Bind("RegistrationNumber,Age,Gender,NextOfKin,NextOfKinPhone,Id,FirstName,LastName,Phone,Address")] Patients patients)
         {
             if (ModelState.IsValid)
             {
+
+
+                patients.RegistrationNumber = _registrationNumberGenerator.GenerateRegistrationNumber();
+
                 _context.Add(patients);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -88,7 +96,7 @@ namespace HospitalManagement.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Age,Gender,NextOfKin,NextOfKinPhone,Id,FirstName,LastName,Phone,Address")] Patients patients)
+        public async Task<IActionResult> Edit(int id, [Bind("RegistrationNumber,Age,Gender,NextOfKin,NextOfKinPhone,Id,FirstName,LastName,Phone,Address")] Patients patients)
         {
             if (id != patients.Id)
             {
