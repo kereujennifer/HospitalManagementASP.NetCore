@@ -66,7 +66,8 @@ namespace HospitalManagement.Controllers
             {
 
 
-                patients.RegistrationNumber = _registrationNumberGenerator.GenerateRegistrationNumber();
+                Patients.RegistrationNumberCounter++;
+                patients.RegistrationNumber = $"HMS-{DateTime.Now.Year % 100}-{Patients.RegistrationNumberCounter:0000}";
 
                 _context.Add(patients);
                 await _context.SaveChangesAsync();

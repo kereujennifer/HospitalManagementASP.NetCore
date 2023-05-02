@@ -9,6 +9,8 @@ namespace HospitalManagement.Models
     {
         public string? RegistrationNumber { get; set; }
         [Display(Name = "Registration Date")]
+        public static int RegistrationNumberCounter { get; set; }
+
         public DateTime RegDate { get; set; }
         [Display(Name = "First Name")]
 
