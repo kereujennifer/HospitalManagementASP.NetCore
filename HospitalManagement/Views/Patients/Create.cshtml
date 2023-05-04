@@ -26,8 +26,9 @@
 
 <h4>Patient Details</h4>
 <hr />
+<form asp-action="Create">
 <div class="row">  
-    <form asp-action="Create">
+   
 
     <div class="col-md-12">
        <div class=" row">
@@ -293,6 +294,54 @@
                 <span asp-validation-for="Payment" class="text-danger"></span>
             </div>
         </div>
+        </div>
+
+
+
+                 <div>
+                <h4>Vital Signs</h4>
+                <hr />
+            <div class=" row">
+             <div class="col-md-4">
+                
+
+                    <div class="form-group">
+                        <label asp-for="Weight" class="control-label"></label>
+                        <input asp-for="Weight" class="form-control" />
+                        <span asp-validation-for="Weight" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Height" class="control-label"></label>
+                        <input asp-for="Height" class="form-control" />
+                        <span asp-validation-for="Height" class="text-danger"></span>
+                    </div>
+                   </div>
+            <div class="col-md-4">
+
+                   
+                <div class="form-group">
+                    <label asp-for="Temprature" class="control-label"></label>
+                    <input asp-for="Temprature" class="form-control" />
+                    <span asp-validation-for="Temprature" class="text-danger"></span>
+                </div>
+                    <div class="form-group">
+                        <label asp-for="BMI" class="control-label"></label>
+                        <input asp-for="BMI" class="form-control" />
+                        <span asp-validation-for="BMI" class="text-danger"></span>
+                    </div>
+                    </div>
+            <div class="col-md-4">
+
+                    <div class="form-group">
+                        <label asp-for="BloodPressure" class="control-label"></label>
+                        <input asp-for="BloodPressure" class="form-control" />
+                        <span asp-validation-for="BloodPressure" class="text-danger"></span>
+                    </div>
+                    </div>
+            </div>
+
+
+        </div>
      
 </div>
      
@@ -303,8 +352,8 @@
             </div>
         
         
-        </form>
-</div>
+</form>
+
 
 
 

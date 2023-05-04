@@ -55,6 +55,12 @@ namespace HospitalManagement.Models
 
         public string? NextOfKinPhone { get; set; }
         public string? Payment { get; set; }
+        public string? Weight { get; set; }
+        public string? Height { get; set; }
+        public string? BloodPressure { get; set; }
+        public string? Temprature { get; set; }
+        public string? BMI { get; set; }
+
         public List<LabResults>? LaboratoryResults { get; set; }
         public List<MedicalHistory>? MedicalHistories { get; set; }
         public List<Prescription>? Prescriptions { get; set; }
