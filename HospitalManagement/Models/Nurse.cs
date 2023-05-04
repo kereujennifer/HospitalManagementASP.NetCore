@@ -1,8 +1,8 @@
 ﻿namespace HospitalManagement.Models
 {
-    public class Doctors : HospitalMngt
+    public class Nurse
     {
-
+        public int Id { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public string? Phone { get; set; }
@@ -12,8 +12,8 @@
         public string? NightShift { get; set; }
         public string? DayShift { get; set; }
         public DateTime EndShift { get; set; }
-        public string? Speciality { get; set; }
-      
+        public List<Patients>? Patients { get; set; }
+
 
     }
 }

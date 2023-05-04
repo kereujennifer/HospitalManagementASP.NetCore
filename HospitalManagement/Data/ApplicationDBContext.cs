@@ -33,6 +33,10 @@ namespace HospitalManagement.Data
 
         public DbSet<HospitalManagement.Models.VitalSigns>? VitalSigns { get; set; }
 
+        public DbSet<HospitalManagement.Models.MedicalHistory>? MedicalHistory { get; set; }
+
+        public DbSet<HospitalManagement.Models.LabResults>? LabResults { get; set; }
+
     }
 
 }

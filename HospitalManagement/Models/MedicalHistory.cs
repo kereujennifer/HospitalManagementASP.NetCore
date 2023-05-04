@@ -2,7 +2,9 @@
 {
 	public class MedicalHistory
 	{
-		 public string? Medications { get; set; }
+        public int Id { get; set; }
+
+        public string? Medications { get; set; }
         public string?Allergies { get; set; }
         public string? MedicalCondition { get; set; }
 	}

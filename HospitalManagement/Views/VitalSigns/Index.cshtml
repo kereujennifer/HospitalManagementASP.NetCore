@@ -1,20 +1,17 @@
 ﻿@model IEnumerable<HospitalManagement.Models.VitalSigns>
 
 @{
+    Layout = "~/Views/Shared/_NonLayout.cshtml";
+
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.PatientId)
-            </th>
+           
             <th>
                 @Html.DisplayNameFor(model => model.Weight)
             </th>
@@ -36,9 +33,7 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PatientId)
-            </td>
+          
             <td>
                 @Html.DisplayFor(modelItem => item.Weight)
             </td>

@@ -2,6 +2,7 @@
 {
     public class VitalSigns
     {
+
         public int Id { get; set; }
         public int PatientId { get; set; }
         public string? Weight{ get; set; }

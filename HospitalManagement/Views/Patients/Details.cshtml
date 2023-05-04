@@ -6,13 +6,15 @@
 
 <h1>Patient Details</h1>
 
-<div>
+
+    <div class="col-md-12">
+        <div class="card mb-4">
     <h4>Patients</h4>
     @using (Html.BeginForm())
     {
         
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label col-form-label-sm">
                         @Html.DisplayNameFor(model => model.RegistrationNumber)
@@ -85,40 +87,81 @@
                         @Html.DisplayFor(model => model.NextOfKinPhone)
                     </div>
                 </div>
+                 </div>
             </div>
-            <div class="col-md-8">
+           
+            }
+    </div>
+    </div>
+            <div class="col-md-12">
                 <div class="card text-center">
                     <div class="card-header">
-                        <ul class="nav nav-tabs">
-                            <li class="nav-item">
-                           <a class="nav-link " asp-area="" asp-controller="VitalSigns" asp-action="Index">Vital Signs</a>
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                               
+                                <a class="nav-link active " asp-area="" asp-controller="VitalSigns" asp-action="Index" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Vital Signs</a>
+
+                            </li>
+                            <li class="nav-item" role="presentation">
+                        <a class="nav-link" asp-area="" asp-controller="MedicalHistories" asp-action="Index" id="medicalhistories-tab" data-bs-toggle="tab" data-bs-target="#medicalhistories" type="button" role="tab" aria-controls="medicalhistories" aria-selected="false">Medical History</a>
+
+                            </li>
+                            <li class="nav-item" role="presentation">
+                        <a class="nav-link" asp-area="" asp-controller="Prescriptions" asp-action="Index" id="prescriptions-tab" data-bs-toggle="tab" data-bs-target="#prescriptions" type="button" role="tab" aria-controls="prescriptions" aria-selected="false">Prescriptions</a>
+
+                            </li>
+                            <li class="nav-item" role="presentation">
+                        <a class="nav-link " asp-area="" asp-controller="LabResults" asp-action="Index" id="laboratoryresults-tab" data-bs-toggle="tab" data-bs-target="#laboratoryresults" type="button" role="tab" aria-controls="laboratoryresults" aria-selected="false">Lab Results</a>
+
+                              
+                            </li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div id="vital-signs-content"></div>
+                            </div>
+                    <div class="tab-pane " id="medicalhistories" role="tabpanel" aria-labelledby="home-tab">
+                        <div id="medicalhistory-signs-content"></div>
+                    </div>
+                    <div class="tab-pane " id="prescriptions" role="tabpanel" aria-labelledby="home-tab">
+                        <div id="prescriptions-signs-content"></div>
+                    </div>
+                    <div class="tab-pane " id="laboratoryresults" role="tabpanel" aria-labelledby="home-tab">
+                        <div id="laboratoryresults-signs-content"></div>
+                    </div>
+                   
+                       @* <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link " asp-area="" asp-controller="VitalSigns" asp-action="Index">Vital Signs</a>
+
 
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Medical History</a>
+                                <a class="nav-link" asp-area="" asp-controller="MedicalHistories" asp-action="Index">Medical History</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Prescpriptions</a>
+                                <a class="nav-link" asp-area="" asp-controller="Prescriptions" asp-action="Index">Prescriptions</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " href="#">Lab Results</a>
+                                <a class="nav-link " asp-area="" asp-controller="Laboratories" asp-action="Index">Lab Results</a>
                             </li>
-                        </ul>
+                        </ul>*@
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        
                     </div>
                 </div>
         </div>
 
           
-            
-        </div>
+            </div>
+       
 
-    }
-</div>
+    
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a> |
     <a asp-action="Index">Back to List</a>

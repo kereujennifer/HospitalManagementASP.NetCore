@@ -8,6 +8,9 @@ namespace HospitalManagement.Models
         public string? TestPerformed { get; set; }
         public string? TestPerformedBy { get; set; }
         public string? Report { get; set; }
+        public string? Test { get; set; }
+        public string? TestType { get; set; }
+        public string? Equipment { get; set; }
         public IdentityUser? Patient { get; set; }
     }
 }

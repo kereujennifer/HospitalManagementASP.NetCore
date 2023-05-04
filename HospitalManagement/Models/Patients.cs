@@ -55,6 +55,13 @@ namespace HospitalManagement.Models
 
         public string? NextOfKinPhone { get; set; }
         public string? Payment { get; set; }
-		
-	}
+        public List<LabResults>? LaboratoryResults { get; set; }
+        public List<MedicalHistory>? MedicalHistories { get; set; }
+        public List<Prescription>? Prescriptions { get; set; }
+        public List<VitalSigns>? VitalSigns { get; set; }
+
+
+
+
+    }
 }

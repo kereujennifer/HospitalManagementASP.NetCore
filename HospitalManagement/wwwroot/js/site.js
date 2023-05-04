@@ -71,6 +71,24 @@ $(document).ready(function () {
         }
     });
 });
+$(document).ready(function () {
+    // Load the content of each tab using AJAX
+    $('#home').load('/VitalSigns/Index?RegistrationNumber');
+    $('#medicalhistories').load('/MedicalHistories/Index?RegistrationNumber');
+    $('#prescriptions').load('/Prescriptions/Index?RegistrationNumber');
+    $('#laboratoryresults').load('/LabResults/Index?RegistrationNumber');
+
+    // Show the "Vital Signs" tab by default
+    $('#home-tab').tab('show');
+
+    // Load the content of a tab when it is clicked
+    $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+        var tab = $(e.target).attr('href'); // get the href of the clicked tab
+        if ($(tab).is(':empty')) { // check if the tab content is empty
+            $(tab).load($(tab).data('url')); // load the content using AJAX
+        }
+    });
+});
 var db = new PatientDbContext()
 {
     var newPatient = new Patient
