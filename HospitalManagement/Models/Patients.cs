@@ -24,9 +24,14 @@ namespace HospitalManagement.Models
         [Display(Name = " Date Of Birth")]
 
         public DateTime? DateOfBirth { get; set; }
-		public int Age { get; set; }
-		public string? Gender { get; set; }
-		public string? Phone { get; set; }
+        public int Age { get; set; }
+        public string? Gender { get; set; }
+        public string? Prescription { get; set; }
+        [Display(Name = "Date Dispensed")]
+
+        public string? DateDispensed { get; set; }
+
+        public string? Phone { get; set; }
         [Display(Name = " Employment Status")]
 
         public string? EmploymentStatus { get; set; }
@@ -60,13 +65,19 @@ namespace HospitalManagement.Models
         public string? BloodPressure { get; set; }
         public string? Temprature { get; set; }
         public string? BMI { get; set; }
+        public string? WardNumber { get; set; }
+        public string? FloorNumber { get; set; }
+        public string? BedNumber { get; set; }
+        public string? PatientType { get; set; }
 
+        
         public List<LabResults>? LaboratoryResults { get; set; }
         public List<MedicalHistory>? MedicalHistories { get; set; }
         public List<Prescription>? Prescriptions { get; set; }
         public List<VitalSigns>? VitalSigns { get; set; }
 
 
+        public List<HospitalManagement.Models.HospitalMngt>? HospitalMngt { get; set; }
 
 
     }

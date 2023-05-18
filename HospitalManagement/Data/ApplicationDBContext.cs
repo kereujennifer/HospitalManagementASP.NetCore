@@ -11,21 +11,21 @@ namespace HospitalManagement.Data
         {
             
         }
-        public DbSet<Patients> Patient{ get; set; }
+        public DbSet<Patients>? Patient{ get; set; }
 
-        public DbSet<Doctors> Doctors { get; set; }
+        public DbSet<Doctors>? Doctors { get; set; }
 
-        public DbSet<Laboratory> Laboratory { get; set; }
+        public DbSet<Laboratory>? Laboratory { get; set; }
 
-        public DbSet<Pharmacy> Pharmacy { get; set; }
-        public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<Pharmacy>? Pharmacy { get; set; }
+        public DbSet<Appointment>? Appointments { get; set; }
 
-        public DbSet<Bill> Bills { get; set; }
-        public DbSet<Insurance> Insurance { get; set; }
-        public DbSet<Medicine> Medicine { get; set; }
-        public DbSet<PatientReport> PatientReports { get; set; }
+        public DbSet<Bill>? Bills { get; set; }
+        public DbSet<Insurance>? Insurance { get; set; }
+        public DbSet<Medicine>? Medicine { get; set; }
+        public DbSet<PatientReport>? PatientReports { get; set; }
 
-        public DbSet<MedicineReport> MedicineReports { get; set; }
+        public DbSet<MedicineReport>? MedicineReports { get; set; }
 
         public DbSet<HospitalManagement.Models.Supplier>? Supplier { get; set; }
 
@@ -33,9 +33,13 @@ namespace HospitalManagement.Data
 
         public DbSet<HospitalManagement.Models.VitalSigns>? VitalSigns { get; set; }
 
-        public DbSet<HospitalManagement.Models.MedicalHistory>? MedicalHistory { get; set; }
+        public DbSet<MedicalHistory>? MedicalHistories { get; set; }
 
         public DbSet<HospitalManagement.Models.LabResults>? LabResults { get; set; }
+
+        public DbSet<HospitalManagement.Models.OutPatient>? OutPatient { get; set; }
+
+        public DbSet<HospitalManagement.Models.HospitalMngt>? HospitalMngt { get; set; }
 
     }
 

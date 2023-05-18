@@ -1,0 +1,17 @@
+﻿@model List<MedicalHistory>
+
+@if (Model != null && Model.Count > 0)
+{
+    <ul>
+        @foreach (var medicalHistory in Model)
+        {
+            <li>@medicalHistory.OnMedications</li>
+            <li>@medicalHistory.Allergies</li>
+
+        }
+    </ul>
+}
+else
+{
+    <p>No medical history available.</p>
+}

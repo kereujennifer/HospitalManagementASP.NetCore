@@ -1,178 +1,45 @@
-﻿@using Microsoft.AspNetCore.Identity
-@using HospitalManagement.Models;
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LandingLayout.cshtml";
 
-@model HospitalManagement.ViewModels.DashboardVM
 
-@{
-    ViewBag.Title = "Admin Dashboard";
 }
-
-<div class="container-fluid">
+<div class="landing-page mt-5">
 
     <div class="row">
+        <div class="col-md-6">
+            <div class="image-section">
+                <img src="~/images/hospitallanding.jpg" alt="Landing page image" class="w-100" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="content-section">
+                <h1 class="display-4">Welcome to Hospital Management</h1>
+                <p class="lead">We provide a comprehensive and integrated hospital management system to streamline your hospital operations and enhance patient care.</p>
+                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 
-        <div class="col-lg-3 col-md-12 col-sm-12  col-xs-12">
-            <div class="card-counter primary d-flex">
-                <span class="material-symbols-outlined">
-                    clinical_notes
-                </span>
-                          
-                <div class="ms-auto text-end">
-                    <h5 class="count-numbers">@Model.DoctorCount</h5>
-                    <span class="count-name">Doctors</span>
-                </div>
             </div>
         </div>
 
-        <div class="col-lg-3 col-md-12 col-sm-12  col-xs-12">
-            <div class="card-counter danger d-flex">
-                <span class="material-symbols-outlined">
-                    group
-                </span>                 
-                <div class="ms-auto text-end">
-                    <h5 class="count-numbers">@Model.PatientCount</h5>
-                    <span class="count-name">Patients</span>
-                </div>
-            </div>
-        </div>
+    </div>
 
-        <div class="col-lg-3  col-md-12 col-sm-12 col-xs-12">
-            <div class="card-counter primary d-flex">
-                <span class="material-symbols-outlined">
-                    vaccines
-                </span>
-                <div class="ms-auto text-end">
-                    <h5 class="count-numbers">@Model.PharmacyCount</h5>
-                        <span class="count-name">Pharmacy</span>
-                </div>
-            </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <h2>About us</h2>
+            <p>We are a team of experienced healthcare professionals and software developers dedicated to providing innovative solutions for hospitals.</p>
+            <a class="btn btn-outline-primary" href="#">Read more</a>
         </div>
-        <div class="col-lg-3 col-md-12 col-sm-12  col-xs-12">
-            <div class="card-counter danger d-flex">
-                <span class="material-symbols-outlined">
-                    biotech
-                </span>                <div class="ms-auto text-end">
-                    <h5 class="count-numbers" id="card1">@Model.LaboratoryCount </h5>
-                    <span class="count-name">Laboratory Results</span>
-                </div>
-            </div>
+        <div class="col-lg-4">
+            <h2>Services</h2>
+            <p>We offer a range of services including patient management, electronic medical records, billing and invoicing, and inventory management.</p>
+            <a class="btn btn-outline-primary" href="#">View services</a>
+        </div>
+        <div class="col-lg-4">
+            <h2>Contact us</h2>
+            <p>Get in touch with us for more information about our products and services.</p>
+            <a class="btn btn-outline-primary" href="#">Contact us</a>
         </div>
     </div>
-    <div class="row">
-
-        <div class="card m-3" style="max-width: 10rem;">
-            <div class="card-body">
-                
-                <a asp-action="Create" asp-controller="patients" class="nav-link text-black">
-                    <span class="material-symbols-outlined">
-                        person_add
-                    </span>
-                    <h5 class="card-title">New Patient</h5>
-                </a>
-              
-               
-            </div>
-            </div>
-            <div class="card m-3" style="max-width: 10rem;">
-
-            <div class="card-body">
-                <a asp-action="Create" asp-controller="doctors" class="nav-link text-black">
-                    <span class="material-symbols-outlined ">
-                        thermometer_gain
-                    </span>
-                    <h5 class="card-title">New Doctor</h5>
-
-                </a>
-            </div>
-            </div>
-        <div class="card m-3" style="max-width: 10rem;">
-
-            <div class="card-body">
-
-                <a asp-action="Create" asp-controller="doctors" class="nav-link text-black">
-                    <span class="material-symbols-outlined">
-                        note_add
-                    </span>
-                    <h5 class="card-title">New Lab Results</h5>
-
-                </a>
-            </div>
-         </div>
-        <div class="card m-3" style="max-width: 10rem;">
-
-            <div class="card-body">
-
-                <a asp-action="Create" asp-controller="doctors" class="nav-link text-black">
-                    <span class="material-symbols-outlined">
-                        medication_liquid
-                    </span>
-                    <h5 class="card-title">New Inventory</h5>
-
-                </a>
-            </div>
-        </div>
-
-            </div>
- 
-   
-            <h5 class="card-title">Medicine Inventory</h5>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Medicine Name</th>
-                        <th>Batch</th>
-                        <th>Manufacturer</th>
-                        <th>Expiry Date</th>
-                        <th>Stock</th>
-                        <th>Supplier</th>
-                        <th>Unit Price</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if (Model.Pharmacy != null)
-                    {
-                        @foreach (var medicine in Model.Pharmacy)
-                        {
-                            <tr>
-                                <td>@medicine.MedicineName</td>
-                                <td>@medicine.Batch</td>
-                                <td>@medicine.Manufacturer</td>
-                                <td>@medicine.ExpiryDate?.ToString("dd/MM/yyyy")</td>
-                                <td>@medicine.Stock</td>
-                                <td>@medicine.Supplier</td>
-                                <td>@medicine.UnitPrice</td>
-                                <td>@medicine.Total</td>
-                            </tr>
-                        }
-                    }
-                </tbody>
-            </table>
-     
-    @if (Model.Users != null && Model.Users.Any())
-    {
-        <div class="card" style="width: 18rem;">
-
-            <div class="card-body">
-                <h5 class="card-title">Users</h5>
-                <p class="card-text">There are @Model.Users.Count users in the system.</p>
-                <div class="list-group">
-                    @foreach (var user in Model.Users.Take(4))
-                    {
-                        <a href="@Url.Action("Edit", "User", new { id = user.Id })" class="list-group-item list-group-item-action">
-                            @user.UserName
-                        </a>
-                    }
-                </div>
-                @if (Model.Users.Count > 4)
-                {
-                    <a href="@Url.Action("ListUsers", "AppRoles")" class="btn btn-primary mt-1">View All Users</a>
-                }
-            </div>
-        </div>
-    }
- 
-
-
-
 </div>

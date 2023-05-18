@@ -34,20 +34,22 @@ namespace HospitalManagement.Controllers
         // GET: Patients/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Patient == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var patients = await _context.Patient
+            var patient = await _context.Patient
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (patients == null)
+
+            if (patient == null)
             {
                 return NotFound();
             }
 
-            return View(patients);
+            return View(patient);
         }
+
 
         // GET: Patients/Create
         public IActionResult Create()

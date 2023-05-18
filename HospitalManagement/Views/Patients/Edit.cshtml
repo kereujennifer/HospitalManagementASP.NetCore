@@ -1,4 +1,6 @@
-﻿@model HospitalManagement.Models.Patients
+﻿@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<IdentityUser> signInManager;
+@model HospitalManagement.Models.Patients
 
 @{
     ViewData["Title"] = "Edit Patients";
@@ -264,7 +266,75 @@
             </div>
         </div>
 
+        @if (signInManager.IsSignedIn(User) && User.IsInRole("Nurse"))
+        {
+            <div>
+                <h4>Vital Signs</h4>
+                <hr />
+                <div class=" row">
+                    <div class="col-md-4">
 
+
+                        <div class="form-group">
+                            <label asp-for="Weight" class="control-label"></label>
+                            <input asp-for="Weight" class="form-control" />
+                            <span asp-validation-for="Weight" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Height" class="control-label"></label>
+                            <input asp-for="Height" class="form-control" />
+                            <span asp-validation-for="Height" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+
+
+                        <div class="form-group">
+                            <label asp-for="Temprature" class="control-label"></label>
+                            <input asp-for="Temprature" class="form-control" />
+                            <span asp-validation-for="Temprature" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="BMI" class="control-label"></label>
+                            <input asp-for="BMI" class="form-control" />
+                            <span asp-validation-for="BMI" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+
+                        <div class="form-group">
+                            <label asp-for="BloodPressure" class="control-label"></label>
+                            <input asp-for="BloodPressure" class="form-control" />
+                            <span asp-validation-for="BloodPressure" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        }
+        @if (signInManager.IsSignedIn(User) && User.IsInRole("Doctor"))
+        {
+
+            <form asp-action="submit" >
+            <div class="col-md-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Prescription" class="control-label"></label>
+                    <input asp-for="Prescription" class="form-control" />
+                    <span asp-validation-for="Prescription" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DateDispensed" class="control-label"></label>
+                    <input asp-for="DateDispensed" class="form-control" />
+                    <span asp-validation-for="DateDispensed" class="text-danger"></span>
+                </div>
+
+
+            </div>
+            </form>
+        }
 
         <div>
             <h4>Payment Details</h4>
@@ -279,8 +349,8 @@
                 </div>
             </div>
         </div>
-          
-            <div class="form-group">
+        
+        <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>

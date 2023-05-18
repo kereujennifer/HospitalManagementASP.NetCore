@@ -1,0 +1,17 @@
+﻿@model List<LabResults>
+
+@if (Model != null && Model.Count > 0)
+{
+    <ul>
+        @foreach (var labResult in Model)
+        {
+            <li>@labResult.Report</li>
+            
+
+        }
+    </ul>
+}
+else
+{
+    <p>No lab results available.</p>
+}

@@ -1,0 +1,22 @@
+﻿@model HospitalManagement.Models.LabResults
+
+<form asp-action="SaveLabResults" method="post" asp-controller="PatientManagement">
+    <div class="form-group">
+        <label asp-for="TestPerformed">Test Performed:</label>
+        <input asp-for="TestPerformed" id="TestPerformed" class="form-control" />
+        <span asp-validation-for="TestPerformed"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="TestPerformedBy">Test Performed By:</label>
+        <input asp-for="TestPerformedBy" id="TestPerformedBy" class="form-control" />
+        <span asp-validation-for="TestPerformedBy"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Report">Report:</label>
+        <input asp-for="Report" id="Report" class="form-control" />
+        <span asp-validation-for="Report"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="button" class="btn btn-secondary">Cancel</button>
+
+</form>

@@ -18,6 +18,29 @@ namespace HospitalManagement.Controllers
         {
             _context = context;
         }
+        public void UpdateStockLevel(string medicineName, int quantity)
+        {
+            var pharmacy = _context.Pharmacy.FirstOrDefault(p => p.MedicineName == medicineName);
+            if (pharmacy != null)
+            {
+                pharmacy.Stock += quantity;
+                _context.SaveChanges();
+            }
+        }
+        public List<Pharmacy> GetOutOfStockMedicines()
+        {
+            return _context.Pharmacy.Where(p => p.Stock == 0).ToList();
+        }
+        public List<Pharmacy> GetExpiringMedicines(int daysBeforeExpiry)
+        {
+            var expiryDate = DateTime.Now.AddDays(daysBeforeExpiry);
+            return _context.Pharmacy.Where(p => p.ExpiryDate <= expiryDate).ToList();
+        }
+        public int CalculateInventoryValue()
+        {
+            return _context.Pharmacy.Sum(p => p.Stock * p.UnitPrice);
+        }
+
 
         // GET: Pharmacies
         public async Task<IActionResult> Index()

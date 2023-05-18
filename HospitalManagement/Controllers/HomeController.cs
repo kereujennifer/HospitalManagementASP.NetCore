@@ -1,10 +1,11 @@
-﻿using HospitalManagement.Data;
+﻿﻿using HospitalManagement.Data;
 using HospitalManagement.Models;
 using HospitalManagement.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Diagnostics;
-
 namespace HospitalManagement.Controllers
 {
     public class HomeController : Controller
@@ -13,16 +14,18 @@ namespace HospitalManagement.Controllers
 		private readonly RoleManager<IdentityRole> roleManager;
 		private readonly UserManager<IdentityUser> userManager;
 		private readonly ApplicationDBContext context;
+        private readonly SignInManager<IdentityUser> signInManager;
 
-		public HomeController(ILogger<HomeController> logger, RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager, ApplicationDBContext context)
+        public HomeController(ILogger<HomeController> logger, RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager, ApplicationDBContext context, SignInManager<IdentityUser> signInManager)
         {
             _logger = logger;
 			this.roleManager = roleManager;
 			this.userManager = userManager;
 			this.context = context;
-		}
+            this.signInManager = signInManager;
+        }
 
-        public IActionResult Index()
+        public IActionResult Dashboard()
         {
 			var doctorCount = context.Doctors.ToList().Count;
 			var patientCount = context.Patient.ToList().Count;
@@ -76,13 +79,25 @@ namespace HospitalManagement.Controllers
 
 			return View(model);
         }
-        public IActionResult Landing()
-        {
-            return View();
+
+   public IActionResult Index()
+		{
+			if (signInManager.IsSignedIn(User))
+			{
+                return RedirectToAction("Dashboard", "Home");
+
+            }
+			else
+            {
+                return View();
+            }
         }
+			
+       
 
 
-        public IActionResult Privacy()
+
+public IActionResult Privacy()
         {
             return View();
         }

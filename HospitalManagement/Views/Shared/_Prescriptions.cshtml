@@ -1,0 +1,17 @@
+﻿@model List<Prescription>
+
+@if (Model != null && Model.Count > 0)
+{
+    <ul>
+        @foreach (var prescription in Model)
+        {
+            <li>@prescription.MedicinePrescription</li>
+            
+
+        }
+    </ul>
+}
+else
+{
+    <p>No prescriptions available.</p>
+}

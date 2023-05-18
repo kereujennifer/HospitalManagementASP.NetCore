@@ -1,4 +1,5 @@
-﻿@model HospitalManagement.Models.Patients
+﻿
+@model Patients 
 
 @{
     ViewData["Title"] = " Patient Details";
@@ -93,45 +94,60 @@
             }
     </div>
     </div>
-            <div class="col-md-12">
-                <div class="card text-center">
-                    <div class="card-header">
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                               
-                                <a class="nav-link active " asp-area="" asp-controller="VitalSigns" asp-action="Index" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Vital Signs</a>
 
-                            </li>
-                            <li class="nav-item" role="presentation">
-                        <a class="nav-link" asp-area="" asp-controller="MedicalHistories" asp-action="Index" id="medicalhistories-tab" data-bs-toggle="tab" data-bs-target="#medicalhistories" type="button" role="tab" aria-controls="medicalhistories" aria-selected="false">Medical History</a>
+<div class="col-md-12">
+    <div class="card text-center">
+        <div class="card-header">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" href="#home" data-bs-toggle="tab" role="tab" aria-controls="home" aria-selected="true">Vital Signs</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" href="#medicalhistories" data-bs-toggle="tab" role="tab" aria-controls="medicalhistories" aria-selected="false">Medical History</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" href="#prescriptions" data-bs-toggle="tab" role="tab" aria-controls="prescriptions" aria-selected="false">Prescriptions</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" href="#laboratoryresults" data-bs-toggle="tab" role="tab" aria-controls="laboratoryresults" aria-selected="false">Lab Results</a>
+                </li>
+            </ul>
+        </div>
 
-                            </li>
-                            <li class="nav-item" role="presentation">
-                        <a class="nav-link" asp-area="" asp-controller="Prescriptions" asp-action="Index" id="prescriptions-tab" data-bs-toggle="tab" data-bs-target="#prescriptions" type="button" role="tab" aria-controls="prescriptions" aria-selected="false">Prescriptions</a>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <!-- Include the _VitalSigns partial view -->
+                @Html.Partial("_VitalSigns", Model.VitalSigns)
+                <a asp-action="VitalSigns" asp-controller="PatientManagement" id="addVitalSignsButton" class="btn btn-primary">Add New Vital Signs</a>
+            </div>
 
-                            </li>
-                            <li class="nav-item" role="presentation">
-                        <a class="nav-link " asp-area="" asp-controller="LabResults" asp-action="Index" id="laboratoryresults-tab" data-bs-toggle="tab" data-bs-target="#laboratoryresults" type="button" role="tab" aria-controls="laboratoryresults" aria-selected="false">Lab Results</a>
+            <div class="tab-pane" id="medicalhistories" role="tabpanel" aria-labelledby="medicalhistories-tab">
+                <!-- Include the _MedicalHistory partial view -->
+                @Html.Partial("_MedicalHistory", Model.MedicalHistories)
+                <a asp-action="MedicalHistory" asp-controller="PatientManagement" id="addMedicalHistoryButton" class="btn btn-primary">Add Medical History</a>
 
-                              
-                            </li>
-                        </ul>
+            </div>
 
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <div id="vital-signs-content"></div>
-                            </div>
-                    <div class="tab-pane " id="medicalhistories" role="tabpanel" aria-labelledby="home-tab">
-                        <div id="medicalhistory-signs-content"></div>
-                    </div>
-                    <div class="tab-pane " id="prescriptions" role="tabpanel" aria-labelledby="home-tab">
-                        <div id="prescriptions-signs-content"></div>
-                    </div>
-                    <div class="tab-pane " id="laboratoryresults" role="tabpanel" aria-labelledby="home-tab">
-                        <div id="laboratoryresults-signs-content"></div>
-                    </div>
+            <div class="tab-pane" id="prescriptions" role="tabpanel" aria-labelledby="prescriptions-tab">
+                <!-- Include the _Prescriptions partial view -->
+                @Html.Partial("_Prescriptions", Model.Prescriptions)
+                <a asp-action="Prescriptions" asp-controller="PatientManagement" id="addPrescriptionButton" class="btn btn-primary">Add New Prescription</a>
+
+            </div>
+
+            <div class="tab-pane" id="laboratoryresults" role="tabpanel" aria-labelledby="laboratoryresults-tab">
+                <!-- Include the _LabResults partial view -->
+                @Html.Partial("_LabResults", Model.LaboratoryResults)
+                <a asp-action="LabResults" asp-controller="PatientManagement" id="addLabResultsButton" class="btn btn-primary">Add New Lab Results</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
                    
                        @* <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
@@ -149,7 +165,7 @@
                                 <a class="nav-link " asp-area="" asp-controller="Laboratories" asp-action="Index">Lab Results</a>
                             </li>
                         </ul>*@
-                    </div>
+               @*    </div>
                     <div class="card-body">
                         
                     </div>
@@ -157,12 +173,34 @@
         </div>
 
           
-            </div>
+            </div>*@
        
-
+          
     
 
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a> 
+    <a asp-action="Index" class="btn btn-primary">Back to List</a>
 </div>
+<script>
+    // Add event listeners to the tab links
+    document.querySelectorAll('.nav-link').forEach(function (link) {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            // Remove 'active' class from all tab links
+            document.querySelectorAll('.nav-link').forEach(function (link) {
+                link.classList.remove('active');
+            });
+            // Add 'active' class to the clicked tab link
+            this.classList.add('active');
+            // Hide all tab content
+            document.querySelectorAll('.tab-pane').forEach(function (tab) {
+                tab.style.display = 'none';
+            });
+            // Show the corresponding tab content
+            var targetId = this.getAttribute('href');
+            var targetTab = document.querySelector(targetId);
+            targetTab.style.display = 'block';
+        });
+    });
+</script>

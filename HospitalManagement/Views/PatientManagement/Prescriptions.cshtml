@@ -1,0 +1,29 @@
+﻿@model Prescription
+
+<h2>Create Prescription</h2>
+
+<form asp-action="SavePrescriptions" method="post" asp-controller="PatientManagement">
+    <div class="form-group">
+        <label asp-for="MedicinePrescription"></label>
+        <input asp-for="MedicinePrescription" class="form-control" />
+        <span asp-validation-for="MedicinePrescription" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PatientName"></label>
+        <input asp-for="PatientName" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="Doctor"></label>
+        <select asp-for="Doctor" class="form-control">
+            <option value="">-- Select Doctor --</option>
+        </select>
+        <span asp-validation-for="Doctor" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DateDispensed"></label>
+        <input asp-for="DateDispensed" class="form-control" type="date" />
+        <span asp-validation-for="DateDispensed" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+

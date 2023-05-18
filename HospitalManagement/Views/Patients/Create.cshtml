@@ -20,6 +20,14 @@
         <input asp-for="RegDate" class="form-control" />
         <span asp-validation-for="RegDate" class="text-danger"></span>
     </div>
+    <div class="col-md-4 d-flex align-items-center">
+        <label asp-for="PatientType" class="control-label me-2" id="PatientType"></label>
+        <select asp-for="PatientType" class="form-select">
+            <option value="Outpatient">Outpatient</option>
+            <option value="Inpatient">Inpatient</option>
+        </select>
+        <span asp-validation-for="PatientType" class="text-danger"></span>
+    </div>
 
   
 </div>
@@ -193,7 +201,7 @@
     </div>
 
         <div>
-            <h4>NextOfKin Details</h4>
+            <h4>Next Of Kin Details</h4>
             <hr />
             <div class="row">
                 <div class="col-md-4">
@@ -293,57 +301,59 @@
                 <input asp-for="Payment" class="form-control" />
                 <span asp-validation-for="Payment" class="text-danger"></span>
             </div>
+             
         </div>
         </div>
-
-
-
-                 <div>
-                <h4>Vital Signs</h4>
-                <hr />
-            <div class=" row">
-             <div class="col-md-4">
-                
-
-                    <div class="form-group">
-                        <label asp-for="Weight" class="control-label"></label>
-                        <input asp-for="Weight" class="form-control" />
-                        <span asp-validation-for="Weight" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Height" class="control-label"></label>
-                        <input asp-for="Height" class="form-control" />
-                        <span asp-validation-for="Height" class="text-danger"></span>
-                    </div>
-                   </div>
+        <hr />
+        <div class="row">
             <div class="col-md-4">
-
-                   
-                <div class="form-group">
-                    <label asp-for="Temprature" class="control-label"></label>
-                    <input asp-for="Temprature" class="form-control" />
-                    <span asp-validation-for="Temprature" class="text-danger"></span>
-                </div>
-                    <div class="form-group">
-                        <label asp-for="BMI" class="control-label"></label>
-                        <input asp-for="BMI" class="form-control" />
-                        <span asp-validation-for="BMI" class="text-danger"></span>
-                    </div>
-                    </div>
-            <div class="col-md-4">
-
-                    <div class="form-group">
-                        <label asp-for="BloodPressure" class="control-label"></label>
-                        <input asp-for="BloodPressure" class="form-control" />
-                        <span asp-validation-for="BloodPressure" class="text-danger"></span>
-                    </div>
-                    </div>
+                <label asp-for="WardNumber" class="control-label me-2" id="ward-number-field"></label>
+                <select asp-for="WardNumber" class="form-control">
+                    <option value="">-- Select Ward Number --</option>
+                    <!-- Add available ward numbers as options here -->
+                    <option value="1">Ward 1</option>
+                    <option value="2">Ward 2</option>
+                    <option value="3">Ward 3</option>
+                </select>
+                <span asp-validation-for="WardNumber" class="text-danger" id="bed-number-field"></span>
             </div>
-
-
+            <div class="col-md-4">
+                <label asp-for="FloorNumber" class="control-label me-2"></label>
+                <select asp-for="FloorNumber" class="form-control">
+                    <option value="">-- Select Floor Number --</option>
+                    <!-- Add available floor numbers as options here -->
+                    <option value="1">Floor 1</option>
+                    <option value="2">Floor 2</option>
+                    <option value="3">Floor 3</option>
+                </select>
+                <span asp-validation-for="FloorNumber" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label asp-for="BedNumber" class="control-label me-2" id="floor-number-field"></label>
+                <select asp-for="BedNumber" class="form-control">
+                    <option value="">-- Select Bed Number --</option>
+                    <!-- Add available bed numbers for the selected ward and floor here -->
+                    <option value="1">Bed 1</option>
+                    <option value="2">Bed 2</option>
+                    <option value="3">Bed 3</option>
+                </select>
+                <span asp-validation-for="BedNumber" class="text-danger"></span>
+         
+            <div class="col-md-4">
+                <!-- Other fields go here -->
+            </div>
+            <div class="col-md-4">
+                <!-- Other fields go here -->
+            </div>
         </div>
+
+
+       
+    </div>
+
+
      
-</div>
+
      
             <div class="form-group mt-2">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -352,9 +362,9 @@
             </div>
         
         
+
+</div>
 </form>
-
-
 
 
 @section Scripts {

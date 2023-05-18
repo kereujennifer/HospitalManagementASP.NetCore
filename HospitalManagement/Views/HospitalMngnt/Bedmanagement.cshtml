@@ -1,0 +1,24 @@
+﻿@model IEnumerable<HospitalMngt>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Wards</th>
+            <th>Floors</th>
+            <th>Beds</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bed in Model)
+        {
+            <tr>
+                <td>@bed.Wards</td>
+                <td>@bed.Floors</td>
+                <td>@bed.Beds</td>
+                <td>@(bed.IsOccupied ? "Occupied" : "Available")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

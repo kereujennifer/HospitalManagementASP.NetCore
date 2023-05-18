@@ -1,0 +1,28 @@
+﻿@model List<VitalSigns>
+
+@if (Model != null && Model.Count > 0)
+{
+    <table>
+        <thead>
+            <tr>
+               
+                <th>Temperature</th>
+             
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var vitalSigns in Model)
+            {
+                <tr>
+                    <td>@vitalSigns.Temperature</td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No vital signs data available.</p>
+}
+

@@ -1,0 +1,32 @@
+﻿@model MedicalHistory
+
+<form asp-action="SaveMedicalHistory" method="post" asp-controller="PatientManagement">
+    <div class="form-group">
+        <label for="Allergies">Allergies:</label>
+        <input type="text" class="form-control" id="allergies" asp-for="Allergies" />
+    </div>
+    <div class="form-group">
+        <label for="pastMedicalConditions">Past Medical Conditions:</label>
+        <input type="text" class="form-control" id="pastMedicalConditions" asp-for="PastMedicalConditions" />
+    </div>
+    <div class="form-group">
+        <label for="surgicalProcedures">Surgical Procedures:</label>
+        <input type="text" class="form-control" id="surgicalProcedures" asp-for="SurgicalProcedures" />
+    </div> 
+    <div class="form-group">
+        <label for="OnMedications">On Medications:</label>
+        <input type="text" class="form-control" id="OnMedications" asp-for="OnMedications" />
+    </div>
+    <div class="form-group">
+        <label for="FamilyHistory">Family History:</label>
+        <input type="text" class="form-control" id="FamilyHistory" asp-for="FamilyHistory" />
+    </div>
+    <div class="form-group">
+        <label for="SocialHistory">Social History:</label>
+        <input type="text" class="form-control" id="SocialHistory" asp-for="SocialHistory" />
+    </div>
+
+ 
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="button" class="btn btn-secondary">Cancel</button>
+</form>

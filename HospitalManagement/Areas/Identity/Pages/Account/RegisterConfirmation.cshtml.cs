@@ -50,7 +50,7 @@ namespace HospitalManagement.Areas.Identity.Pages.Account
             {
                 return RedirectToPage("/Index");
             }
-            returnUrl = returnUrl ?? Url.Content("~/");
+            returnUrl ??= Url.Action("Dashboard", "Home");
 
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null)

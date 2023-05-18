@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\hp\source\repos\ASP.Net -Projects\HospitalManagement
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Component.razor]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Areas/Identity/Pages/Account/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -264,6 +268,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdG9yc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Home/dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxkYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -274,6 +282,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/HospitalMngnt/Bedmanagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9zcGl0YWxNbmdudFxCZWRtYW5hZ2VtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/HospitalMngnt/HospitalManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9zcGl0YWxNbmdudFxIb3NwaXRhbE1hbmFnZW1lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Insurances/Create.cshtml]
@@ -316,46 +332,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFib3JhdG9yaWVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/LabResults/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFiUmVzdWx0c1xDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/LabResults/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFiUmVzdWx0c1xEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/LabResults/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFiUmVzdWx0c1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/LabResults/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFiUmVzdWx0c1xFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/LabResults/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFiUmVzdWx0c1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/MedicalHistories/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbEhpc3Rvcmllc1xDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/MedicalHistories/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbEhpc3Rvcmllc1xEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/MedicalHistories/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbEhpc3Rvcmllc1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/MedicalHistories/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbEhpc3Rvcmllc1xFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/MedicalHistories/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbEhpc3Rvcmllc1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/MedicineReports/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNpbmVSZXBvcnRzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -374,6 +350,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/MedicineReports/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNpbmVSZXBvcnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/PatientManagement/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudE1hbmFnZW1lbnRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/PatientManagement/LabResults.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudE1hbmFnZW1lbnRcTGFiUmVzdWx0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/PatientManagement/MedicalHistory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudE1hbmFnZW1lbnRcTWVkaWNhbEhpc3RvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/PatientManagement/Prescriptions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudE1hbmFnZW1lbnRcUHJlc2NyaXB0aW9ucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/PatientManagement/VitalSigns.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudE1hbmFnZW1lbnRcVml0YWxTaWducy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/PatientReports/Create.cshtml]
@@ -436,28 +432,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhhcm1hY2llc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Prescriptions/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc2NyaXB0aW9uc1xDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Prescriptions/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc2NyaXB0aW9uc1xEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Prescriptions/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc2NyaXB0aW9uc1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Prescriptions/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc2NyaXB0aW9uc1xFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Prescriptions/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc2NyaXB0aW9uc1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Shared/_LabResults.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYWJSZXN1bHRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Shared/_LandingLayout.cshtml]
@@ -468,12 +448,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Shared/_MedicalHistory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NZWRpY2FsSGlzdG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Shared/_NonLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ob25MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Shared/_Prescriptions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9QcmVzY3JpcHRpb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Shared/_TestLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9UZXN0TGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Shared/_VitalSigns.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WaXRhbFNpZ25zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Suppliers/Create.cshtml]
@@ -496,44 +492,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/VitalSigns/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVml0YWxTaWduc1xDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/VitalSigns/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVml0YWxTaWduc1xEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/VitalSigns/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVml0YWxTaWduc1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/VitalSigns/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVml0YWxTaWduc1xFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/VitalSigns/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVml0YWxTaWduc1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/VitalSigns/_Prescriptions.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVml0YWxTaWduc1xfUHJlc2NyaXB0aW9ucy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/_MedicalHistory.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX01lZGljYWxIaXN0b3J5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/_VitalSigns.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpdGFsU2lnbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Shared/_Layout.cshtml]

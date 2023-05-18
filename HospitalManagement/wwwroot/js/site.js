@@ -71,24 +71,59 @@ $(document).ready(function () {
         }
     });
 });
-$(document).ready(function () {
-    // Load the content of each tab using AJAX
-    $('#home').load('/VitalSigns/Index?RegistrationNumber');
-    $('#medicalhistories').load('/MedicalHistories/Index?RegistrationNumber');
-    $('#prescriptions').load('/Prescriptions/Index?RegistrationNumber');
-    $('#laboratoryresults').load('/LabResults/Index?RegistrationNumber');
 
-    // Show the "Vital Signs" tab by default
-    $('#home-tab').tab('show');
 
-    // Load the content of a tab when it is clicked
-    $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
-        var tab = $(e.target).attr('href'); // get the href of the clicked tab
-        if ($(tab).is(':empty')) { // check if the tab content is empty
-            $(tab).load($(tab).data('url')); // load the content using AJAX
+
+const patientTypeDropdown = document.getElementById('PatientType');
+const wardNumberField = document.getElementById('ward-number-field');
+const bedNumberField = document.getElementById('bed-number-field');
+const floorNumberField = document.getElementById('floor-number-field');
+const wardCategoryField = document.getElementById('ward-category-field');
+
+// Show/hide the conditional fields based on the selected patient type
+patientTypeDropdown.addEventListener('change', function () {
+    if (patientTypeDropdown.value === 'Inpatient') {
+        wardNumberField.style.display = 'block';
+        bedNumberField.style.display = 'block';
+        floorNumberField.style.display = 'block';
+        wardCategoryField.style.display = 'block';
+    } else if (patientTypeDropdown.value === 'Outpatient') {
+        wardNumberField.style.display = 'none';
+        bedNumberField.style.display = 'none';
+        floorNumberField.style.display = 'none';
+        wardCategoryField.style.display = 'none';
+    }
+});
+
+// get all the dropdown links
+var dropdownLinks = document.querySelectorAll('.nav-item.dropdown .nav-link.dropdown-toggle');
+
+// loop through each dropdown link
+for (var i = 0; i < dropdownLinks.length; i++) {
+    // add a click event listener to each dropdown link
+    dropdownLinks[i].addEventListener('click', function (e) {
+        // prevent the default behavior of the link
+        e.preventDefault();
+        // toggle the "show" class on the dropdown menu
+        this.nextElementSibling.classList.toggle('show');
+    });
+}
+
+// get all the links in the navbar
+var navbarLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+// loop through each navbar link
+for (var i = 0; i < navbarLinks.length; i++) {
+    // add a click event listener to each navbar link
+    navbarLinks[i].addEventListener('click', function () {
+        // remove the "show" class from all dropdown menus
+        var dropdownMenus = document.querySelectorAll('.navbar-nav .dropdown-menu.show');
+        for (var j = 0; j < dropdownMenus.length; j++) {
+            dropdownMenus[j].classList.remove('show');
         }
     });
-});
+}
+
 var db = new PatientDbContext()
 {
     var newPatient = new Patient
