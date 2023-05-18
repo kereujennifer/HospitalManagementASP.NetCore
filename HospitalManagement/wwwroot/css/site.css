@@ -227,7 +227,9 @@ main {
         font-size: 5em;
         opacity: 0.2;
     }
-
+.display-4 {
+    font-family: 'Rye', cursive;
+}
 
 /*#account {
     min-width: 500px;

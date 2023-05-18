@@ -13,7 +13,10 @@
         public string? DayShift { get; set; }
         public DateTime EndShift { get; set; }
         public string? Speciality { get; set; }
-      
 
+        public int DepartmentId { get; set; }
+
+        // Navigation property
+        public Department Department { get; set; }
     }
 }
