@@ -41,6 +41,8 @@ namespace HospitalManagement.Data
 
         public DbSet<HospitalManagement.Models.HospitalMngt>? HospitalMngt { get; set; }
 
+        public DbSet<HospitalManagement.Models.Department>? Department { get; set; }
+
     }
 
 }
