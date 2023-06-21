@@ -1,5 +1,5 @@
 ﻿
-@model Patients 
+@model PatientViewModel
 
 @{
     ViewData["Title"] = " Patient Details";
@@ -8,17 +8,17 @@
 <h1>Patient Details</h1>
 
 
-    <div class="col-md-12">
+    <div class="col-md-12" p="2" >
         <div class="card mb-4">
     <h4>Patients</h4>
     @using (Html.BeginForm())
     {
         
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label col-form-label-sm">
-                        @Html.DisplayNameFor(model => model.RegistrationNumber)
+                            @Html.DisplayNameFor(model => model.Patient.RegistrationNumber)
                     </label>
                     <div class="col-sm-8">
                         @Html.DisplayFor(model => model.RegistrationNumber)
@@ -26,66 +26,66 @@
                     </div>
                     <div class="form-group row">
                     <label class="col-sm-4 col-form-label col-form-label-sm">
-                        @Html.DisplayNameFor(model => model.FirstName)
+                            @Html.DisplayNameFor(model => model.Patient.FirstName)
                     </label>
                     <div class="col-sm-8">
-                        @Html.DisplayFor(model => model.FirstName)
+                            @Html.DisplayFor(model => model.Patient.FirstName)
                     </div>
                 </div> 
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label col-form-label-sm">
-                        @Html.DisplayNameFor(model => model.LastName)
+                            @Html.DisplayNameFor(model => model.Patient.LastName)
                     </label>
                     <div class="col-sm-8">
-                        @Html.DisplayFor(model => model.LastName)
+                        @Html.DisplayFor(model => model.Patient.LastName)
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label col-form-label-sm">
-                        @Html.DisplayNameFor(model => model.Phone)
+                        @Html.DisplayNameFor(model => model.Patient.Phone)
                     </label>
                     <div class="col-sm-8">
-                        @Html.DisplayFor(model => model.Phone)
+                            @Html.DisplayFor(model => model.Patient.Phone)
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label col-form-label-sm">
-                        @Html.DisplayNameFor(model => model.Address)
+                        @Html.DisplayNameFor(model => model.Patient.Address)
                     </label>
                     <div class="col-sm-8">
-                        @Html.DisplayFor(model => model.Address)
+                        @Html.DisplayFor(model => model.Patient.Address)
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label col-form-label-sm">
-                        @Html.DisplayNameFor(model => model.Age)
+                        @Html.DisplayNameFor(model => model.Patient.Age)
                     </label>
                     <div class="col-sm-8">
-                        @Html.DisplayFor(model => model.Age)
+                        @Html.DisplayFor(model => model.Patient.Age)
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label col-form-label-sm">
-                        @Html.DisplayNameFor(model => model.Gender)
+                            @Html.DisplayNameFor(model => model.Patient.Gender)
                     </label>
                     <div class="col-sm-8">
-                        @Html.DisplayFor(model => model.Gender)
+                        @Html.DisplayFor(model => model.Patient.Gender)
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label col-form-label-sm">
-                        @Html.DisplayNameFor(model => model.NextOfKin)
+                        @Html.DisplayNameFor(model => model.Patient.NextOfKin)
                     </label>
                     <div class="col-sm-8">
-                        @Html.DisplayFor(model => model.NextOfKin)
+                            @Html.DisplayFor(model => model.Patient.NextOfKin)
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label col-form-label-sm">
-                        @Html.DisplayNameFor(model => model.NextOfKinPhone)
+                        @Html.DisplayNameFor(model => model.Patient.NextOfKinPhone)
                     </label>
                     <div class="col-sm-8">
-                        @Html.DisplayFor(model => model.NextOfKinPhone)
+                            @Html.DisplayFor(model => model.Patient.NextOfKinPhone)
                     </div>
                 </div>
                  </div>
@@ -139,7 +139,7 @@
 
             <div class="tab-pane" id="laboratoryresults" role="tabpanel" aria-labelledby="laboratoryresults-tab">
                 <!-- Include the _LabResults partial view -->
-                @Html.Partial("_LabResults", Model.LaboratoryResults)
+                @Html.Partial("_LabResults", Model.LabResults)
                 <a asp-action="LabResults" asp-controller="PatientManagement" id="addLabResultsButton" class="btn btn-primary">Add New Lab Results</a>
 
             </div>
@@ -179,7 +179,7 @@
     
 
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a> 
+    <a asp-action="Edit" asp-route-id="@Model?.Patient.Id" class="btn btn-primary">Edit</a>
     <a asp-action="Index" class="btn btn-primary">Back to List</a>
 </div>
 <script>

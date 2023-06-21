@@ -4,7 +4,8 @@
     {
 
         public int Id { get; set; }
-        public int PatientId { get; set; }
+        public string RegistrationNumber { get; set; } // Foreign key
+        public Patients Patient { get; set; }
         public string? Weight{ get; set; }
         public string? Height { get; set; }
         public string? BloodPressure{ get; set; }

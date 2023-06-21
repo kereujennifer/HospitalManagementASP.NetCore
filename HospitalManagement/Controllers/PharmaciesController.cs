@@ -182,5 +182,12 @@ namespace HospitalManagement.Controllers
         {
           return (_context.Pharmacy?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+        //public IActionResult GenerateReport()
+        //{
+        //    byte[] reportBytes = ReportGenerator.GeneratePharmacyInventoryReport();
+
+        //    // Assuming you want to download the report as a PDF file
+        //    return File(reportBytes, "application/pdf", "PharmacyInventoryReport.pdf");
+        //}
     }
 }

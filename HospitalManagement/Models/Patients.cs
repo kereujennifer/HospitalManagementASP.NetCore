@@ -5,8 +5,10 @@ using System.Xml.Linq;
 
 namespace HospitalManagement.Models
 {
-    public class Patients : HospitalMngt
+    public class Patients 
     {
+        public int Id { get; set; }
+        
         public string? RegistrationNumber { get; set; }
         [Display(Name = "Registration Date")]
         public static int RegistrationNumberCounter { get; set; }
@@ -71,13 +73,12 @@ namespace HospitalManagement.Models
         public string? PatientType { get; set; }
 
         
-        public List<LabResults>? LaboratoryResults { get; set; }
+        public List<LabResults>? LabResults { get; set; }
         public List<MedicalHistory>? MedicalHistories { get; set; }
         public List<Prescription>? Prescriptions { get; set; }
         public List<VitalSigns>? VitalSigns { get; set; }
 
 
-        public List<HospitalManagement.Models.HospitalMngt>? HospitalMngt { get; set; }
 
 
     }

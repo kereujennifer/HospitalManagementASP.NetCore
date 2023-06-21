@@ -4,10 +4,11 @@
     {
         public int Id { get; set; } 
         public string? MedicinePrescription { get; set; }
-        public Patients? PatientName { get; set; }
-        public Doctors? Doctor { get; set; }
+        public String? Doctor { get; set; }
         public DateTime? DateDispensed { get; set; }
-        public List<Doctors>? Doctors { get; set; }
+        public Doctors Doctors { get; set; }
+        public string RegistrationNumber { get; set; } // Foreign key
+        public Patients Patient { get; set; }
 
     }
 }

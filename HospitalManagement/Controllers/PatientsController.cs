@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HospitalManagement.Data;
 using HospitalManagement.Models;
+using HospitalManagement.ViewModels;
 
 namespace HospitalManagement.Controllers
 {
@@ -47,8 +48,71 @@ namespace HospitalManagement.Controllers
                 return NotFound();
             }
 
-            return View(patient);
+            var viewModel = new PatientViewModel
+            {
+                Patient = patient,
+                RegistrationNumber = patient.RegistrationNumber
+            };
+
+            viewModel.MedicalHistories = await _context.MedicalHistories
+                .Where(m => m.Patient.Id == id)
+                .ToListAsync();
+
+            viewModel.Prescriptions = await _context.Prescriptions
+                .Where(r => r.Patient.Id == id)
+                .ToListAsync();
+
+            viewModel.LabResults = await _context.LabResults
+                .Where(l => l.Patient.Id == id)
+                .ToListAsync();
+
+            viewModel.VitalSigns = await _context.VitalSigns
+                .Where(v => v.Patient.Id == id)
+                .ToListAsync();
+
+            return View(viewModel);
         }
+
+
+        //public async Task<IActionResult> Details(string registrationNumber)
+        //{
+        //    if (string.IsNullOrEmpty(registrationNumber))
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var patient = await _context.Patient.FirstOrDefaultAsync(m => m.RegistrationNumber == registrationNumber);
+
+        //    if (patient == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var viewModel = new PatientViewModel
+        //    {
+        //        Patient = patient,
+        //        RegistrationNumber = patient.RegistrationNumber
+        //    };
+
+        //    viewModel.MedicalHistories = await _context.MedicalHistories
+        //        .Where(m => m.Patient.RegistrationNumber == registrationNumber) // Compare with the foreign key
+        //        .ToListAsync();
+
+        //    viewModel.Prescriptions = await _context.Prescriptions
+        //        .Where(r => r.Patient.RegistrationNumber == registrationNumber) // Compare with the foreign key
+        //        .ToListAsync();
+
+        //    viewModel.LabResults = await _context.LabResults
+        //        .Where(l => l.Patient.RegistrationNumber == registrationNumber) // Compare with the foreign key
+        //        .ToListAsync();
+
+        //    viewModel.VitalSigns = await _context.VitalSigns
+        //        .Where(v => v.Patient.RegistrationNumber == registrationNumber) // Compare with the foreign key
+        //        .ToListAsync();
+
+        //    return View(viewModel);
+        //}
+
 
 
         // GET: Patients/Create

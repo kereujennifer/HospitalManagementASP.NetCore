@@ -3,8 +3,9 @@ using HospitalManagement.Models;
 using HospitalManagement.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.VisualBasic.Syntax;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace HospitalManagement.Controllers
 {
@@ -20,130 +21,77 @@ namespace HospitalManagement.Controllers
             this.userManager = userManager;
             this.context = context;
         }
-        public IActionResult MedicalHistory()
+
+        public async Task<IActionResult> MedicalHistory(int patientId)
         {
-            return View();
-        }
-        public IActionResult Prescriptions()
-        {
-            return View();
-        }
-        public IActionResult VitalSigns()
-        {
-            return View();
-        }
-        public IActionResult LabResults()
-        {
-            return View();
-        }
-        public async Task<IActionResult> Index()
-        {
-            var viewModel = new PatientViewModel
+            // Retrieve the patient's medical history from the database
+            var medicalHistory = new MedicalHistory();
+            var patient = await context.Patient.FirstOrDefaultAsync(p => p.Id == patientId);
+            if (patient != null)
             {
-                MedicalHistories = await context.MedicalHistories.ToListAsync(),
-                Prescriptions = await context.Prescriptions.ToListAsync(),
-                LabResults = await context.LabResults.ToListAsync(),
-                VitalSigns = await context.VitalSigns.ToListAsync()
-            };
+                medicalHistory.Patient = patient;
 
-            return View(viewModel);
-        }
-
-
-
-        [HttpPost]
-        public async Task<IActionResult> SaveMedicalHistory(MedicalHistory model)
-        {
-            if (ModelState.IsValid)
-            {
-                context.MedicalHistories.Add(model);
+                // Save the lab results to the database
+                context.MedicalHistories.Add(medicalHistory);
                 await context.SaveChangesAsync();
-
-                return RedirectToAction("Details", "Patients");
             }
 
-            var viewModel = new PatientViewModel
-            {
-                MedicalHistories = await context.MedicalHistories.ToListAsync(),
-                VitalSigns = await context.VitalSigns.ToListAsync(),
-                LabResults = await context.LabResults.ToListAsync(),
-                Prescriptions = await context.Prescriptions.ToListAsync(),
-            };
-
-            return View( viewModel);
+            return View(medicalHistory);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> SaveLabResults(LabResults model)
+        public async Task<IActionResult> Prescriptions(int patientId)
         {
-            if (ModelState.IsValid)
+            // Retrieve the patient's prescriptions from the database
+            var prescriptions = new Prescription();
+            var patient = await context.Patient.FirstOrDefaultAsync(p => p.Id == patientId);
+
+            if (patient != null)
             {
-                context.LabResults.Add(model);
+                prescriptions.Patient = patient;
+
+                // Save the lab results to the database
+                context.Prescriptions.Add(prescriptions);
                 await context.SaveChangesAsync();
-
-                return RedirectToAction("Details", "Patients");
             }
-
-
-            var viewModel = new PatientViewModel
-            {
-                MedicalHistories = await context.MedicalHistories.ToListAsync(),
-                VitalSigns = await context.VitalSigns.ToListAsync(),
-                LabResults = await context.LabResults.ToListAsync(),
-                Prescriptions = await context.Prescriptions.ToListAsync(),
-            };
-
-            return View("Details", viewModel);
+            return View(prescriptions);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> SavePrescription(Prescription model)
+        public async Task<IActionResult> VitalSigns(int patientId)
         {
-            if (ModelState.IsValid)
+            // Retrieve the patient's vital signs from the database
+            var vitalSigns = new VitalSigns();
+            var patient = await context.Patient.FirstOrDefaultAsync(p => p.Id == patientId);
+            if (patient != null)
             {
-                context.Prescriptions.Add(model);
+                vitalSigns.Patient = patient;
+
+                // Save the lab results to the database
+                context.VitalSigns.Add(vitalSigns);
                 await context.SaveChangesAsync();
-
-                var patient = await context.Patient.FirstOrDefaultAsync();
-                if (patient != null)
-                {
-                    string registrationNumber = patient.RegistrationNumber;
-                    return RedirectToAction("Details", "Patients");
-                }
             }
-
-            var viewModel = new PatientViewModel
-            {
-                MedicalHistories = await context.MedicalHistories.ToListAsync(),
-                VitalSigns = await context.VitalSigns.ToListAsync(),
-                LabResults = await context.LabResults.ToListAsync(),
-                Prescriptions = await context.Prescriptions.ToListAsync(),
-            };
-
-            return View( viewModel);
+            // Pass the vital signs to the view
+            return View(vitalSigns);
+          
         }
-        [HttpPost]
-        public async Task<IActionResult> SaveVitalSigns(VitalSigns model)
+
+        public async Task<IActionResult> LabResults(int patientId)
         {
-            if (ModelState.IsValid)
-            {
-                context.VitalSigns.Add(model);
-                await context.SaveChangesAsync();
+            // Retrieve the patient's lab results from the database
+var labResults = new LabResults();
+var patient = await context.Patient.FirstOrDefaultAsync(p => p.Id == patientId);
 
-                return RedirectToAction("Details", "Patients");
-            }
+if (patient != null)
+{
+    labResults.Patient = patient;
 
-            var viewModel = new PatientViewModel
-            {
-                MedicalHistories = await context.MedicalHistories.ToListAsync(),
-                VitalSigns = await context.VitalSigns.ToListAsync(),
-                LabResults = await context.LabResults.ToListAsync(),
-                Prescriptions = await context.Prescriptions.ToListAsync(),
-            };
-            return View( viewModel);
+    // Save the lab results to the database
+    context.LabResults.Add(labResults);
+    await context.SaveChangesAsync();
+}
 
+             // Pass the lab results to the view
+                return View(labResults);
+           
         }
-
     }
-
 }

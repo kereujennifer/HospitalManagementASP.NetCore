@@ -2,8 +2,10 @@
 
 namespace HospitalManagement.Models
 {
-    public class OutPatient : HospitalMngt
+    public class OutPatient 
     {
+        public int Id { get; set; }
+
         public string? RegistrationNumber { get; set; }
         [Display(Name = "Registration Date")]
         public static int RegistrationNumberCounter { get; set; }

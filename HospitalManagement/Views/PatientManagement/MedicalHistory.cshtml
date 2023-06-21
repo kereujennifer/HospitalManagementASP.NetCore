@@ -1,6 +1,10 @@
 ﻿@model MedicalHistory
 
-<form asp-action="SaveMedicalHistory" method="post" asp-controller="PatientManagement">
+<form method="post" asp-controller="PatientManagement">
+    <div class="form-group">
+        <label for="PatientId">Patient ID:</label>
+        <input type="text" class="form-control" id="PatientId" name="PatientId" />
+    </div>
     <div class="form-group">
         <label for="Allergies">Allergies:</label>
         <input type="text" class="form-control" id="allergies" asp-for="Allergies" />

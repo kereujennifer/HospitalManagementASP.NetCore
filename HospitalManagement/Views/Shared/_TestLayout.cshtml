@@ -1,6 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity;
-@inject SignInManager<IdentityUser> signInManager;
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -13,138 +11,29 @@
     <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css' rel='stylesheet' />
     <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/HospitalManagement.loginstyle.css" asp-append-version="true" />
+
 
 
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 fixed-top ">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="landing">HospitalManagement</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white  box-shadow mb-3 fixed-top ">
+               
+                        <partial name="_LoginPartial" />
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-                        {
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Manage Roles
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" asp-controller="AppRoles"
-                                   asp-action="ListUsers">Users</a>
-                                    <a class="dropdown-item" asp-controller="AppRoles"
-                                   asp-action="ListRoles">Roles</a>
-                                </div>
-                            </li>
-                        }
-                    </ul>
-                    <partial name="_LoginPartial" />
-
-                </div>
-            </div>
+                    
         </nav>
     </header>
+    <div>
+        <div class="Innerwrapper-sectionlogin">
 
-
-    <div class="container-fluid  mt-5">
-        <div class="row">
-            @if (signInManager.IsSignedIn(User))
-            {
-                <nav id="sidebarMenu" class="col-md-2 col-lg-2 d-md-block ">
-
-
-                    <div class="position-sticky pt-3 sidebar-sticky">
-                        <ul class="nav d-inline-block pt-3 ">
-
-                            <li class="list active" id="dashboard">
-
-                                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">
-                                    <span class="material-symbols-outlined  align-middle">
-                                        dashboard
-                                    </span> <span class="title">DashBoard</span>
-                                </a>
-                            </li>
-                            @if (signInManager.IsSignedIn(User))
-                            {
-                                <li class="list" id="patient">
-
-                                    <a class="nav-link text-white" asp-area="" asp-controller="Patients" asp-action="Index">
-                                        <span class="material-symbols-outlined  align-middle">
-                                            personal_injury
-                                        </span>
-                                        <span class="title">Patients</span>
-
-                                    </a>
-                                </li>
-                            }
-                            @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-                            {
-                                <li class="list" id="doctor">
-
-                                    <a class="nav-link text-white" asp-area="" asp-controller="Doctors" asp-action="Index">
-                                        <span class="material-symbols-outlined align-middle">
-                                            stethoscope
-
-                                        </span>
-                                        <span class="title">
-                                            Doctors
-                                        </span>
-                                    </a>
-                                </li>
-                            }
-                            @if (signInManager.IsSignedIn(User))
-                            {
-                                <li class="list" id="laboratory">
-                                    <a class="nav-link text-white" asp-area="" asp-controller="Laboratories" asp-action="Index">
-                                        <span class="material-symbols-outlined align-middle">
-                                            science
-                                        </span>
-                                        <span class="title">Laboratory</span>
-
-                                    </a>
-                                </li>
-                                <li class="list" id="pharmacy">
-
-
-                                    <a class="nav-link text-white" asp-area="" asp-controller="Pharmacies" asp-action="Index">
-                                        <span class="material-symbols-outlined align-middle">
-                                            medication
-                                        </span>
-                                        <span class="title">Pharmacy</span>
-
-                                    </a>
-                                </li>
-                            }
-                        </ul>
-
-
-
-                    </div>
-                </nav>
-            }
-
-
-
-
-
-            <main role="main" class="col-md-10 m-sm-auto col-lg-9 px-4 shadow p-4 mt-5 ms-5 mb-5 me-5">
-                @RenderBody()
-            </main>
+        @RenderBody()
         </div>
-
     </div>
-
 
 
     <footer class="border-top footer text-muted ">

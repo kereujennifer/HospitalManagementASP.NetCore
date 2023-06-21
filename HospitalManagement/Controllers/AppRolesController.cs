@@ -11,8 +11,7 @@ using System.Numerics;
 
 namespace HospitalManagement.Controllers
 {
-    [Authorize(Roles = "Admin")]
-
+    [Authorize(Roles ="Admin")]
     public class AppRolesController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;

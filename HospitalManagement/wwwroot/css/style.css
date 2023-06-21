@@ -1,0 +1,257 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /* display: flex;
+    justify-content:center;
+    align-items: center; */
+    min-height: 100vh;
+    background: #EAEFF5 !important;
+}
+.pagebody-wrapper {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 6rem !important;
+}
+
+.Innerwrapper-section {
+    margin-top: 6rem !important;
+    position: relative;
+    margin: 1rem 3rem;
+    width: 100%
+}
+.Side-navigation {
+    position: fixed;
+    height: 1080px;
+    width: 270px;
+    background: #213373;
+    overflow-x: hidden;
+    transition: width 0.5s;
+    margin-top: 4rem;
+}
+
+    .Side-navigation ul {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding-left: 5px;
+        padding-top: 44px;
+    }
+
+        .Side-navigation ul li {
+            position: relative;
+            list-style: none;
+            width: 100%;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            cursor: pointer
+        }
+
+            .Side-navigation ul li.active {
+                background: #EAEFF5;
+            }
+
+                .Side-navigation ul li.active a,
+                .Side-navigation ul li.active .title {
+                    color: var(--primary-color);
+                }
+
+.title.active {
+    color: blue;
+}
+
+.Side-navigation ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: white;
+}
+
+.Side-navigation ul li.active a::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    box-shadow: 15px 15px 0 #EAEFF5;
+}
+
+.Side-navigation ul li.active a::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    box-shadow: 15px -15px 0 #EAEFF5;
+}
+/*.....................
+06:Side nav Icons styling section
+......................*/
+.Side-navigation ul li a .material-symbols-outlined {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 70px;
+    text-align: center;
+}
+
+.Side-navigation ul li a .material-symbols-outlined {
+    position: relative;
+    font-size: 1.5rem;
+    z-index: 1;
+}
+
+/*.........................
+07:SIde nav bar items naming styling section
+.........................*/
+.Side-navigation ul li a .title {
+    position: relative;
+    display: block;
+    padding-left: 18px;
+    height: 60px;
+    line-height: 60px;
+    white-space: nowrap;
+    color: white;
+}
+@media (max-width:600px) {
+    .top-navigation {
+        width: stretch;
+        background-color: white;
+        width: 100%;
+        height: 3rem !important;
+        box-shadow: 0 0 0 1px rgb(20 20 31 / 5%), 0 1px 3px 0 rgb(20 20 31 / 15%);
+    }
+
+    .Side-navigation {
+        position: relative;
+        height: 2000px;
+        width: 70px;
+        background: #213373;
+        overflow-x: hidden;
+        transition: width 0.5s;
+    }
+
+    .logos {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .Algoz-logo {
+        height: 30px;
+        padding-left: 10px;
+        order: 3;
+    }
+
+    .Abno-logo {
+        padding-left: 1px;
+        height: 30px;
+        order: 1;
+    }
+
+    .vl {
+        border-left: 2px solid #D6D6D6;
+        height: 30px;
+        order: 2;
+        margin-left: 5px;
+    }
+
+    .profile-img {
+        margin-right: 1rem;
+        padding-left: 0px;
+        padding-right: 1rem;
+        cursor: pointer
+    }
+
+    .profile-avatar {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    fa-lg {
+        font-size: 0px;
+        line-height: 0px;
+        margin-top: 15px;
+    }
+
+    .widgets {
+        display: flex;
+        align-items: center;
+        padding-left: 0.5rem;
+    }
+
+    .profile-items {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .Innerwrapper-section {
+        position: relative;
+        width: 100%;
+    }
+
+    .timeline-title {
+        font-size: 0.8rem;
+    }
+
+    .timeline-date {
+        font-size: 0.8rem;
+    }
+
+    .timeline-content {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width:768px) {
+    .Side-navigation {
+        position: relative;
+        height: 1800px;
+        width: 70px;
+        background: #213373;
+        overflow-x: hidden;
+        transition: width 0.5s;
+    }
+
+    .img {
+        border-style: none;
+        width: 100%;
+        object-fit: cover
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+}
+.Innerwrapper-section {
+    width: calc(100vw - 16.875rem);
+    margin: 7rem 1rem 1rem 20.875rem !important;
+    box-shadow: -3px -3px 9px #aaa9a9a2, 3px 3px 7px rgba(147, 149, 151, 0.671);
+    padding: 15px;
+ 
+}
+
+@media screen and (max-width: 48em) {
+    .Innerwrapper-section {
+        margin-left: 2rem !important;
+        width: calc(100vw - 3rem);
+    }
+}
+
+

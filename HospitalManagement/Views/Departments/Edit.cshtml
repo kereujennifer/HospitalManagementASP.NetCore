@@ -12,12 +12,12 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
+            <input type="hidden" asp-for="DepartmentId" />
+           @* <div class="form-group">
                 <label asp-for="DepartmentId" class="control-label"></label>
                 <input asp-for="DepartmentId" class="form-control" />
                 <span asp-validation-for="DepartmentId" class="text-danger"></span>
-            </div>
+            </div>*@
             <div class="form-group">
                 <label asp-for="DepartmentName" class="control-label"></label>
                 <input asp-for="DepartmentName" class="form-control" />

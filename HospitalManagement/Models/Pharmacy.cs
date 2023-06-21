@@ -2,8 +2,10 @@
 
 namespace HospitalManagement.Models
 {
-    public class Pharmacy : HospitalMngt
+    public class Pharmacy 
     {
+        public int Id { get; set; }
+
         public String? MedicineName { get; set; }
         public int Batch { get; set; }
         public string? Manufacturer { get; set; }

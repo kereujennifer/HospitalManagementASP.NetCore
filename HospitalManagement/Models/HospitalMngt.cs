@@ -9,7 +9,6 @@ namespace HospitalManagement.Models
         public string? Beds { get; set; }
         public string? WardCategory { get; set; }
         public string? Floors { get; set; }
-        public string? Department { get; set; }
         public bool IsOccupied { get; set; }
 
         

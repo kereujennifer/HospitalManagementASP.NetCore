@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/SwiBk3LpLD3Z3FJPjxtD0uqqorvJQfQKkWOIl3IyR8=",
+  "Hash": "fc6ZNT6uSnWYumYpfdqR+hbzHiaa4T5G0SfYRVTp2sc=",
   "Source": "HospitalManagement",
   "BasePath": "_content/HospitalManagement",
   "Mode": "Default",
@@ -1071,6 +1071,23 @@
       "OriginalItemSpec": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\HospitalManagement.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\css\\loginstyle.css",
+      "SourceId": "HospitalManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\",
+      "BasePath": "_content/HospitalManagement",
+      "RelativePath": "css/loginstyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\loginstyle.css"
+    },
+    {
       "Identity": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\css\\site.css",
       "SourceId": "HospitalManagement",
       "SourceType": "Discovered",
@@ -1086,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\css\\style.css",
+      "SourceId": "HospitalManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\",
+      "BasePath": "_content/HospitalManagement",
+      "RelativePath": "css/style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
       "Identity": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\favicon.ico",
@@ -1139,12 +1173,12 @@
       "OriginalItemSpec": "wwwroot\\Images\\Doctor.jpg"
     },
     {
-      "Identity": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\hospitallanding.jpg",
+      "Identity": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\forgot.jpg",
       "SourceId": "HospitalManagement",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\",
       "BasePath": "_content/HospitalManagement",
-      "RelativePath": "Images/hospitallanding.jpg",
+      "RelativePath": "Images/forgot.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1153,7 +1187,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\hospitallanding.jpg"
+      "OriginalItemSpec": "wwwroot\\Images\\forgot.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\hospitalfinal.jpg",
+      "SourceId": "HospitalManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\",
+      "BasePath": "_content/HospitalManagement",
+      "RelativePath": "Images/hospitalfinal.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\hospitalfinal.jpg"
     },
     {
       "Identity": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\images.jpeg",
@@ -1324,6 +1375,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\reports.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\reset.jpg",
+      "SourceId": "HospitalManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\",
+      "BasePath": "_content/HospitalManagement",
+      "RelativePath": "Images/reset.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\reset.jpg"
     },
     {
       "Identity": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\signuplegit.jpg",

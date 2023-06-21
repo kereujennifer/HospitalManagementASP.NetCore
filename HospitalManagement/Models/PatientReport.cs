@@ -15,8 +15,12 @@ namespace HospitalManagement.Models
         public string? BloodPressure { get; set; }
         public string? Temprature { get; set; }
         public string? BMI { get; set; }
-        public IdentityUser? Doctor { get; set; }
-        public IdentityUser? Patient { get; set; }
+        //public int DoctorId { get; set; }  // Foreign key to Doctor
+        public IdentityUser Doctor { get; set; }  // Navigation property to Doctor
+
+        public string RegistrationNumber { get; set; }  // Foreign key to Patient
+        public IdentityUser Patient { get; set; }  // Navigation property to Patient
+
 
         public ICollection<MedicineReport>? MedicineReport { get; set; }
 

@@ -15,14 +15,20 @@ namespace HospitalManagement.Models
 
         public string? SurgicalProcedures { get; set; }
 
-      
 
 
-        
-    
+
+        public string RegistrationNumber { get; set; } // Foreign key
+        public Patients Patient { get; set; }
+
         public string? FamilyHistory { get; set; }
 
         public string? SocialHistory { get; set; }
 
+        public MedicalHistory()
+        {
+            // Set the registration number to an empty string by default
+            RegistrationNumber = string.Empty;
+        }
     }
 }

@@ -15,12 +15,12 @@ html {
     min-height: 100%;
 }
 
-body {
+/*body {
     margin-bottom: 60px;
-    overflow-x: hidden;
+    overflow-x: hidden;*/
     /*    max-width: 100%;
 */ /*min-height:100vh;*/
-}
+/*}*/
 .landing-page {
     background-color: white; 
     height: 100vh;
@@ -40,19 +40,16 @@ body {
     .image-section img {
         max-height: 100%;
         max-width: 100%;
-        object-fit: cover;
+        object-fit: contain;
     }
 
 /* Style the fixed navbar */
 
-#sidebarMenu {
-    
+/*#sidebarMenu {
     background: #213373;
     transition: width 0.5s;
-    
+    width: 95px;
 }
-   
-
         #sidebarMenu ul {
         position: absolute;
         top: 0;
@@ -112,11 +109,11 @@ body {
     height: 30px;
     background: var(--primary-color);
     border-radius: 50%;
-}
+}*/
 /*.....................
 06:Side nav Icons styling section
 ......................*/
-#sidebarMenu ul li a .icon {
+/*#sidebarMenu ul li a .icon {
     position: relative;
     display: block;
     min-width: 60px;
@@ -131,27 +128,30 @@ body {
         z-index: 1;
     }
 
-
-
-
-@media (max-width: 768px) {
+@media (min-width: 576px) and (max-width: 768px) {
     #sidebarMenu {
-        position: fixed;
-        top: 50px;
-        left: 0;
-        height: 100vh;
-        width: 70px;
-        background: #213373;
-        overflow-x: hidden;
-        transition: width 0.5s;
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 60px;
-    }
+        width: 70px;*/ /* Set your desired width for screens between 575px and 768px */
+    /*}
+
+
+    @media (max-width: 768px) {
+        #sidebarMenu {
+            position: fixed;
+            top: 50px;
+            left: 0;
+            height: 100vh;
+            width: 70px;
+            background: #213373;
+            overflow-x: hidden;
+            transition: width 0.5s;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 60px;
+        }
 
         main {
-            margin-left: 70px; /* Set the margin to the width of the sidebar */
-        }
+            margin-left: 70px;*/ /* Set the margin to the width of the sidebar */
+        /*}
 
 
         #sidebarMenu ul li {
@@ -165,30 +165,29 @@ body {
                 display: flex;
                 align-items: center;
                 padding: 0.5rem;
-                 
             }
 
         .material-symbols-outlined {
             font-size: 2rem;
             margin-right: 0.5rem;
-            color:coral;
+            color: coral;
         }
 
         .title {
             display: none;
         }
-    
-}
-/* Style the main content area */
-main {
-    margin-top: 56px; /* Adjust to match height of navbar */
-    padding: 15px;
-    box-shadow: -3px -3px 9px #aaa9a9a2, 3px 3px 7px rgba(147, 149, 151, 0.671);
-}
+    }
+}*/
+    /* Style the main content area */
+    /*main {
+        margin-top: 56px;*/ /* Adjust to match height of navbar */
+        /*padding: 15px;
+        box-shadow: -3px -3px 9px #aaa9a9a2, 3px 3px 7px rgba(147, 149, 151, 0.671);
+    }*/
 
-/*dashboard counter*/
+    /*dashboard counter*/
 
-.card-counter {
+  .card-counter {
     box-shadow: 2px 2px 10px #DADADA;
     margin: 5px;
     padding: 20px 10px;
@@ -227,11 +226,8 @@ main {
         font-size: 5em;
         opacity: 0.2;
     }
-.display-4 {
-    font-family: 'Rye', cursive;
-}
 
-/*#account {
+    /*#account {
     min-width: 500px;
     min-height: inherit;
     position: absolute;
@@ -263,7 +259,7 @@ main {
    
   */ /*position: relative;
 }*/
-/*#login-submit {
+    /*#login-submit {
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
     transition: 0.4s;
@@ -275,31 +271,31 @@ main {
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
 }*/
-table thead {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #24a0ed;
-}
+    table thead {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #24a0ed;
+    }
 
-.btn {
-    width: max-content;
-}
+    .btn {
+        width: max-content;
+    }
 
-/*.sidebar {
+    /*.sidebar {
     position: fixed;
     top: 60px;
     float: left;*/
 
-/* rtl:raw:
+    /* rtl:raw:
   right: 0;
   */
-/*bottom: 60px;*/
-/* rtl:remove */
-/*left: 0;
+    /*bottom: 60px;*/
+    /* rtl:remove */
+    /*left: 0;
     z-index: 100;*/ /* Behind the navbar */
-/*padding: 10px 0 0;*/ /* Height of navbar */
-/*box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    /*padding: 10px 0 0;*/ /* Height of navbar */
+    /*box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
 }
 
 @media (max-width: 767.98px) {
@@ -312,7 +308,7 @@ table thead {
     height: calc(100vh - 48px);
     overflow-x: hidden;
     overflow-y: auto;*/ /* Scrollable contents if viewport is shorter than content. */
-/*}
+    /*}
 
 .sidebar .nav-link {
     font-weight: 500;
@@ -359,14 +355,14 @@ table thead {
    
    
 }*/
-table {
-    min-height: 100%;
-}
+    table {
+        min-height: 100%;
+    }
 
-.card-img-top {
-    width: 100%;
-    height: 15vw;
-    object-fit: cover;
-}
+    .card-img-top {
+        width: 100%;
+        height: 15vw;
+        object-fit: cover;
+    }
 
 

@@ -6,5 +6,7 @@
         public string? TestPerformed { get; set; }
         public string? TestPerformedBy { get; set; }
         public string? Report { get; set; }
+        public string RegistrationNumber { get; set; } // Foreign key
+        public Patients Patient { get; set; }
     }
 }

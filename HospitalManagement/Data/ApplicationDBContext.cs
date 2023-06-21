@@ -41,7 +41,47 @@ namespace HospitalManagement.Data
 
         public DbSet<HospitalManagement.Models.HospitalMngt>? HospitalMngt { get; set; }
 
-        public DbSet<HospitalManagement.Models.Department>? Department { get; set; }
+        public DbSet<HospitalManagement.Models.Department> Department { get; set; }
+
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    // Configure the relationship between Patients and Prescriptions
+        //    modelBuilder.Entity<Prescription>()
+        //        .HasOne(r => r.Patient)
+        //        .WithMany(p => p.Prescriptions)
+        //        .HasForeignKey(r => r.RegistrationNumber)
+        //        .HasPrincipalKey(p => p.RegistrationNumber);
+
+
+
+        //    // Configure the relationship between Patients and MedicalHistory
+        //    modelBuilder.Entity<MedicalHistory>()
+        //        .HasOne(m => m.Patient)
+        //        .WithMany(p => p.MedicalHistories)
+        //        .HasForeignKey(m => m.RegistrationNumber)
+        //                        .HasPrincipalKey(p => p.RegistrationNumber);
+
+
+        //    // Configure the relationship between Patients and LabResults
+        //    modelBuilder.Entity<LabResults>()
+        //        .HasOne(l => l.Patient)
+        //        .WithMany(p => p.LabResults)
+        //        .HasForeignKey(l => l.RegistrationNumber)
+        //                        .HasPrincipalKey(p => p.RegistrationNumber);
+
+
+        //    // Configure the relationship between Patients and VitalSigns
+        //    modelBuilder.Entity<VitalSigns>()
+        //        .HasOne(v => v.Patient)
+        //        .WithMany(p => p.VitalSigns)
+        //        .HasForeignKey(v => v.RegistrationNumber)
+        //                        .HasPrincipalKey(p => p.RegistrationNumber);
+
+
+        //    // Other configuration code...
+
+        //    base.OnModelCreating(modelBuilder);
+        //}
 
     }
 

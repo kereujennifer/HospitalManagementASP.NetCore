@@ -87,15 +87,11 @@ namespace HospitalManagement.Migrations
 
             modelBuilder.Entity("HospitalManagement.Models.Department", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("DepartmentId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("DepartmentId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DepartmentId"), 1L, 1);
 
                     b.Property<string>("DepartmentName")
                         .IsRequired()
@@ -105,9 +101,66 @@ namespace HospitalManagement.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<int?>("DoctorsDoctorId")
+                        .HasColumnType("int");
+
+                    b.HasKey("DepartmentId");
+
+                    b.HasIndex("DoctorsDoctorId");
 
                     b.ToTable("Department");
+                });
+
+            modelBuilder.Entity("HospitalManagement.Models.Doctors", b =>
+                {
+                    b.Property<int>("DoctorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DoctorId"), 1L, 1);
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("AppointmentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DayShift")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DepartmentName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EndShift")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NightShift")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Speciality")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartShift")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("DoctorId");
+
+                    b.HasIndex("AppointmentId");
+
+                    b.ToTable("Doctors");
                 });
 
             modelBuilder.Entity("HospitalManagement.Models.HospitalMngt", b =>
@@ -121,21 +174,11 @@ namespace HospitalManagement.Migrations
                     b.Property<string>("Beds")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Department")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Floors")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsOccupied")
                         .HasColumnType("bit");
-
-                    b.Property<int?>("PatientsId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Stations")
                         .HasColumnType("nvarchar(max)");
@@ -148,11 +191,7 @@ namespace HospitalManagement.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PatientsId");
-
                     b.ToTable("HospitalMngt");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("HospitalMngt");
                 });
 
             modelBuilder.Entity("HospitalManagement.Models.Insurance", b =>
@@ -171,6 +210,90 @@ namespace HospitalManagement.Migrations
                     b.ToTable("Insurance");
                 });
 
+            modelBuilder.Entity("HospitalManagement.Models.Laboratory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CollectionDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CollectionInstructions")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CollectionMethod")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CollectionSite")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DoctorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Equipment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Label")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PatientId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("PatientName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Priority")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RegistrationNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Report")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ResultDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("ResultValue")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("SpecimenCollectionDetails")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SpecimenId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SpecimenType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Test")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TestName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TestOrderId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TestPerformedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TestType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PatientId");
+
+                    b.ToTable("Laboratory");
+                });
+
             modelBuilder.Entity("HospitalManagement.Models.LabResults", b =>
                 {
                     b.Property<int>("Id")
@@ -179,8 +302,12 @@ namespace HospitalManagement.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("PatientsId")
+                    b.Property<int>("PatientId")
                         .HasColumnType("int");
+
+                    b.Property<string>("RegistrationNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Report")
                         .HasColumnType("nvarchar(max)");
@@ -193,7 +320,7 @@ namespace HospitalManagement.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PatientsId");
+                    b.HasIndex("PatientId");
 
                     b.ToTable("LabResults");
                 });
@@ -218,8 +345,12 @@ namespace HospitalManagement.Migrations
                     b.Property<string>("PastMedicalConditions")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PatientsId")
+                    b.Property<int>("PatientId")
                         .HasColumnType("int");
+
+                    b.Property<string>("RegistrationNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SocialHistory")
                         .HasColumnType("nvarchar(max)");
@@ -229,7 +360,7 @@ namespace HospitalManagement.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PatientsId");
+                    b.HasIndex("PatientId");
 
                     b.ToTable("MedicalHistories");
                 });
@@ -301,6 +432,123 @@ namespace HospitalManagement.Migrations
                     b.ToTable("MedicineReports");
                 });
 
+            modelBuilder.Entity("HospitalManagement.Models.OutPatient", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AdmittingDoctor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("BMI")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Bed")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BedCategory")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BloodPressure")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DateDispendsed")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateOfBirth")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Discharge")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmploymentStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Floor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Gender")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Height")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MaritalStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MedicinePrescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MiddleName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NextOfKin")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NextOfKinAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NextOfKinName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NextOfKinPhone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ParentGuardianName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PatientNameId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Payment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RegDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RegistrationNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Temprature")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("UnderEighteen")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Ward")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Weight")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PatientNameId");
+
+                    b.ToTable("OutPatient");
+                });
+
             modelBuilder.Entity("HospitalManagement.Models.PatientReport", b =>
                 {
                     b.Property<int>("Id")
@@ -333,6 +581,10 @@ namespace HospitalManagement.Migrations
                     b.Property<string>("PatientId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("RegistrationNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Temprature")
                         .HasColumnType("nvarchar(max)");
 
@@ -348,6 +600,154 @@ namespace HospitalManagement.Migrations
                     b.ToTable("PatientReports");
                 });
 
+            modelBuilder.Entity("HospitalManagement.Models.Patients", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AppointmentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("BMI")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BedNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BloodPressure")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DateDispensed")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DateOfBirth")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmploymentStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FloorNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Gender")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Height")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MaritalStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MiddleName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NextOfKin")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NextOfKinAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NextOfKinName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NextOfKinPhone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ParentGuardianName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PatientType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Payment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Prescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RegDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RegistrationNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Temprature")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("UnderEighteen")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("WardNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Weight")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppointmentId");
+
+                    b.ToTable("Patient");
+                });
+
+            modelBuilder.Entity("HospitalManagement.Models.Pharmacy", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("Batch")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ExpiryDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Manufacturer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MedicineName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Stock")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Supplier")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Total")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UnitPrice")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Pharmacy");
+                });
+
             modelBuilder.Entity("HospitalManagement.Models.Prescription", b =>
                 {
                     b.Property<int>("Id")
@@ -359,20 +759,27 @@ namespace HospitalManagement.Migrations
                     b.Property<DateTime?>("DateDispensed")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("DoctorId")
+                    b.Property<string>("Doctor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DoctorsDoctorId")
                         .HasColumnType("int");
 
                     b.Property<string>("MedicinePrescription")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PatientNameId")
+                    b.Property<int>("PatientId")
                         .HasColumnType("int");
+
+                    b.Property<string>("RegistrationNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DoctorId");
+                    b.HasIndex("DoctorsDoctorId");
 
-                    b.HasIndex("PatientNameId");
+                    b.HasIndex("PatientId");
 
                     b.ToTable("Prescriptions");
                 });
@@ -422,8 +829,9 @@ namespace HospitalManagement.Migrations
                     b.Property<int>("PatientId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PatientsId")
-                        .HasColumnType("int");
+                    b.Property<string>("RegistrationNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Temperature")
                         .HasColumnType("nvarchar(max)");
@@ -433,7 +841,7 @@ namespace HospitalManagement.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PatientsId");
+                    b.HasIndex("PatientId");
 
                     b.ToTable("VitalSigns");
                 });
@@ -640,364 +1048,6 @@ namespace HospitalManagement.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("HospitalManagement.Models.Doctors", b =>
-                {
-                    b.HasBaseType("HospitalManagement.Models.HospitalMngt");
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("AppointmentId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("DayShift")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("DepartmentId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("EndShift")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NightShift")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("PrescriptionId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Speciality")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("StartShift")
-                        .HasColumnType("datetime2");
-
-                    b.HasIndex("AppointmentId");
-
-                    b.HasIndex("PrescriptionId");
-
-                    b.HasDiscriminator().HasValue("Doctors");
-                });
-
-            modelBuilder.Entity("HospitalManagement.Models.Laboratory", b =>
-                {
-                    b.HasBaseType("HospitalManagement.Models.HospitalMngt");
-
-                    b.Property<string>("Equipment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PatientId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Report")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Test")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TestPerformed")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TestPerformedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TestType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasIndex("PatientId");
-
-                    b.HasDiscriminator().HasValue("Laboratory");
-                });
-
-            modelBuilder.Entity("HospitalManagement.Models.OutPatient", b =>
-                {
-                    b.HasBaseType("HospitalManagement.Models.HospitalMngt");
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("OutPatient_Address");
-
-                    b.Property<string>("AdmittingDoctor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<string>("BMI")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Bed")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BedCategory")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BloodPressure")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("DateDispendsed")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DateOfBirth")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Discharge")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("OutPatient_Email");
-
-                    b.Property<string>("EmploymentStatus")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("OutPatient_FirstName");
-
-                    b.Property<string>("Floor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Gender")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Height")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("OutPatient_LastName");
-
-                    b.Property<string>("MaritalStatus")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MedicinePrescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MiddleName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NextOfKin")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NextOfKinAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NextOfKinName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NextOfKinPhone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ParentGuardianName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("PatientNameId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Payment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("OutPatient_Phone");
-
-                    b.Property<DateTime>("RegDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("RegistrationNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Temprature")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("UnderEighteen")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Ward")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Weight")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasIndex("PatientNameId");
-
-                    b.HasDiscriminator().HasValue("OutPatient");
-                });
-
-            modelBuilder.Entity("HospitalManagement.Models.Patients", b =>
-                {
-                    b.HasBaseType("HospitalManagement.Models.HospitalMngt");
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Patients_Address");
-
-                    b.Property<int>("Age")
-                        .HasColumnType("int")
-                        .HasColumnName("Patients_Age");
-
-                    b.Property<int?>("AppointmentId")
-                        .HasColumnType("int")
-                        .HasColumnName("Patients_AppointmentId");
-
-                    b.Property<string>("BMI")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Patients_BMI");
-
-                    b.Property<string>("BedNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BloodPressure")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Patients_BloodPressure");
-
-                    b.Property<string>("DateDispensed")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("DateOfBirth")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Patients_DateOfBirth");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Patients_Email");
-
-                    b.Property<string>("EmploymentStatus")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Patients_EmploymentStatus");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Patients_FirstName");
-
-                    b.Property<string>("FloorNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Gender")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Patients_Gender");
-
-                    b.Property<string>("Height")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Patients_Height");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Patients_LastName");
-
-                    b.Property<string>("MaritalStatus")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Patients_MaritalStatus");
-
-                    b.Property<string>("MiddleName")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Patients_MiddleName");
-
-                    b.Property<string>("NextOfKin")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Patients_NextOfKin");
-
-                    b.Property<string>("NextOfKinAddress")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Patients_NextOfKinAddress");
-
-                    b.Property<string>("NextOfKinName")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Patients_NextOfKinName");
-
-                    b.Property<string>("NextOfKinPhone")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Patients_NextOfKinPhone");
-
-                    b.Property<string>("ParentGuardianName")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Patients_ParentGuardianName");
-
-                    b.Property<string>("PatientType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Payment")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Patients_Payment");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Patients_Phone");
-
-                    b.Property<string>("Prescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("RegDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Patients_RegDate");
-
-                    b.Property<string>("RegistrationNumber")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Patients_RegistrationNumber");
-
-                    b.Property<string>("Temprature")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Patients_Temprature");
-
-                    b.Property<bool>("UnderEighteen")
-                        .HasColumnType("bit")
-                        .HasColumnName("Patients_UnderEighteen");
-
-                    b.Property<string>("WardNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Weight")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Patients_Weight");
-
-                    b.HasIndex("AppointmentId");
-
-                    b.HasDiscriminator().HasValue("Patients");
-                });
-
-            modelBuilder.Entity("HospitalManagement.Models.Pharmacy", b =>
-                {
-                    b.HasBaseType("HospitalManagement.Models.HospitalMngt");
-
-                    b.Property<int>("Batch")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("ExpiryDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Manufacturer")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MedicineName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Stock")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Supplier")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Total")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UnitPrice")
-                        .HasColumnType("int");
-
-                    b.HasDiscriminator().HasValue("Pharmacy");
-                });
-
             modelBuilder.Entity("HospitalManagement.Models.Bill", b =>
                 {
                     b.HasOne("HospitalManagement.Models.Insurance", "Insurance")
@@ -1013,25 +1063,49 @@ namespace HospitalManagement.Migrations
                     b.Navigation("Patient");
                 });
 
-            modelBuilder.Entity("HospitalManagement.Models.HospitalMngt", b =>
+            modelBuilder.Entity("HospitalManagement.Models.Department", b =>
                 {
-                    b.HasOne("HospitalManagement.Models.Patients", null)
-                        .WithMany("HospitalMngt")
-                        .HasForeignKey("PatientsId");
+                    b.HasOne("HospitalManagement.Models.Doctors", null)
+                        .WithMany("Department")
+                        .HasForeignKey("DoctorsDoctorId");
+                });
+
+            modelBuilder.Entity("HospitalManagement.Models.Doctors", b =>
+                {
+                    b.HasOne("HospitalManagement.Models.Appointment", null)
+                        .WithMany("Doctor")
+                        .HasForeignKey("AppointmentId");
+                });
+
+            modelBuilder.Entity("HospitalManagement.Models.Laboratory", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Patient")
+                        .WithMany()
+                        .HasForeignKey("PatientId");
+
+                    b.Navigation("Patient");
                 });
 
             modelBuilder.Entity("HospitalManagement.Models.LabResults", b =>
                 {
-                    b.HasOne("HospitalManagement.Models.Patients", null)
-                        .WithMany("LaboratoryResults")
-                        .HasForeignKey("PatientsId");
+                    b.HasOne("HospitalManagement.Models.Patients", "Patient")
+                        .WithMany("LabResults")
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Patient");
                 });
 
             modelBuilder.Entity("HospitalManagement.Models.MedicalHistory", b =>
                 {
-                    b.HasOne("HospitalManagement.Models.Patients", null)
+                    b.HasOne("HospitalManagement.Models.Patients", "Patient")
                         .WithMany("MedicalHistories")
-                        .HasForeignKey("PatientsId");
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Patient");
                 });
 
             modelBuilder.Entity("HospitalManagement.Models.MedicineReport", b =>
@@ -1057,6 +1131,15 @@ namespace HospitalManagement.Migrations
                     b.Navigation("Supplier");
                 });
 
+            modelBuilder.Entity("HospitalManagement.Models.OutPatient", b =>
+                {
+                    b.HasOne("HospitalManagement.Models.Patients", "PatientName")
+                        .WithMany()
+                        .HasForeignKey("PatientNameId");
+
+                    b.Navigation("PatientName");
+                });
+
             modelBuilder.Entity("HospitalManagement.Models.PatientReport", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Doctor")
@@ -1072,26 +1155,41 @@ namespace HospitalManagement.Migrations
                     b.Navigation("Patient");
                 });
 
+            modelBuilder.Entity("HospitalManagement.Models.Patients", b =>
+                {
+                    b.HasOne("HospitalManagement.Models.Appointment", null)
+                        .WithMany("Patient")
+                        .HasForeignKey("AppointmentId");
+                });
+
             modelBuilder.Entity("HospitalManagement.Models.Prescription", b =>
                 {
-                    b.HasOne("HospitalManagement.Models.Doctors", "Doctor")
+                    b.HasOne("HospitalManagement.Models.Doctors", "Doctors")
                         .WithMany()
-                        .HasForeignKey("DoctorId");
+                        .HasForeignKey("DoctorsDoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("HospitalManagement.Models.Patients", "PatientName")
+                    b.HasOne("HospitalManagement.Models.Patients", "Patient")
                         .WithMany("Prescriptions")
-                        .HasForeignKey("PatientNameId");
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Doctor");
+                    b.Navigation("Doctors");
 
-                    b.Navigation("PatientName");
+                    b.Navigation("Patient");
                 });
 
             modelBuilder.Entity("HospitalManagement.Models.VitalSigns", b =>
                 {
-                    b.HasOne("HospitalManagement.Models.Patients", null)
+                    b.HasOne("HospitalManagement.Models.Patients", "Patient")
                         .WithMany("VitalSigns")
-                        .HasForeignKey("PatientsId");
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Patient");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -1145,47 +1243,16 @@ namespace HospitalManagement.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("HospitalManagement.Models.Doctors", b =>
-                {
-                    b.HasOne("HospitalManagement.Models.Appointment", null)
-                        .WithMany("Doctor")
-                        .HasForeignKey("AppointmentId");
-
-                    b.HasOne("HospitalManagement.Models.Prescription", null)
-                        .WithMany("Doctors")
-                        .HasForeignKey("PrescriptionId");
-                });
-
-            modelBuilder.Entity("HospitalManagement.Models.Laboratory", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Patient")
-                        .WithMany()
-                        .HasForeignKey("PatientId");
-
-                    b.Navigation("Patient");
-                });
-
-            modelBuilder.Entity("HospitalManagement.Models.OutPatient", b =>
-                {
-                    b.HasOne("HospitalManagement.Models.Patients", "PatientName")
-                        .WithMany()
-                        .HasForeignKey("PatientNameId");
-
-                    b.Navigation("PatientName");
-                });
-
-            modelBuilder.Entity("HospitalManagement.Models.Patients", b =>
-                {
-                    b.HasOne("HospitalManagement.Models.Appointment", null)
-                        .WithMany("Patient")
-                        .HasForeignKey("AppointmentId");
-                });
-
             modelBuilder.Entity("HospitalManagement.Models.Appointment", b =>
                 {
                     b.Navigation("Doctor");
 
                     b.Navigation("Patient");
+                });
+
+            modelBuilder.Entity("HospitalManagement.Models.Doctors", b =>
+                {
+                    b.Navigation("Department");
                 });
 
             modelBuilder.Entity("HospitalManagement.Models.Insurance", b =>
@@ -1203,21 +1270,9 @@ namespace HospitalManagement.Migrations
                     b.Navigation("MedicineReport");
                 });
 
-            modelBuilder.Entity("HospitalManagement.Models.Prescription", b =>
-                {
-                    b.Navigation("Doctors");
-                });
-
-            modelBuilder.Entity("HospitalManagement.Models.Supplier", b =>
-                {
-                    b.Navigation("MedicineReport");
-                });
-
             modelBuilder.Entity("HospitalManagement.Models.Patients", b =>
                 {
-                    b.Navigation("HospitalMngt");
-
-                    b.Navigation("LaboratoryResults");
+                    b.Navigation("LabResults");
 
                     b.Navigation("MedicalHistories");
 
@@ -1227,6 +1282,11 @@ namespace HospitalManagement.Migrations
                 });
 
             modelBuilder.Entity("HospitalManagement.Models.Pharmacy", b =>
+                {
+                    b.Navigation("MedicineReport");
+                });
+
+            modelBuilder.Entity("HospitalManagement.Models.Supplier", b =>
                 {
                     b.Navigation("MedicineReport");
                 });

@@ -56,7 +56,7 @@ namespace HospitalManagement.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TestPerformed,TestPerformedBy,Report,Id")] Laboratory laboratory)
+        public async Task<IActionResult> Create([Bind("PatientName,TestPerformedBy,Report,Id")] Laboratory laboratory)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace HospitalManagement.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TestPerformed,TestPerformedBy,Report,Id")] Laboratory laboratory)
+        public async Task<IActionResult> Edit(int id, [Bind("PatientName,TestPerformedBy,Report,Id")] Laboratory laboratory)
         {
             if (id != laboratory.Id)
             {

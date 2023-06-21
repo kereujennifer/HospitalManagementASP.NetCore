@@ -70,8 +70,7 @@ $(document).ready(function () {
             });
         }
     });
-});
-
+})
 
 
 const patientTypeDropdown = document.getElementById('PatientType');

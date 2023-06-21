@@ -1,3 +1,4 @@
+using HospitalManagement.Controllers;
 using HospitalManagement.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
@@ -13,6 +14,7 @@ builder.Services.AddDbContextPool<ApplicationDBContext>(
 
 builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders().AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDBContext>();
+builder.Services.AddScoped<PatientsController>();
 
 var app = builder.Build();
 
@@ -38,6 +40,7 @@ app.UseEndpoints(endpoints =>
       name: "areas",
       pattern: "{area:exists}/{controller=Home}/{action=Index=di}/{id?}"
     );
+   
 
 });
 

@@ -1,5 +1,7 @@
 ﻿@model Prescription
 
+@using (Html.BeginForm("SavePrescription", "Patient", FormMethod.Post))
+{
 <h2>Create Prescription</h2>
 
 <form asp-action="SavePrescriptions" method="post" asp-controller="PatientManagement">
@@ -8,10 +10,7 @@
         <input asp-for="MedicinePrescription" class="form-control" />
         <span asp-validation-for="MedicinePrescription" class="text-danger"></span>
     </div>
-    <div class="form-group">
-        <label asp-for="PatientName"></label>
-        <input asp-for="PatientName" class="form-control" readonly />
-    </div>
+  
     <div class="form-group">
         <label asp-for="Doctor"></label>
         <select asp-for="Doctor" class="form-control">
@@ -27,3 +26,4 @@
     <button type="submit" class="btn btn-primary">Create</button>
 </form>
 
+ }
