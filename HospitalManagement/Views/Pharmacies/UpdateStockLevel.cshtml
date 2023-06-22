@@ -1,0 +1,15 @@
+﻿@model Pharmacy
+
+<h1>Update Stock Level</h1>
+
+<form method="post" action="/Pharmacies/UpdateStockLevel">
+    <div class="form-group">
+        <label for="medicineName">Medicine Name</label>
+        <input type="text" class="form-control" id="medicineName" name="medicineName" required>
+    </div>
+    <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="number" class="form-control" id="quantity" name="quantity" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Stock</button>
+</form>

@@ -2,14 +2,30 @@
 
 @if (Model != null && Model.Count > 0)
 {
-    <ul>
+    <div class="row">
         @foreach (var medicalHistory in Model)
         {
-            <li>@medicalHistory.OnMedications</li>
-            <li>@medicalHistory.Allergies</li>
-
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Medical History</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>On Medications:</strong> @medicalHistory.OnMedications</li>
+                            <li class="list-group-item"><strong>Allergies:</strong> @medicalHistory.Allergies</li>
+                            <li class="list-group-item"><strong>Past Medical Conditions:</strong> @medicalHistory.PastMedicalConditions</li>
+                            <li class="list-group-item"><strong>Surgical Procedures:</strong> @medicalHistory.SurgicalProcedures</li>
+                            <li class="list-group-item"><strong>Family History:</strong> @medicalHistory.FamilyHistory</li>
+                            <li class="list-group-item"><strong>Social History:</strong> @medicalHistory.SocialHistory</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer mt-2">
+                        <a href="@Url.Action("Edit", new { id = medicalHistory.Id })" class="btn btn-primary">Edit</a>
+                        <a href="@Url.Action("Cancel", new { id = medicalHistory.Id })" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </div>
+            </div>
         }
-    </ul>
+    </div>
 }
 else
 {

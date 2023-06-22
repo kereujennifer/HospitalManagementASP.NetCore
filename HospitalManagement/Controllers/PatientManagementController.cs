@@ -21,22 +21,19 @@ namespace HospitalManagement.Controllers
             this.userManager = userManager;
             this.context = context;
         }
-
-        public async Task<IActionResult> MedicalHistory(int patientId)
+        public async Task<IActionResult> MedicalHistory(MedicalHistory model)
         {
-            // Retrieve the patient's medical history from the database
-            var medicalHistory = new MedicalHistory();
-            var patient = await context.Patient.FirstOrDefaultAsync(p => p.Id == patientId);
-            if (patient != null)
+            if (ModelState.IsValid)
             {
-                medicalHistory.Patient = patient;
-
-                // Save the lab results to the database
-                context.MedicalHistories.Add(medicalHistory);
+                // Save the medical history to the database
+                context.MedicalHistories.Add(model);
                 await context.SaveChangesAsync();
+
+                return RedirectToAction("Details", "PatientManagement", new { id = model.PatientId });
             }
 
-            return View(medicalHistory);
+            // If the model state is invalid, return the view with the invalid model
+            return View(model);
         }
 
         public async Task<IActionResult> Prescriptions(int patientId)

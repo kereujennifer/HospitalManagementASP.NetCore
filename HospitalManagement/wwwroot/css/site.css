@@ -22,9 +22,8 @@ html {
 */ /*min-height:100vh;*/
 /*}*/
 .landing-page {
-    background-color: white; 
+    background-color: white;
     height: 100vh;
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,6 +39,8 @@ html {
     .image-section img {
         max-height: 100%;
         max-width: 100%;
+        width: auto;
+        height: auto;
         object-fit: contain;
     }
 

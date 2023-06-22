@@ -15,8 +15,8 @@ namespace HospitalManagement.Models
     
         public String? Supplier { get; set; }
         public int UnitPrice { get; set; }
-        public int Total { get; set; }
-       
+        //public int Total { get; set; }
+
         public ICollection<MedicineReport>? MedicineReport { get; set; }
 
 

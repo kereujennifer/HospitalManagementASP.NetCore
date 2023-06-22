@@ -40,14 +40,22 @@ namespace HospitalManagement.Controllers
         {
             return _context.Pharmacy.Sum(p => p.Stock * p.UnitPrice);
         }
+        public int CalculateTotal()
+        {
+            return _context.Pharmacy.Sum(p => p.Stock * p.UnitPrice);
+        }
 
 
         // GET: Pharmacies
         public async Task<IActionResult> Index()
         {
-              return _context.Pharmacy != null ? 
+
+            int inventoryValue = CalculateInventoryValue();
+            ViewData["InventoryValue"] = inventoryValue;
+            return _context.Pharmacy != null ? 
                           View(await _context.Pharmacy.ToListAsync()) :
                           Problem("Entity set 'ApplicationDBContext.Pharmacy'  is null.");
+
         }
 
         // GET: Pharmacies/Details/5

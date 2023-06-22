@@ -1,0 +1,19 @@
+﻿@model List<Pharmacy>
+
+<h1>Out-of-Stock Medicines</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Medicine Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MedicineName</td>
+            </tr>
+        }
+    </tbody>
+</table>

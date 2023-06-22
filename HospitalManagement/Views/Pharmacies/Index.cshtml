@@ -2,78 +2,246 @@
 
 @{
     ViewData["Title"] = "Pharmacy";
+    int totalValue = 0;
+
 }
 
 <h1>Pharmacy</h1>
 
+
 <p>
     <a asp-action="Create" class="btn btn-primary">Create New</a>
 </p>
-<table class=" table table-striped ">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.MedicineName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Batch)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Manufacturer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ExpiryDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Stock)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Supplier)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UnitPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Total)
-            </th>
-            <th>
+<div class="card">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs" id="stockTabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="medicineStockTab" data-bs-toggle="tab" href="#medicineStock" role="tab" aria-controls="medicineStock" aria-selected="true">Medicine</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="outOfStockTab" data-bs-toggle="tab" href="#outOfStock" role="tab" aria-controls="outOfStock" aria-selected="false">Out-of-Stock Medicine</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="expiringMedicinesTab" data-bs-toggle="tab" href="#expiringMedicines" role="tab" aria-controls="expiringMedicines" aria-selected="false">Expiring Medicines</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="calculateInventoryTab" data-bs-toggle="tab" href="#calculateInventory" role="tab" aria-controls="calculateInventory" aria-selected="false">Calculate Inventory Value</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <div class="tab-content" id="stockTabContent">
+            <div class="tab-pane fade show active" id="medicineStock" role="tabpanel" aria-labelledby="medicineStockTab">
+                <div class="table-responsive">
 
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MedicineName)
-             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Batch)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Manufacturer)
-            </td>
-            <td>
-                    @Html.DisplayFor(modelItem => item.ExpiryDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Stock)
-            </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Supplier)
-                </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UnitPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Total)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a> 
-                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a> 
-                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                <table class=" table table-striped ">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.MedicineName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Batch)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Manufacturer)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ExpiryDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Stock)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Supplier)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.UnitPrice)
+                            </th>
+                           @* <th>
+                                @Html.DisplayNameFor(model => model.Total)
+                            </th>*@
+                            <th>
+
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MedicineName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Batch)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Manufacturer)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ExpiryDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Stock)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Supplier)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UnitPrice)
+                                </td>
+                             @*   <td>
+                                    @Html.DisplayFor(modelItem => item.Total)
+                                </td>*@
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                </div>
+            </div>
+         @*   <div class="tab-pane fade" id="updateStock" role="tabpanel" aria-labelledby="updateStockTab">
+                <form method="post" action="/Pharmacies/UpdateStockLevel">
+                    <div class="form-group">
+                        <label for="medicineName">Medicine Name</label>
+                        <input type="text" class="form-control" id="medicineName" name="medicineName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" class="form-control" id="quantity" name="quantity" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Stock</button>
+                </form>*@
+            <div class="tab-pane fade" id="outOfStock" role="tabpanel" aria-labelledby="outOfStockTab">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Medicine Name</th>
+                            <th>Remaining Stock</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            @if (item.Stock < 10)
+                            {
+                                <tr>
+                                    <td>@item.MedicineName</td>
+                                    <td>@item.Stock</td>
+
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="expiringMedicines" role="tabpanel" aria-labelledby="expiringMedicinesTab">
+
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Medicine Name</th>
+                            <th>Expiry Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            // Calculate the current month and the one month after
+                            var currentMonth = DateTime.Now.Month;
+                            var nextMonth = currentMonth + 1;
+                            if (nextMonth > 12)
+                            {
+                                nextMonth = 1; // Handle overflow to next year
+                            }
+
+                            // Get the expiry month of the item
+                            var expiryMonth = item.ExpiryDate.Value.Month;
+
+                            // Check if the expiry month is one month after the current month
+                            if (expiryMonth == nextMonth)
+                            {
+                                <tr>
+                                    <td>@item.MedicineName</td>
+                                    <td>@item.ExpiryDate</td>
+                                    <!-- Add more table cells if needed -->
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="calculateInventory" role="tabpanel" aria-labelledby="calculateInventoryTab">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Medicine Name</th>
+                            <th>Unit Price</th>
+                            <th>Stock</th>
+                            <th>Total</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.MedicineName</td>
+                        <td>@item.UnitPrice</td>
+                        <td>@item.Stock</td>
+                        <td>@(item.UnitPrice * item.Stock)</td>
+                    </tr>
+                            totalValue += item.UnitPrice * item.Stock;
+
+                }
+                        <tr>
+                            <td colspan="4">Total Value: @totalValue</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get all tab links
+        const tabLinks = document.querySelectorAll('.nav-link');
+
+        // Add click event listeners to each tab link
+        tabLinks.forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                // Remove 'active' class from all tab links
+                tabLinks.forEach(function (link) {
+                    link.classList.remove('active');
+                });
+
+                // Add 'active' class to the clicked tab link
+                this.classList.add('active');
+
+                // Get the target tab pane
+                const targetId = this.getAttribute('href');
+                const targetPane = document.querySelector(targetId);
+
+                // Remove 'show' class from all tab panes
+                const allPanes = document.querySelectorAll('.tab-pane');
+                allPanes.forEach(function (pane) {
+                    pane.classList.remove('show');
+                });
+
+                // Add 'show' class to the target tab pane
+                targetPane.classList.add('show');
+            });
+        });
+    });
+</script>

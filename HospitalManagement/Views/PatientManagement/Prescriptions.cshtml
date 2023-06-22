@@ -1,10 +1,8 @@
 ﻿@model Prescription
 
-@using (Html.BeginForm("SavePrescription", "Patient", FormMethod.Post))
-{
-<h2>Create Prescription</h2>
 
-<form asp-action="SavePrescriptions" method="post" asp-controller="PatientManagement">
+
+<form method="post" asp-controller="PatientManagement">
     <div class="form-group">
         <label asp-for="MedicinePrescription"></label>
         <input asp-for="MedicinePrescription" class="form-control" />
@@ -26,4 +24,4 @@
     <button type="submit" class="btn btn-primary">Create</button>
 </form>
 
- }
+ 

@@ -1,0 +1,21 @@
+﻿@model List<Pharmacy>
+
+<h1>Expiring Medicines</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Medicine Name</th>
+            <th>Expiry Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MedicineName</td>
+                <td>@item.ExpiryDate</td>
+            </tr>
+        }
+    </tbody>
+</table>
