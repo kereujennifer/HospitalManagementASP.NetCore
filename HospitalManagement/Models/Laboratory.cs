@@ -5,7 +5,7 @@ namespace HospitalManagement.Models
     public class Laboratory 
     {
         public int Id { get; set; }
-        public string? RegistrationNumber { get; set; }
+        //public string? RegistrationNumber { get; set; }
         public string? PatientName { get; set; }
         public string? TestPerformedBy { get; set; }
         public string? Report { get; set; }
@@ -14,7 +14,7 @@ namespace HospitalManagement.Models
 
         public string? TestType { get; set; }
         public string? Equipment { get; set; }
-        public IdentityUser? Patient { get; set; }
+        public Patients Patient { get; set; }
 
         public DateTime OrderDate { get; set; }
 

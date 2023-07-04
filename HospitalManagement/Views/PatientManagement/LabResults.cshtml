@@ -1,6 +1,7 @@
 ﻿@model HospitalManagement.Models.LabResults
 
-<form  method="post" asp-controller="PatientManagement">
+<form method="post" asp-controller="PatientManagement" asp-action="LabResults" asp-route-patientId="@Model.Patient.Id">
+
     <div class="form-group">
         <label asp-for="TestPerformed">Test Performed:</label>
         <input asp-for="TestPerformed" id="TestPerformed" class="form-control" />

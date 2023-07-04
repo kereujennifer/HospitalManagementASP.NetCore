@@ -33,15 +33,14 @@
                 {
                     <div class="card mb-4">
                         <div class="card-header">
-                            @Html.DisplayFor(modelItem => item.PatientName)
-                        </div>
+Test Order                         </div>
                         <div class="card-body">
                             <table class="table">
                                 <tbody>
-                                    <tr>
+                                   @* <tr>
                                         <th>Registration Number:</th>
                                         <td>@Html.DisplayFor(modelItem => item.RegistrationNumber)</td>
-                                    </tr>
+                                    </tr>*@
                                     <tr>
                                         <th>Order Date:</th>
                                         <td>@Html.DisplayFor(modelItem => item.OrderDate)</td>
@@ -134,16 +133,16 @@
                 {
                     <div class="card mb-4">
                         <div class="card-header">
-                            @Html.DisplayFor(modelItem => item.PatientName)
+                            Sample Analysis
                         </div>
                         <div class="card-body">
                             <table class="table">
                                 <tbody>
                                     <!-- Other table rows for sample analysis details -->
                                     <tr>
-                                        <th>Registration Number:</th>
-                                        <td>@Html.DisplayFor(modelItem => item.RegistrationNumber)</td>
-                                    </tr>
+                                        <th>Sample Taken:</th>
+@*                                        <td>@Html.DisplayFor(modelItem => item.RegistrationNumber)</td>
+*@                                    </tr>
                                     <!-- Add other columns specific to the Sample Analysis here -->
                                 </tbody>
                             </table>
@@ -171,9 +170,9 @@
                             <table class="table">
                                 <tbody>
                                     <tr>
-                                        <th>Registration Number:</th>
-                                        <td>@Html.DisplayFor(modelItem => item.RegistrationNumber)</td>
-                                    </tr>
+                                        <th>Patient Name:</th>
+@*                                        <td>@Html.DisplayFor(modelItem => item.RegistrationNumber)</td>
+*@                                    </tr>
                                     <!-- Add other columns specific to the Patient List here -->
                                 </tbody>
                             </table>

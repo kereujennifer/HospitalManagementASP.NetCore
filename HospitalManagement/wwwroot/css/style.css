@@ -22,16 +22,18 @@ body {
     margin-top: 6rem !important;
     position: relative;
     margin: 1rem 3rem;
-    width: 100%
+    width: 100%;
+    margin-bottom: 6rem !important;
 }
 .Side-navigation {
     position: fixed;
-    height: 1080px;
+    height: 1280px;
     width: 270px;
     background: #213373;
     overflow-x: hidden;
     transition: width 0.5s;
-    margin-top: 4rem;
+    margin-top: 3rem;
+    margin-bottom : 6rem !important;
 }
 
     .Side-navigation ul {
@@ -139,7 +141,7 @@ body {
     .Side-navigation {
         position: relative;
         height: 2000px;
-        width: 70px;
+        width: 140px;
         background: #213373;
         overflow-x: hidden;
         transition: width 0.5s;

@@ -3,7 +3,7 @@ using System.Xml.Linq;
 
 namespace HospitalManagement.Models
 {
-	public class MedicalHistory
+	public class MedicalHistories
 	{
         public int Id { get; set; }
         public int PatientId { get; set; }
@@ -19,7 +19,7 @@ namespace HospitalManagement.Models
 
 
 
-        public Patients Patient { get; set; }
+        public Patients? Patient { get; set; }
 
         public string? FamilyHistory { get; set; }
 

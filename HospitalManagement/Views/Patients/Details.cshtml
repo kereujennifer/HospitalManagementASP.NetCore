@@ -8,92 +8,92 @@
 <h1>Patient Details</h1>
 
 
-    <div class="col-md-12" p="2" >
-        <div class="card mb-4">
-    <h4>Patients</h4>
-    @using (Html.BeginForm())
-    {
-        
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label col-form-label-sm">
-                            @Html.DisplayNameFor(model => model.Patient.RegistrationNumber)
-                    </label>
-                    <div class="col-sm-8">
-                        @Html.DisplayFor(model => model.RegistrationNumber)
-                    </div>
-                    </div>
-                    <div class="form-group row">
-                    <label class="col-sm-4 col-form-label col-form-label-sm">
-                            @Html.DisplayNameFor(model => model.Patient.FirstName)
-                    </label>
-                    <div class="col-sm-8">
-                            @Html.DisplayFor(model => model.Patient.FirstName)
-                    </div>
-                </div> 
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label col-form-label-sm">
-                            @Html.DisplayNameFor(model => model.Patient.LastName)
-                    </label>
-                    <div class="col-sm-8">
-                        @Html.DisplayFor(model => model.Patient.LastName)
+<div class="col-md-12" p="2">
+    <div class="card mb-4">
+        @using (Html.BeginForm())
+        {
+            <div class="card-body">
+                <h5 class="card-title">Patient Information</h5>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label col-form-label-sm">
+                                @Html.DisplayNameFor(model => model.Patient.RegistrationNumber)
+                            </label>
+                            <div class="col-sm-8">
+                                @Html.DisplayFor(model => model.RegistrationNumber)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label col-form-label-sm">
+                                @Html.DisplayNameFor(model => model.Patient.FirstName)
+                            </label>
+                            <div class="col-sm-8">
+                                @Html.DisplayFor(model => model.Patient.FirstName)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label col-form-label-sm">
+                                @Html.DisplayNameFor(model => model.Patient.LastName)
+                            </label>
+                            <div class="col-sm-8">
+                                @Html.DisplayFor(model => model.Patient.LastName)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label col-form-label-sm">
+                                @Html.DisplayNameFor(model => model.Patient.Phone)
+                            </label>
+                            <div class="col-sm-8">
+                                @Html.DisplayFor(model => model.Patient.Phone)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label col-form-label-sm">
+                                @Html.DisplayNameFor(model => model.Patient.Address)
+                            </label>
+                            <div class="col-sm-8">
+                                @Html.DisplayFor(model => model.Patient.Address)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label col-form-label-sm">
+                                @Html.DisplayNameFor(model => model.Patient.Age)
+                            </label>
+                            <div class="col-sm-8">
+                                @Html.DisplayFor(model => model.Patient.Age)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label col-form-label-sm">
+                                @Html.DisplayNameFor(model => model.Patient.Gender)
+                            </label>
+                            <div class="col-sm-8">
+                                @Html.DisplayFor(model => model.Patient.Gender)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label col-form-label-sm">
+                                @Html.DisplayNameFor(model => model.Patient.NextOfKin)
+                            </label>
+                            <div class="col-sm-8">
+                                @Html.DisplayFor(model => model.Patient.NextOfKin)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label col-form-label-sm">
+                                @Html.DisplayNameFor(model => model.Patient.NextOfKinPhone)
+                            </label>
+                            <div class="col-sm-8">
+                                @Html.DisplayFor(model => model.Patient.NextOfKinPhone)
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label col-form-label-sm">
-                        @Html.DisplayNameFor(model => model.Patient.Phone)
-                    </label>
-                    <div class="col-sm-8">
-                            @Html.DisplayFor(model => model.Patient.Phone)
-                    </div>
                 </div>
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label col-form-label-sm">
-                        @Html.DisplayNameFor(model => model.Patient.Address)
-                    </label>
-                    <div class="col-sm-8">
-                        @Html.DisplayFor(model => model.Patient.Address)
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label col-form-label-sm">
-                        @Html.DisplayNameFor(model => model.Patient.Age)
-                    </label>
-                    <div class="col-sm-8">
-                        @Html.DisplayFor(model => model.Patient.Age)
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label col-form-label-sm">
-                            @Html.DisplayNameFor(model => model.Patient.Gender)
-                    </label>
-                    <div class="col-sm-8">
-                        @Html.DisplayFor(model => model.Patient.Gender)
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label col-form-label-sm">
-                        @Html.DisplayNameFor(model => model.Patient.NextOfKin)
-                    </label>
-                    <div class="col-sm-8">
-                            @Html.DisplayFor(model => model.Patient.NextOfKin)
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label col-form-label-sm">
-                        @Html.DisplayNameFor(model => model.Patient.NextOfKinPhone)
-                    </label>
-                    <div class="col-sm-8">
-                            @Html.DisplayFor(model => model.Patient.NextOfKinPhone)
-                    </div>
-                </div>
-                 </div>
-            </div>
-           
-            }
+        }
     </div>
-    </div>
+</div>
 
 <div class="col-md-12">
     <div class="card text-center">
@@ -120,27 +120,27 @@
             <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <!-- Include the _VitalSigns partial view -->
                 @Html.Partial("_VitalSigns", Model.VitalSigns)
-                <a asp-action="VitalSigns" asp-controller="PatientManagement" id="addVitalSignsButton" class="btn btn-primary">Add New Vital Signs</a>
+                <a asp-action="VitalSigns" asp-controller="PatientManagement" id="addVitalSignsButton" class="btn btn-primary" asp-route-patientId="@Model.Patient.Id">Add New Vital Signs</a>
             </div>
 
             <div class="tab-pane" id="medicalhistories" role="tabpanel" aria-labelledby="medicalhistories-tab">
                 <!-- Include the _MedicalHistory partial view -->
                 @Html.Partial("_MedicalHistory", Model.MedicalHistories)
-                <a asp-action="MedicalHistory" asp-controller="PatientManagement" id="addMedicalHistoryButton" class="btn btn-primary">Add Medical History</a>
+                <a asp-action="MedicalHistory" asp-controller="PatientManagement" id="addMedicalHistoryButton" class="btn btn-primary" asp-route-PatientId="@Model.Patient.Id">Add Medical History</a>
 
             </div>
 
             <div class="tab-pane" id="prescriptions" role="tabpanel" aria-labelledby="prescriptions-tab">
                 <!-- Include the _Prescriptions partial view -->
                 @Html.Partial("_Prescriptions", Model.Prescriptions)
-                <a asp-action="Prescriptions" asp-controller="PatientManagement" id="addPrescriptionButton" class="btn btn-primary">Add New Prescription</a>
+                <a asp-action="Prescriptions" asp-controller="PatientManagement" id="addPrescriptionButton" class="btn btn-primary" asp-route-PatientId="@Model.Patient.Id">Add New Prescription</a>
 
             </div>
 
             <div class="tab-pane" id="laboratoryresults" role="tabpanel" aria-labelledby="laboratoryresults-tab">
                 <!-- Include the _LabResults partial view -->
                 @Html.Partial("_LabResults", Model.LabResults)
-                <a asp-action="LabResults" asp-controller="PatientManagement" id="addLabResultsButton" class="btn btn-primary">Add New Lab Results</a>
+                <a asp-action="LabResults" asp-controller="PatientManagement" id="addLabResultsButton" class="btn btn-primary" asp-route-PatientId="@Model.Patient.Id">Add New Lab Results</a>
 
             </div>
         </div>

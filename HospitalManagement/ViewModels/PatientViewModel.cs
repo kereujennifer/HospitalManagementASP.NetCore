@@ -8,7 +8,7 @@ namespace HospitalManagement.ViewModels
     public class PatientViewModel
     {
      
-
+        public int Id { get; set; }
         public DateTime RegDate { get; set; }
 
         public string? FirstName { get; set; }
@@ -47,7 +47,7 @@ namespace HospitalManagement.ViewModels
         public string? PatientType { get; set; }
         public string RegistrationNumber { get; set; }
         public Patients Patient { get; set; }
-        public List<MedicalHistory> MedicalHistories { get; set; } = new List<MedicalHistory>();
+        public List<MedicalHistories> MedicalHistories { get; set; } = new List<MedicalHistories>();
         public List<Prescription> Prescriptions { get; set; } = new List<Prescription>();
         public List<LabResults> LabResults { get; set; } = new List<LabResults>();
         public List<VitalSigns> VitalSigns { get; set; } = new List<VitalSigns>();

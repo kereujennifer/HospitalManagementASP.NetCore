@@ -118,19 +118,53 @@ namespace HospitalManagement.Controllers
         // GET: Patients/Create
         public IActionResult Create()
         {
+            List<Doctors> doctors = _context.Doctors.ToList();
+
+            // Create a list of SelectListItems to be used for the dropdown
+            List<SelectListItem> doctorList = doctors
+                .Select(d => new SelectListItem { Value = d.DoctorId.ToString(), Text = d.LastName })
+                .ToList();
+
+            // Pass the doctorList to the view
+            ViewBag.DoctorList = doctorList;
+
             return View();
         }
+      
 
         // POST: Patients/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RegistrationNumber,Age,Gender,NextOfKin,NextOfKinPhone,Id,FirstName,LastName,Phone,Address")] Patients patients)
+        public async Task<IActionResult> Create([Bind("RegistrationNumber,Age,Gender,NextOfKin,NextOfKinPhone,Id,FirstName,LastName,Phone,Address,AssignedDoctor,GetDoctors")] Patients patients)
         {
             if (ModelState.IsValid)
             {
+                if (int.TryParse(Request.Form["AssignedDoctor"], out int doctorId))
+                {
+                    // Retrieve the selected doctor from the database
+                    Doctors selectedDoctor = await _context.Doctors.FindAsync(doctorId);
 
+                    // Assign the selected doctor ID to the patient
+                    if (selectedDoctor != null)
+                    {
+                        patients.AssignedDoctorId = selectedDoctor.DoctorId;
+                    }
+                }
+
+                // Retrieve the list of doctors from the database
+                var doctors = await _context.Doctors.ToListAsync();
+
+                // Create a list of SelectListItem objects
+                var doctorList = doctors.Select(d => new SelectListItem
+                {
+                    Value = d.DoctorId.ToString(), // Use the doctor's ID as the value
+                    Text = $"{d.DoctorId} - {d.LastName}" // Display the ID and last name
+                }).ToList();
+
+                // Pass the doctorList to the view
+                ViewBag.DoctorList = doctorList;
 
                 Patients.RegistrationNumberCounter++;
                 patients.RegistrationNumber = $"HMS-{DateTime.Now.Year % 100}-{Patients.RegistrationNumberCounter:0000}";
@@ -139,8 +173,14 @@ namespace HospitalManagement.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            
+
             return View(patients);
         }
+
+
+
 
         // GET: Patients/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -163,7 +203,7 @@ namespace HospitalManagement.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("RegistrationNumber,Age,Gender,NextOfKin,NextOfKinPhone,Id,FirstName,LastName,Phone,Address")] Patients patients)
+        public async Task<IActionResult> Edit(int id, [Bind("RegistrationNumber,Age,Gender,NextOfKin,NextOfKinPhone,Id,FirstName,LastName,Phone,Address,AssignedDoctor")] Patients patients)
         {
             if (id != patients.Id)
             {

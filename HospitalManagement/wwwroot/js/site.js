@@ -42,6 +42,12 @@ if (sidebarMenu) {
     const elem = document.getElementById(sidebarMenu);
     elem.classList.add('active');
 }
+
+
+    $(document).ready(function() {
+        $('.table').DataTable();
+    });
+
 $(document).ready(function () {
     $('#calendar').fullCalendar({
         header: {
@@ -73,27 +79,24 @@ $(document).ready(function () {
 })
 
 
-const patientTypeDropdown = document.getElementById('PatientType');
-const wardNumberField = document.getElementById('ward-number-field');
-const bedNumberField = document.getElementById('bed-number-field');
-const floorNumberField = document.getElementById('floor-number-field');
-const wardCategoryField = document.getElementById('ward-category-field');
+// Function to show or hide the "Parent/Guardian Name" field based on the value of "UnderEighteen"
+function toggleParentGuardianField() {
+    var underEighteen = document.getElementById('UnderEighteen').checked;
+    var parentGuardianField = document.getElementById('parentGuardianField');
 
-// Show/hide the conditional fields based on the selected patient type
-patientTypeDropdown.addEventListener('change', function () {
-    if (patientTypeDropdown.value === 'Inpatient') {
-        wardNumberField.style.display = 'block';
-        bedNumberField.style.display = 'block';
-        floorNumberField.style.display = 'block';
-        wardCategoryField.style.display = 'block';
-    } else if (patientTypeDropdown.value === 'Outpatient') {
-        wardNumberField.style.display = 'none';
-        bedNumberField.style.display = 'none';
-        floorNumberField.style.display = 'none';
-        wardCategoryField.style.display = 'none';
+    if (underEighteen) {
+        parentGuardianField.style.display = 'block'; // Show the field
+    } else {
+        parentGuardianField.style.display = 'none'; // Hide the field
     }
-});
+}
 
+// Attach event listener to the "UnderEighteen" checkbox
+var underEighteenCheckbox = document.getElementById('UnderEighteen');
+underEighteenCheckbox.addEventListener('change', toggleParentGuardianField);
+
+// Call the function on page load to ensure the initial state is correct
+toggleParentGuardianField();
 // get all the dropdown links
 var dropdownLinks = document.querySelectorAll('.nav-item.dropdown .nav-link.dropdown-toggle');
 

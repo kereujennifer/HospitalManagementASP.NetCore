@@ -1,9 +1,8 @@
-﻿@model MedicalHistory
+﻿@model MedicalHistories
 
-<form method="post" asp-controller="PatientManagement">
+<form asp-controller="PatientManagement" asp-action="MedicalHistory" asp-route-patientId="@Model.Patient.Id" method="post">
     <div class="form-group">
-        <input type="hidden" name="PatientId" value="@Model.PatientId" />
-
+        
     </div>
     <div class="form-group">
         <label for="Allergies">Allergies:</label>
@@ -30,7 +29,7 @@
         <input type="text" class="form-control" id="SocialHistory" asp-for="SocialHistory" />
     </div>
 
- 
-    <button type="submit" class="btn btn-primary">Save</button>
+
+    <button type="submit" class="btn btn-primary asp-route">Save</button>
     <button type="button" class="btn btn-secondary">Cancel</button>
 </form>

@@ -5,12 +5,7 @@
 }
 
 <h1>Patients</h1>
-<form method="get" action="@Url.Action("Index", "Patients")">
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" name="searchQuery" placeholder="Search by name or ID" value="@ViewBag.SearchQuery">
-        <button class="btn btn-primary" type="submit">Search</button>
-    </div>
-</form>
+
 <div class="table-responsive">
 <p>
     <a asp-action="Create" class="btn btn-primary">Create New</a>

@@ -7,6 +7,7 @@ namespace HospitalManagement.Data
 {
     public class ApplicationDBContext : IdentityDbContext
     {
+       
         public ApplicationDBContext(DbContextOptions options) : base(options)
         {
             
@@ -33,7 +34,7 @@ namespace HospitalManagement.Data
 
         public DbSet<HospitalManagement.Models.VitalSigns>? VitalSigns { get; set; }
 
-        public DbSet<MedicalHistory>? MedicalHistories { get; set; }
+        public DbSet<MedicalHistories>? MedicalHistories { get; set; }
 
         public DbSet<HospitalManagement.Models.LabResults>? LabResults { get; set; }
 
@@ -42,6 +43,10 @@ namespace HospitalManagement.Data
         public DbSet<HospitalManagement.Models.HospitalMngt>? HospitalMngt { get; set; }
 
         public DbSet<HospitalManagement.Models.Department> Department { get; set; }
+        public DbSet<HospitalManagement.Models.Staff> Staff { get; set; }
+      
+
+
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{

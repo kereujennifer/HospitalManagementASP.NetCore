@@ -22,8 +22,9 @@ namespace HospitalManagement.Models
         public string? Speciality { get; set; }
         public string DepartmentName { get;  set; }
 
+       
         public List<Department>? Department { get; set; }
-
+        public List<Patients> Patients { get; set; }
 
     }
 }

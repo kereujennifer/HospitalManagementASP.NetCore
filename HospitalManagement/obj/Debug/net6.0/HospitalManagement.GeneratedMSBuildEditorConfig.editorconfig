@@ -16,10 +16,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\hp\source\repos\ASP.Net -Projects\HospitalManagement
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Component.razor]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcG9uZW50LnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Areas/Identity/Pages/Account/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -506,6 +502,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Shared/_VitalSigns.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WaXRhbFNpZ25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Staffs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Staffs/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Staffs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Staffs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Staffs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Suppliers/Create.cshtml]

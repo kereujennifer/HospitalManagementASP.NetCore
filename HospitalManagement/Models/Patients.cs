@@ -70,14 +70,39 @@ namespace HospitalManagement.Models
         public string? WardNumber { get; set; }
         public string? FloorNumber { get; set; }
         public string? BedNumber { get; set; }
+        public DateTime? CheckedInDate { get; set; }
         public string? PatientType { get; set; }
+        public DateTime? CheckedOutDate { get; set; }
+        public string? AssignedDoctor { get; set; }
+        public int AssignedDoctorId { get; set; }
 
-        
+        public void AssignDoctor(string doctorName)
+        {
+            AssignedDoctor = doctorName;
+        }
+
+        public TimeSpan CalculateLengthOfStay()
+        {
+            if (CheckedOutDate.HasValue)
+            {
+                return (TimeSpan)(CheckedOutDate.Value - CheckedInDate);
+            }
+            else
+            {
+                return TimeSpan.Zero;
+            }
+        }
+
+        public void Discharge()
+        {
+            CheckedOutDate = DateTime.Now;
+        }
+
         public List<LabResults>? LabResults { get; set; }
-        public List<MedicalHistory>? MedicalHistories { get; set; }
+        public List<MedicalHistories>? MedicalHistories { get; set; }
         public List<Prescription>? Prescriptions { get; set; }
         public List<VitalSigns>? VitalSigns { get; set; }
-
+        public List<Doctors>? GetDoctors { get; set; }
 
 
 

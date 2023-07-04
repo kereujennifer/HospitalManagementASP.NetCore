@@ -2,14 +2,30 @@
 
 @if (Model != null && Model.Count > 0)
 {
-    <ul>
-        @foreach (var labResult in Model)
+      <div class="row">
+        @foreach (var labResults in Model)
         {
-            <li>@labResult.Report</li>
-            
+            <div class="col-md-4">
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Lab Results</h5>
+            <ul class="list-group">
+                        <li class="list-group-item"><strong>Test Performed:</strong> @labResults.TestPerformed</li>
+                        <li class="list-group-item"><strong>Test Performed By:</strong> @labResults.TestPerformedBy</li>
+                        <li class="list-group-item"><strong>Report:</strong> @labResults.Report</li>
+            </ul>
+        </div>
+                    <div class="card-footer mt-2">
+                        <a href="@Url.Action("Edit", new { id = labResults.Id })" class="btn btn-primary">Edit</a>
+                        <a href="@Url.Action("Cancel", new { id = labResults.Id })" class="btn btn-secondary">Cancel</a>
+                    </div>
+    </div>
+            </div>
 
         }
-    </ul>
+    </div>
+        
 }
 else
 {

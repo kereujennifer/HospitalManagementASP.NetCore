@@ -22,6 +22,21 @@ namespace HospitalManagement.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("DoctorsPatients", b =>
+                {
+                    b.Property<int>("GetDoctorsDoctorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PatientsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("GetDoctorsDoctorId", "PatientsId");
+
+                    b.HasIndex("PatientsId");
+
+                    b.ToTable("DoctorsPatients");
+                });
+
             modelBuilder.Entity("HospitalManagement.Models.Appointment", b =>
                 {
                     b.Property<int>("Id")
@@ -242,16 +257,13 @@ namespace HospitalManagement.Migrations
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("PatientId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("PatientId")
+                        .HasColumnType("int");
 
                     b.Property<string>("PatientName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Priority")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RegistrationNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Report")
@@ -305,10 +317,6 @@ namespace HospitalManagement.Migrations
                     b.Property<int>("PatientId")
                         .HasColumnType("int");
 
-                    b.Property<string>("RegistrationNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Report")
                         .HasColumnType("nvarchar(max)");
 
@@ -325,7 +333,7 @@ namespace HospitalManagement.Migrations
                     b.ToTable("LabResults");
                 });
 
-            modelBuilder.Entity("HospitalManagement.Models.MedicalHistory", b =>
+            modelBuilder.Entity("HospitalManagement.Models.MedicalHistories", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -613,6 +621,12 @@ namespace HospitalManagement.Migrations
                     b.Property<int?>("AppointmentId")
                         .HasColumnType("int");
 
+                    b.Property<string>("AssignedDoctor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("AssignedDoctorId")
+                        .HasColumnType("int");
+
                     b.Property<string>("BMI")
                         .HasColumnType("nvarchar(max)");
 
@@ -621,6 +635,12 @@ namespace HospitalManagement.Migrations
 
                     b.Property<string>("BloodPressure")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CheckedInDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("CheckedOutDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("DateDispensed")
                         .HasColumnType("nvarchar(max)");
@@ -752,10 +772,7 @@ namespace HospitalManagement.Migrations
                     b.Property<DateTime?>("DateDispensed")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Doctor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("DoctorsDoctorId")
+                    b.Property<int>("DoctorsId")
                         .HasColumnType("int");
 
                     b.Property<string>("MedicinePrescription")
@@ -764,17 +781,37 @@ namespace HospitalManagement.Migrations
                     b.Property<int>("PatientId")
                         .HasColumnType("int");
 
-                    b.Property<string>("RegistrationNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("DoctorsDoctorId");
+                    b.HasIndex("DoctorsId");
 
                     b.HasIndex("PatientId");
 
                     b.ToTable("Prescriptions");
+                });
+
+            modelBuilder.Entity("HospitalManagement.Models.Staff", b =>
+                {
+                    b.Property<int>("StaffId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StaffId"), 1L, 1);
+
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StaffType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("StaffId");
+
+                    b.HasIndex("DepartmentId");
+
+                    b.ToTable("Staff");
                 });
 
             modelBuilder.Entity("HospitalManagement.Models.Supplier", b =>
@@ -821,10 +858,6 @@ namespace HospitalManagement.Migrations
 
                     b.Property<int>("PatientId")
                         .HasColumnType("int");
-
-                    b.Property<string>("RegistrationNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Temperature")
                         .HasColumnType("nvarchar(max)");
@@ -1041,6 +1074,21 @@ namespace HospitalManagement.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("DoctorsPatients", b =>
+                {
+                    b.HasOne("HospitalManagement.Models.Doctors", null)
+                        .WithMany()
+                        .HasForeignKey("GetDoctorsDoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HospitalManagement.Models.Patients", null)
+                        .WithMany()
+                        .HasForeignKey("PatientsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("HospitalManagement.Models.Bill", b =>
                 {
                     b.HasOne("HospitalManagement.Models.Insurance", "Insurance")
@@ -1072,9 +1120,11 @@ namespace HospitalManagement.Migrations
 
             modelBuilder.Entity("HospitalManagement.Models.Laboratory", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Patient")
+                    b.HasOne("HospitalManagement.Models.Patients", "Patient")
                         .WithMany()
-                        .HasForeignKey("PatientId");
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Patient");
                 });
@@ -1090,7 +1140,7 @@ namespace HospitalManagement.Migrations
                     b.Navigation("Patient");
                 });
 
-            modelBuilder.Entity("HospitalManagement.Models.MedicalHistory", b =>
+            modelBuilder.Entity("HospitalManagement.Models.MedicalHistories", b =>
                 {
                     b.HasOne("HospitalManagement.Models.Patients", "Patient")
                         .WithMany("MedicalHistories")
@@ -1159,7 +1209,7 @@ namespace HospitalManagement.Migrations
                 {
                     b.HasOne("HospitalManagement.Models.Doctors", "Doctors")
                         .WithMany()
-                        .HasForeignKey("DoctorsDoctorId")
+                        .HasForeignKey("DoctorsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1172,6 +1222,17 @@ namespace HospitalManagement.Migrations
                     b.Navigation("Doctors");
 
                     b.Navigation("Patient");
+                });
+
+            modelBuilder.Entity("HospitalManagement.Models.Staff", b =>
+                {
+                    b.HasOne("HospitalManagement.Models.Department", "Department")
+                        .WithMany("StaffMembers")
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Department");
                 });
 
             modelBuilder.Entity("HospitalManagement.Models.VitalSigns", b =>
@@ -1241,6 +1302,11 @@ namespace HospitalManagement.Migrations
                     b.Navigation("Doctor");
 
                     b.Navigation("Patient");
+                });
+
+            modelBuilder.Entity("HospitalManagement.Models.Department", b =>
+                {
+                    b.Navigation("StaffMembers");
                 });
 
             modelBuilder.Entity("HospitalManagement.Models.Doctors", b =>

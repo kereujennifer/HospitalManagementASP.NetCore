@@ -11,6 +11,7 @@ namespace HospitalManagement.Models
 
         public string DepartmentName { get; set;}
         public string Description { get; set; }
+        public List<Staff>? StaffMembers { get; set; } // Navigation property
 
     }
 }
