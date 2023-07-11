@@ -6,21 +6,26 @@
     ViewData["Title"] = "New Laboratory Results";
 }
 
-<h1>New Laboratory Results</h1>
 
 <h4>Laboratory</h4>
 <hr />
+<form asp-action="Create">
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+    
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 
             </div>
             <div class="form-group">
-                <label asp-for="TestPerformedBy" class="control-label"></label>
-                <input asp-for="TestPerformedBy" class="form-control" />
-                <span asp-validation-for="TestPerformedBy" class="text-danger"></span>
+                <label asp-for="Test" class="control-label"></label>
+                <input asp-for="Test" class="form-control" />
+                <span asp-validation-for="Test" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TestName" class="control-label"></label>
+                <input asp-for="TestName" class="form-control" />
+                <span asp-validation-for="TestName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Report" class="control-label"></label>
@@ -28,15 +33,68 @@
                 <span asp-validation-for="Report" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label asp-for="OrderDate" class="control-label"></label>
+                <input asp-for="OrderDate" class="form-control" />
+                <span asp-validation-for="OrderDate" class="text-danger"></span>
             </div>
-        </form>
+            <div class="form-group">
+                <label asp-for="Priority" class="control-label"></label>
+                <input asp-for="Priority" class="form-control" />
+                <span asp-validation-for="Priority" class="text-danger"></span>
+            </div>
+            </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label asp-for="CollectionMethod" class="control-label"></label>
+                <input asp-for="CollectionMethod" class="form-control" />
+                <span asp-validation-for="CollectionMethod" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CollectionDate" class="control-label"></label>
+                <input asp-for="CollectionDate" class="form-control" />
+                <span asp-validation-for="CollectionDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CollectionInstructions" class="control-label"></label>
+                <input asp-for="CollectionInstructions" class="form-control" />
+                <span asp-validation-for="CollectionInstructions" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CollectionSite" class="control-label"></label>
+                <input asp-for="CollectionSite" class="form-control" />
+                <span asp-validation-for="CollectionSite" class="text-danger"></span>
+        </div>
     </div>
-</div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="SpecimenCollectionDetails" class="control-label"></label>
+                <input asp-for="SpecimenCollectionDetails" class="form-control" />
+                <span asp-validation-for="SpecimenCollectionDetails" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SpecimenType" class="control-label"></label>
+                <input asp-for="SpecimenType" class="form-control" />
+                <span asp-validation-for="SpecimenType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SpecimenId" class="control-label"></label>
+                <input asp-for="SpecimenId" class="form-control" />
+                <span asp-validation-for="SpecimenId" class="text-danger"></span>
+            </div>
+        </div>
 
-<div>
-    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+
+   
 </div>
+    
+                <input type="submit" value="Create" class="btn btn-primary" />
+    
+        <a asp-action="Index" class="btn btn-primary">Back to List</a>
+   
+        </form>
+   
+
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

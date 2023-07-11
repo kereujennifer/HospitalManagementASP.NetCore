@@ -8,5 +8,9 @@
         public string? Report { get; set; }
         public int PatientId { get; set; } // Foreign key
         public Patients? Patient { get; set; }
+        public List<Staff>? Staff { get; set; }
+        public List<Laboratory>? Laboratories { get; set; }
+
+
     }
 }

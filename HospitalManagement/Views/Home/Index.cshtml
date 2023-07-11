@@ -2,39 +2,113 @@
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_LandingLayout.cshtml";
 }
-
-<div class="landing-page mt-5">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="image-section">
-                <img src="~/Images/hospitalfinal.jpg" alt="Landing page image" class="img-fluid" />
+<div class="container-fluid">
+    <div class="landing-page mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="image-section">
+                    <img src="~/Images/Hospital building-rafiki.png" alt="Landing page image" class="img-fluid" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="content-section justify-content-align-content-around text-center m-5">
+                    <h1 class="display-1 text-primary fw-bolder" style="font-family: 'Cabin', sans-serif;">
+                        WE CARE ABOUT YOUR HEALTH
+                    </h1>
+                    <p class="lead">We provide a comprehensive and integrated hospital management system to streamline your hospital operations and enhance patient care.</p>
+                    <a class="btn btn-primary btn-lg" href="#home-section" role="button">Learn more</a>
+                </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="content-section">
-                <h1 class="display-4">Welcome to Hospital Management</h1>
-                <p class="lead">We provide a comprehensive and integrated hospital management system to streamline your hospital operations and enhance patient care.</p>
-                <a class="btn btn-primary btn-lg" href="#about-us" role="button">Learn more</a>
+    </div>
+    <h3 class="text-center m-5"id="home-section"></h3>
+
+    <div class="landing-page m-5">
+        <div class="row">
+            
+            <div class="col-md-6">
+                <div class="content-section justify-content-align-content-around">
+                    <h1 class="display-4">Who We Are</h1>
+
+                    <p class="lead">With a strong emphasis on quality assurance, patient safety, and continuous improvement, we are committed to helping healthcare organizations achieve operational excellence and deliver the highest standard of care.
+                    </p>
+                    <a class="btn btn-outline-primary" asp-controller="Home" asp-action="About">Read more</a>
+                </div>
             </div>
+            <div class="col-md-6">
+                <div class="image-section">
+                    <img src="~/Images/forming team leadership-rafiki.png" alt="about page image" class="img-fluid" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3 class="text-center m-5">Our Services</h3>
+    <div class="row row-cols-1 row-cols-md-4 g-4 justify-content-center m-2" >
+        <div class="col" style="width: 18rem;">
+            <div class="card h-100">
+                <img src="~/Images/Oncology patient-rafiki.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center text-primary">Patient Management</h5>
+                    <p class="card-text">The system allows efficient registration of patients, creation of electronic medical records (EMRs), and management of patient demographics, including personal details, medical history, and insurance information..</p>
+                </div>
+            </div>
+        </div>
+        <div class="col" style="width: 18rem;">
+            <div class="card h-100">
+                <img src="~/Images/Doctors-rafiki.png" class="card-img-top mx-auto d-block" alt="..." style="max-height: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title text-center text-primary">Doctor Management</h5>
+                    <p class="card-text text-center">The system allows efficient registration of doctors, adding them to different departments and doctor management</p>
+                </div>
+            </div>
+        </div>
+        <div class="col" style="width: 18rem;">
+            <div class="card h-100">
+                <img src="~/Images/Laboratory-rafiki.png" class="card-img-top mx-auto d-block" alt="..." style="max-height: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title text-center text-primary">Laboratory Management</h5>
+                    <p class="card-text text-center">Integrated laboratory and radiology modules assist in managing and tracking laboratory tests, sample results, and radiology imaging orders.</p>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+    <div class="text-center">
+        <a class="btn btn-primary" asp-controller="Home" asp-action="Services">More services</a>
+    </div>
+
+@*    <div class="row row-cols-1 row-cols-md-4 g-4 justify-content-center m-5" id="home-section">
+<div class="col" >
+    <div class="card h-100">
+        <img src="~/Images/aboutus.jpg" class="card-img-top mx-auto d-block" alt="..." style="max-height: 200px;">
+        <div class="card-body">
+            <h5 class="card-title text-center text-primary">About Us</h5>
+            <p class="card-text text-center">We are a team of experienced healthcare professionals and software developers dedicated to providing innovative solutions for hospitals.</p>
+            <a class="btn btn-outline-primary" asp-controller="Home" asp-action="About">Read more</a>
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-4" id="about-us">
-            <h2>About us</h2>
-            <p>We are a team of experienced healthcare professionals and software developers dedicated to providing innovative solutions for hospitals.</p>
-            <a class="btn btn-outline-primary" href="#">Read more</a>
-        </div>
-        <div class="col-lg-4">
-            <h2>Services</h2>
-            <p>We offer a range of services including patient management, electronic medical records, billing and invoicing, and inventory management.</p>
-            <a class="btn btn-outline-primary" href="#">View services</a>
-        </div>
-        <div class="col-lg-4">
-            <h2>Contact us</h2>
-            <p>Get in touch with us for more information about our products and services.</p>
-            <a class="btn btn-outline-primary" href="#">Contact us</a>
+<div class="col">
+    <div class="card h-100">
+        <img src="~/Images/services.jpg" class="card-img-top mx-auto d-block" alt="..." style="max-height: 200px;">
+        <div class="card-body">
+            <h5 class="card-title text-center text-primary">Services</h5>
+            <p class="card-text text-center">We offer a range of services including patient management, electronic medical records, billing and invoicing, and inventory management.</p>
+            <a class="btn btn-outline-primary" asp-controller="Home" asp-action="Services">View services</a>
         </div>
     </div>
+</div>
+<div class="col" >
+    <div class="card h-100">
+        <img src="~/Images/contact.jpg" class="card-img-top mx-auto d-block" alt="..." style="max-height: 200px;">
+        <div class="card-body">
+            <h5 class="card-title text-center text-primary">Services</h5>
+            <p class="card-text text-center">Get in touch with us for more information about our products and services.</p>
+            <a class="btn btn-outline-primary" asp-controller="Home" asp-action="Contact">Contact us</a>
+        </div>
+    </div>
+</div>
+</div>
+*@
 </div>

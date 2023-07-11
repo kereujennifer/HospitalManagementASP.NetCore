@@ -2,14 +2,30 @@
 
 @if (Model != null && Model.Count > 0)
 {
-    <ul>
+     <div class="row">
         @foreach (var prescription in Model)
         {
-            <li>@prescription.MedicinePrescription</li>
-            
+            <div class="col-md-4">
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Prescription</h5>
+            <ul class="list-group">
+                        <li class="list-group-item"><strong>Medicine Prescription:</strong> @prescription.MedicinePrescription</li>
+                        <li class="list-group-item"><strong>Date Dispensed:</strong> @prescription.DateDispensed</li>
+                        <li class="list-group-item"><strong>Doctor:</strong> @prescription.Doctors</li>
+
+            </ul>
+        </div>
+                    <div class="card-footer mt-2">
+                        <a href="@Url.Action("Edit", new { id = prescription.Id })" class="btn btn-primary">Edit</a>
+                        <a href="@Url.Action("Delete", new { id = prescription.Id })" class="btn btn-danger">Delete</a>
+                    </div>
+    </div>
+            </div>
 
         }
-    </ul>
+        </div>
 }
 else
 {

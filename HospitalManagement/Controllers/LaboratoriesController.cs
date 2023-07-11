@@ -56,7 +56,7 @@ namespace HospitalManagement.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PatientName,TestPerformedBy,Report,Id")] Laboratory laboratory)
+        public async Task<IActionResult> Create([Bind("Test,TestName,Report,Id,Priority,OrderDate,CollectionDate,SpecimenId,Specimen,CollectionMethod")] Laboratory laboratory)
         {
             if (ModelState.IsValid)
             {

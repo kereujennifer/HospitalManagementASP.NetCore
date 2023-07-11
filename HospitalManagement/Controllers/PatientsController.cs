@@ -152,7 +152,7 @@ namespace HospitalManagement.Controllers
                         patients.AssignedDoctorId = selectedDoctor.DoctorId;
                     }
                 }
-
+       
                 // Retrieve the list of doctors from the database
                 var doctors = await _context.Doctors.ToListAsync();
 
@@ -212,6 +212,26 @@ namespace HospitalManagement.Controllers
 
             if (ModelState.IsValid)
             {
+                // Calculate age based on DateOfBirth
+                if (patients.DateOfBirth.HasValue)
+                {
+                    DateTime today = DateTime.Today;
+                    int age = today.Year - patients.DateOfBirth.Value.Year;
+
+                    // Check if the birthday for the current year has already occurred
+                    if (patients.DateOfBirth.Value.Date > today.AddYears(-age))
+                    {
+                        age--;
+                    }
+
+                }
+
+                // Show ParentGuardianName field if the age is less than 18
+                if (patients.Age < 18)
+                {
+                    ModelState.AddModelError("ParentGuardianName", "The Parent/Guardian Name field is required for patients under 18 years old.");
+                    return View(patients);
+                }
                 try
                 {
                     _context.Update(patients);

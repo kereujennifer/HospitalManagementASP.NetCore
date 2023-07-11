@@ -1,5 +1,6 @@
 using HospitalManagement.Controllers;
 using HospitalManagement.Data;
+using HospitalManagement.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +16,7 @@ builder.Services.AddDbContextPool<ApplicationDBContext>(
 builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders().AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDBContext>();
 builder.Services.AddScoped<PatientsController>();
+builder.Services.AddScoped<IRepository,Repository> ();
 
 var app = builder.Build();
 

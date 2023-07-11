@@ -251,13 +251,16 @@ namespace HospitalManagement.Migrations
                     b.Property<string>("Equipment")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("LabResultsId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Label")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PatientId")
+                    b.Property<int?>("PatientId")
                         .HasColumnType("int");
 
                     b.Property<string>("PatientName")
@@ -300,6 +303,8 @@ namespace HospitalManagement.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("LabResultsId");
 
                     b.HasIndex("PatientId");
 
@@ -615,9 +620,6 @@ namespace HospitalManagement.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
                     b.Property<int?>("AppointmentId")
                         .HasColumnType("int");
 
@@ -711,9 +713,6 @@ namespace HospitalManagement.Migrations
                     b.Property<string>("Temprature")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("UnderEighteen")
-                        .HasColumnType("bit");
-
                     b.Property<string>("WardNumber")
                         .HasColumnType("nvarchar(max)");
 
@@ -801,6 +800,9 @@ namespace HospitalManagement.Migrations
                     b.Property<int>("DepartmentId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("LabResultsId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -810,6 +812,8 @@ namespace HospitalManagement.Migrations
                     b.HasKey("StaffId");
 
                     b.HasIndex("DepartmentId");
+
+                    b.HasIndex("LabResultsId");
 
                     b.ToTable("Staff");
                 });
@@ -1120,11 +1124,13 @@ namespace HospitalManagement.Migrations
 
             modelBuilder.Entity("HospitalManagement.Models.Laboratory", b =>
                 {
+                    b.HasOne("HospitalManagement.Models.LabResults", null)
+                        .WithMany("Laboratories")
+                        .HasForeignKey("LabResultsId");
+
                     b.HasOne("HospitalManagement.Models.Patients", "Patient")
                         .WithMany()
-                        .HasForeignKey("PatientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PatientId");
 
                     b.Navigation("Patient");
                 });
@@ -1232,6 +1238,10 @@ namespace HospitalManagement.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("HospitalManagement.Models.LabResults", null)
+                        .WithMany("Staff")
+                        .HasForeignKey("LabResultsId");
+
                     b.Navigation("Department");
                 });
 
@@ -1317,6 +1327,13 @@ namespace HospitalManagement.Migrations
             modelBuilder.Entity("HospitalManagement.Models.Insurance", b =>
                 {
                     b.Navigation("Bill");
+                });
+
+            modelBuilder.Entity("HospitalManagement.Models.LabResults", b =>
+                {
+                    b.Navigation("Laboratories");
+
+                    b.Navigation("Staff");
                 });
 
             modelBuilder.Entity("HospitalManagement.Models.Medicine", b =>

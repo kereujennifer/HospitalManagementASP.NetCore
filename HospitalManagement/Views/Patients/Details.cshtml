@@ -18,6 +18,24 @@
                     <div class="col-md-12">
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label col-form-label-sm">
+                                @Html.DisplayNameFor(model => model.Patient.RegDate)
+                            </label>
+                            <div class="col-sm-8">
+                                @Html.DisplayFor(model => model.Patient.RegDate)
+                            </div>
+                           
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label col-form-label-sm">
+                                @Html.DisplayNameFor(model => model.Patient.AssignedDoctor)
+                            </label>
+                            <div class="col-sm-8">
+                                @Html.DisplayFor(model => model.Patient.AssignedDoctor)
+                            </div>
+                           
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label col-form-label-sm">
                                 @Html.DisplayNameFor(model => model.Patient.RegistrationNumber)
                             </label>
                             <div class="col-sm-8">
@@ -87,7 +105,18 @@
                             <div class="col-sm-8">
                                 @Html.DisplayFor(model => model.Patient.NextOfKinPhone)
                             </div>
+                           
                         </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label col-form-label-sm">
+                                @Html.DisplayNameFor(model => model.Patient.WardNumber)
+                            </label>
+                            <div class="col-sm-8">
+                                @Html.DisplayFor(model => model.Patient.WardNumber)
+                            </div>
+                           
+                        </div>
+
                     </div>
                 </div>
                 </div>

@@ -1,0 +1,24 @@
+﻿@model LabResults
+
+<h2>Edit Lab Result</h2>
+
+<form method="post" asp-controller="PatientManagement" asp-action="LabResults" asp-route-patientId="@Model.PatientId">
+
+
+    <div class="form-group">
+        <label>Test Performed:</label>
+        <input class="form-control" type="text" name="testPerformed" value="@Model.TestPerformed" />
+    </div>
+
+    <div class="form-group">
+        <label>Test Performed By:</label>
+        <input class="form-control" type="text" name="testPerformedBy" value="@Model.TestPerformedBy" />
+    </div>
+
+    <div class="form-group">
+        <label>Report:</label>
+        <input class="form-control" type="text" name="report" value="@Model.Report" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

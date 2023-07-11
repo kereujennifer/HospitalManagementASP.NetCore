@@ -2,24 +2,31 @@
 
 @if (Model != null && Model.Count > 0)
 {
-    <table>
-        <thead>
-            <tr>
-               
-                <th>Temperature</th>
-             
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var vitalSigns in Model)
-            {
-                <tr>
-                    <td>@vitalSigns.Temperature</td>
-                    
-                </tr>
-            }
-        </tbody>
-    </table>
+      <div class="row">
+        @foreach (var vitalSigns in Model)
+        {
+            <div class="col-md-4">
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Vital Signs</h5>
+            <ul class="list-group">
+                        <li class="list-group-item"><strong>Weight:</strong> @vitalSigns.Weight</li>
+                        <li class="list-group-item"><strong>Height:</strong> @vitalSigns.Height</li>
+                        <li class="list-group-item"><strong>Blood Pressure:</strong> @vitalSigns.BloodPressure</li>
+                        <li class="list-group-item"><strong>Temperature:</strong> @vitalSigns.Temperature</li>
+                        <li class="list-group-item"><strong>BMI:</strong> @vitalSigns.BMI</li>
+            </ul>
+        </div>
+                    <div class="card-footer mt-2">
+                        <a href="@Url.Action("Edit", new { id = vitalSigns.Id })" class="btn btn-primary">Edit</a>
+                        <a href="@Url.Action("Delete", new { id = vitalSigns.Id })" class="btn btn-danger">Delete</a>
+                    </div>
+    </div>
+            </div>
+
+        }
+        </div>
 }
 else
 {

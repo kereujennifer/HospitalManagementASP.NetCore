@@ -26,7 +26,32 @@ namespace HospitalManagement.Models
         [Display(Name = " Date Of Birth")]
 
         public DateTime? DateOfBirth { get; set; }
-        public int Age { get; set; }
+        public int Age
+        {
+            get
+            {
+                if (DateOfBirth.HasValue)
+                {
+                    var today = DateTime.Today;
+                    var age = today.Year - DateOfBirth.Value.Year;
+
+                    // Check if the birthday has already occurred this year
+                    if (DateOfBirth.Value.Date > today.AddYears(-age))
+                    {
+                        age--;
+                    }
+
+                    return age;
+                }
+
+                return 0;
+            }
+        }
+
+        public bool UnderEighteen
+        {
+            get { return Age < 18; }
+        }
         public string? Gender { get; set; }
         public string? Prescription { get; set; }
         [Display(Name = "Date Dispensed")]
@@ -40,7 +65,6 @@ namespace HospitalManagement.Models
 
         public string? Address { get; set; }
         public string? Email { get; set; }
-        public bool UnderEighteen { get; set; }
         [Display(Name = " Parent/Guardian Name")]
 
         public string? ParentGuardianName { get; set; }

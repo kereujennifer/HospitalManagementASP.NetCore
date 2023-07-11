@@ -90,14 +90,25 @@ namespace HospitalManagement.Controllers
 			else
             {
                 return View();
-            }
+			}
+		}
+
+
+		public IActionResult Contact()
+		{
+			return View();
+		}
+        public IActionResult About()
+        {
+            return View();
         }
-			
-       
+        public IActionResult Services()
+        {
+            return View();
+        }
 
 
-
-public IActionResult Privacy()
+        public IActionResult Privacy()
         {
             return View();
         }

@@ -5,16 +5,116 @@
       "PackagePath": "staticwebassets\\HospitalManagement.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\About.jpg",
+      "PackagePath": "staticwebassets\\Images\\About.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\Ambulance-rafiki.png",
+      "PackagePath": "staticwebassets\\Images\\Ambulance-rafiki.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\Contact us-rafiki.png",
+      "PackagePath": "staticwebassets\\Images\\Contact us-rafiki.png"
+    },
+    {
       "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\Doctor.jpg",
       "PackagePath": "staticwebassets\\Images\\Doctor.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\Doctors-rafiki.png",
+      "PackagePath": "staticwebassets\\Images\\Doctors-rafiki.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\Forgot password-rafiki.png",
+      "PackagePath": "staticwebassets\\Images\\Forgot password-rafiki.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\Get in touch-rafiki.png",
+      "PackagePath": "staticwebassets\\Images\\Get in touch-rafiki.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\Health professional team-rafiki.png",
+      "PackagePath": "staticwebassets\\Images\\Health professional team-rafiki.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\Hospital building-rafiki.png",
+      "PackagePath": "staticwebassets\\Images\\Hospital building-rafiki.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\Laboratory-rafiki.png",
+      "PackagePath": "staticwebassets\\Images\\Laboratory-rafiki.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\Oncology patient-rafiki.png",
+      "PackagePath": "staticwebassets\\Images\\Oncology patient-rafiki.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\Patientmngnt.jpg",
+      "PackagePath": "staticwebassets\\Images\\Patientmngnt.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\Pharmacist-rafiki.png",
+      "PackagePath": "staticwebassets\\Images\\Pharmacist-rafiki.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\Remedy-rafiki.png",
+      "PackagePath": "staticwebassets\\Images\\Remedy-rafiki.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\Reset password-rafiki.png",
+      "PackagePath": "staticwebassets\\Images\\Reset password-rafiki.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\Sent Message-rafiki.png",
+      "PackagePath": "staticwebassets\\Images\\Sent Message-rafiki.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\Sign up-rafiki.png",
+      "PackagePath": "staticwebassets\\Images\\Sign up-rafiki.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\Tablet login-rafiki.png",
+      "PackagePath": "staticwebassets\\Images\\Tablet login-rafiki.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\Vaccine development-rafiki.png",
+      "PackagePath": "staticwebassets\\Images\\Vaccine development-rafiki.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\aboutus.jpg",
+      "PackagePath": "staticwebassets\\Images\\aboutus.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\chemist-rafiki.png",
+      "PackagePath": "staticwebassets\\Images\\chemist-rafiki.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\chemistry lab-rafiki.png",
+      "PackagePath": "staticwebassets\\Images\\chemistry lab-rafiki.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\contact us.jpg",
+      "PackagePath": "staticwebassets\\Images\\contact us.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\contact.jpg",
+      "PackagePath": "staticwebassets\\Images\\contact.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\docs.png",
       "PackagePath": "staticwebassets\\Images\\docs.png"
     },
     {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\doctormngt.jpg",
+      "PackagePath": "staticwebassets\\Images\\doctormngt.jpg"
+    },
+    {
       "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\forgot.jpg",
       "PackagePath": "staticwebassets\\Images\\forgot.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\forming team leadership-rafiki.png",
+      "PackagePath": "staticwebassets\\Images\\forming team leadership-rafiki.png"
     },
     {
       "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\hospitalfinal.jpg",
@@ -23,6 +123,10 @@
     {
       "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\images.jpeg",
       "PackagePath": "staticwebassets\\Images\\images.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\lab.jpg",
+      "PackagePath": "staticwebassets\\Images\\lab.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\landing.jpg",
@@ -37,6 +141,10 @@
       "PackagePath": "staticwebassets\\Images\\loginlegit.jpg"
     },
     {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\nurse.jpg",
+      "PackagePath": "staticwebassets\\Images\\nurse.jpg"
+    },
+    {
       "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\patient.png",
       "PackagePath": "staticwebassets\\Images\\patient.png"
     },
@@ -47,6 +155,10 @@
     {
       "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\person.png",
       "PackagePath": "staticwebassets\\Images\\person.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\pharmacy.jpg",
+      "PackagePath": "staticwebassets\\Images\\pharmacy.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\pharmacydashbooard.jpg",
@@ -63,6 +175,10 @@
     {
       "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\reset.jpg",
       "PackagePath": "staticwebassets\\Images\\reset.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\services.jpg",
+      "PackagePath": "staticwebassets\\Images\\services.jpg"
     },
     {
       "Id": "C:\\Users\\hp\\source\\repos\\ASP.Net -Projects\\HospitalManagement\\wwwroot\\Images\\signuplegit.jpg",

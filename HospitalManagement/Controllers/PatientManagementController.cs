@@ -166,13 +166,18 @@ public async Task<IActionResult> MedicalHistory(MedicalHistories model)
 
 
         [HttpGet]
-        public async Task<IActionResult> LabResults (int patientId)
+        public async Task<IActionResult> LabResults(int patientId)
         {
-           
             var patient = await context.Patient.FirstOrDefaultAsync(p => p.Id == patientId);
 
             if (patient != null)
             {
+                var laboratories = await context.Laboratory.ToListAsync();
+                var staff = await context.Staff.Where(s => s.DepartmentId ==3 ).ToListAsync();
+
+                ViewBag.Laboratories = new SelectList(laboratories, "Id", "TestName");
+                ViewBag.Staff = new SelectList(staff, "StaffId", "Name");
+
                 var model = new LabResults
                 {
                     PatientId = patient.Id,
@@ -185,22 +190,36 @@ public async Task<IActionResult> MedicalHistory(MedicalHistories model)
             // Handle case when patient is not found
             return RedirectToAction("PatientNotFound", "Error");
         }
+
+
+        [HttpPost]
         public async Task<IActionResult> LabResults(LabResults model, int patientId)
         {
-            // Retrieve the patient's prescriptions from the database
-            var labResults = new LabResults();
-            var patient = await context.Patient.FirstOrDefaultAsync(p => p.Id == model.PatientId);
-
-            if (patient != null)
+            if (ModelState.IsValid)
             {
-                model.Patient = patient;
+                var patient = await context.Patient.FirstOrDefaultAsync(p => p.Id == model.PatientId);
 
-                // Save the lab results to the database
-                context.LabResults.Add(model);
-                await context.SaveChangesAsync();
+                if (patient != null)
+                {
+                    model.Patient = patient;
+
+                    // Save the lab results to the database
+                    context.LabResults.Add(model);
+                    await context.SaveChangesAsync();
+                }
+
+                return RedirectToAction("Details", "Patients", new { id = model.PatientId });
             }
-            return RedirectToAction("Details", "Patients", new { id = model.PatientId });
 
+            // Retrieve the necessary data for dropdowns again
+            var laboratories = await context.Laboratory.ToListAsync();
+            var staff = await context.Staff.Where(s => s.DepartmentId == 3).ToListAsync();
+
+            ViewBag.Laboratories = new SelectList(laboratories, "Id", "TestName");
+            ViewBag.Staff = new SelectList(staff, "StaffId", "Name");
+
+            return View(model);
         }
+
     }
 }

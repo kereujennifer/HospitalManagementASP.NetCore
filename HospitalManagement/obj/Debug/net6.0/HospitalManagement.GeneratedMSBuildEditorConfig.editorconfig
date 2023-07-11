@@ -284,6 +284,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdG9yc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Home/about.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxhYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Home/contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxjb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Home/dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxkYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -294,6 +302,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/Home/Services.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZXJ2aWNlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/HospitalMngnt/Bedmanagement.cshtml]
@@ -362,6 +374,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/MedicineReports/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNpbmVSZXBvcnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/PatientManagement/EditLabResults.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudE1hbmFnZW1lbnRcRWRpdExhYlJlc3VsdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/hp/source/repos/ASP.Net -Projects/HospitalManagement/Views/PatientManagement/Index.cshtml]

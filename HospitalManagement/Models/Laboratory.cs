@@ -14,7 +14,7 @@ namespace HospitalManagement.Models
 
         public string? TestType { get; set; }
         public string? Equipment { get; set; }
-        public Patients Patient { get; set; }
+        public Patients? Patient { get; set; }
 
         public DateTime OrderDate { get; set; }
 
