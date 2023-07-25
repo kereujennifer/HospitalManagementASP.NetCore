@@ -620,6 +620,9 @@ namespace HospitalManagement.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("Age")
+                        .HasColumnType("int");
+
                     b.Property<int?>("AppointmentId")
                         .HasColumnType("int");
 
@@ -775,6 +778,9 @@ namespace HospitalManagement.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("MedicinePrescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Notes")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PatientId")

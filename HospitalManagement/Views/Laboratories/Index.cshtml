@@ -17,9 +17,9 @@
         <li class="nav-item" role="presentation">
             <a class="nav-link" id="sampleAnalysis-tab" data-bs-toggle="tab" href="#sampleAnalysis" role="tab" aria-controls="sampleAnalysis" aria-selected="false">Sample Analysis</a>
         </li>
-        <li class="nav-item" role="presentation">
+       @* <li class="nav-item" role="presentation">
             <a class="nav-link" id="patients-tab" data-bs-toggle="tab" href="#patients" role="tab" aria-controls="patients" aria-selected="false">Patient List</a>
-        </li>
+        </li>*@
     </ul>
 
     <div class="tab-content">
@@ -157,7 +157,7 @@ Test Order                         </div>
             </div>
         </div>
 
-        <div id="patients" class="tab-pane fade" role="tabpanel" aria-labelledby="patients-tab">
+@*        <div id="patients" class="tab-pane fade" role="tabpanel" aria-labelledby="patients-tab">
             <div class="card-deck">
             
                 @foreach (var item in Model)
@@ -171,8 +171,8 @@ Test Order                         </div>
                                 <tbody>
                                     <tr>
                                         <th>Patient Name:</th>
-@*                                        <td>@Html.DisplayFor(modelItem => item.RegistrationNumber)</td>
-*@                                    </tr>
+                                     <td>@Html.DisplayFor(modelItem => item.RegistrationNumber)</td>
+                                </tr>
                                     <!-- Add other columns specific to the Patient List here -->
                                 </tbody>
                             </table>
@@ -186,7 +186,7 @@ Test Order                         </div>
                 }
             </div>
         </div>
-    </div>
+*@    </div>
 
 </div>
 

@@ -26,27 +26,28 @@ namespace HospitalManagement.Models
         [Display(Name = " Date Of Birth")]
 
         public DateTime? DateOfBirth { get; set; }
-        public int Age
-        {
-            get
-            {
-                if (DateOfBirth.HasValue)
-                {
-                    var today = DateTime.Today;
-                    var age = today.Year - DateOfBirth.Value.Year;
+        //public int Age
+        //{
+        //    get
+        //    {
+        //        if (DateOfBirth.HasValue)
+        //        {
+        //            var today = DateTime.Today;
+        //            var age = today.Year - DateOfBirth.Value.Year;
 
-                    // Check if the birthday has already occurred this year
-                    if (DateOfBirth.Value.Date > today.AddYears(-age))
-                    {
-                        age--;
-                    }
+        //            // Check if the birthday has already occurred this year
+        //            if (DateOfBirth.Value.Date > today.AddYears(-age))
+        //            {
+        //                age--;
+        //            }
 
-                    return age;
-                }
+        //            return age;
+        //        }
 
-                return 0;
-            }
-        }
+        //        return 0;
+        //    }
+        //}
+        public int? Age { get; set; }
 
         public bool UnderEighteen
         {

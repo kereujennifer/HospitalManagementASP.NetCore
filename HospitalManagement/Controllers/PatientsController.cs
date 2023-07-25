@@ -20,9 +20,21 @@ namespace HospitalManagement.Controllers
         {
             _context = context;
             _registrationNumberGenerator = new RegistrationNumberGenerator();
-
+            Patients.RegistrationNumberCounter = 0001;
         }
+        public int CalculateAge(DateTime dateOfBirth)
+        {
+            DateTime today = DateTime.Today;
+            int age = today.Year - dateOfBirth.Year;
 
+            // Check if the birthday has already occurred this year
+            if (dateOfBirth.Date > today.AddYears(-age))
+            {
+                age--;
+            }
+
+            return age;
+        }
         // GET: Patients
         public async Task<IActionResult> Index()
         {
@@ -137,7 +149,7 @@ namespace HospitalManagement.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RegistrationNumber,Age,Gender,NextOfKin,NextOfKinPhone,Id,FirstName,LastName,Phone,Address,AssignedDoctor,GetDoctors")] Patients patients)
+        public async Task<IActionResult> Create([Bind("RegistrationNumber,RegDate,DateOfBirth,Age,Gender,NextOfKin,NextOfKinPhone,Id,FirstName,LastName,Phone,Address,ParentGuardianName,AssignedDoctor,GetDoctors,MiddleName,NextOfKinName,NextOfKinAddress,NextOfKinPhone")] Patients patients)
         {
             if (ModelState.IsValid)
             {
@@ -168,7 +180,33 @@ namespace HospitalManagement.Controllers
 
                 Patients.RegistrationNumberCounter++;
                 patients.RegistrationNumber = $"HMS-{DateTime.Now.Year % 100}-{Patients.RegistrationNumberCounter:0000}";
+                // Calculate age based on DateOfBirth
+                patients.Age = CalculateAge(patients.DateOfBirth);
 
+
+                // Show ParentGuardianName field if the age is less than 18
+                if (patients.Age < 18)
+                {
+                    ModelState.AddModelError("ParentGuardianName", "The Parent/Guardian Name field is required for patients under 18 years old.");
+                    return View(patients);
+                }
+                try
+                {
+                    _context.Update(patients);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!PatientsExists(patients.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
                 _context.Add(patients);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -213,18 +251,8 @@ namespace HospitalManagement.Controllers
             if (ModelState.IsValid)
             {
                 // Calculate age based on DateOfBirth
-                if (patients.DateOfBirth.HasValue)
-                {
-                    DateTime today = DateTime.Today;
-                    int age = today.Year - patients.DateOfBirth.Value.Year;
+                patients.Age = CalculateAge(patients.DateOfBirth);
 
-                    // Check if the birthday for the current year has already occurred
-                    if (patients.DateOfBirth.Value.Date > today.AddYears(-age))
-                    {
-                        age--;
-                    }
-
-                }
 
                 // Show ParentGuardianName field if the age is less than 18
                 if (patients.Age < 18)
@@ -251,6 +279,25 @@ namespace HospitalManagement.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(patients);
+        }
+
+        public int? CalculateAge(DateTime? dateOfBirth)
+        {
+            if (dateOfBirth.HasValue)
+            {
+                DateTime today = DateTime.Today;
+                int age = today.Year - dateOfBirth.Value.Year;
+
+                // Check if the birthday has already occurred this year
+                if (dateOfBirth.Value.Date > today.AddYears(-age))
+                {
+                    age--;
+                }
+
+                return age;
+            }
+
+            return null; // Return null for unknown age (null date of birth)
         }
 
         // GET: Patients/Delete/5

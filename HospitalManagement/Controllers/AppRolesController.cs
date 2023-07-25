@@ -4,6 +4,7 @@ using HospitalManagement.Models;
 using HospitalManagement.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
@@ -17,12 +18,14 @@ namespace HospitalManagement.Controllers
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly UserManager<IdentityUser> userManager;
         private readonly ApplicationDBContext context;
+        private readonly IEmailSender emailSender;
 
-        public AppRolesController(RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager, ApplicationDBContext context) 
+        public AppRolesController(RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager, ApplicationDBContext context, IEmailSender emailSender)
         {
             this.roleManager = roleManager;
             this.userManager = userManager;
             this.context = context;
+            this.emailSender = emailSender;
         }
         [HttpGet]
         public async Task<IActionResult> ManageUserRoles(string userId)
@@ -165,7 +168,7 @@ namespace HospitalManagement.Controllers
                 return View("NotFound");
             }
 
-           
+
             // GetRolesAsync returns the list of user Roles
             var userRoles = await userManager.GetRolesAsync(user);
 
@@ -191,7 +194,7 @@ namespace HospitalManagement.Controllers
             else
             {
                 user.Email = model.Email;
-              
+
 
                 var result = await userManager.UpdateAsync(user);
 
@@ -358,9 +361,9 @@ namespace HospitalManagement.Controllers
         }
         public IActionResult Index()
         {
-           
 
-           
+
+
 
 
             return View();
@@ -395,5 +398,18 @@ namespace HospitalManagement.Controllers
             return View(model);
         }
 
+
+
+
+        public async Task<IActionResult> SendEmail()
+        {
+            string email = "recipient@example.com";
+            string subject = "Test Email";
+            string message = "Hello, this is a test email from ASP.NET Core.";
+
+            await emailSender.SendEmailAsync(email, subject, message);
+
+            return View();
+        }
     }
 }
