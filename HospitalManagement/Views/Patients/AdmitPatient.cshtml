@@ -1,0 +1,35 @@
+﻿@model AdmitViewModel
+
+@{
+    ViewData["Title"] = "Admit Patient";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<!-- Display patient information -->
+<p>Patient ID: @Model.PatientId</p>
+
+<!-- Display the form for selecting ward and room -->
+<form asp-action="Admit" asp-route-id="@Model.PatientId" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label for="wardSelect">Select Ward:</label>
+        <select class="form-control" id="wardSelect" asp-for="SelectedWardId">
+            @foreach (var ward in Model.Wards)
+            {
+                <option value="@ward.Id">@ward.Wards</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="roomSelect">Select Room:</label>
+        <select class="form-control" id="roomSelect" asp-for="SelectedRoomId">
+            @foreach (var room in Model.Rooms)
+            {
+                <option value="@room.Id">@room.</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Admit Patient</button>
+</form>

@@ -1,0 +1,34 @@
+﻿@model List<HospitalMngt>
+
+<h3>Hospital Information</h3>
+<a href="@Url.Action("UpdateHospitalInfo", "HospitalMngts")" class="btn btn-primary">Update Hospital Info</a>
+<br />
+<!-- Add the HTML and Razor code to display and manage the hospital information here -->
+<!-- This can include the fields like WardCategory, Floors, IsOccupied, and Stations -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ward Category</th>
+            <th>Floors</th>
+            <th>Is Occupied</th>
+            <th>Stations</th>
+            <!-- Add other columns as needed -->
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var hospitalInfo in Model)
+        {
+            <tr>
+                <td>@hospitalInfo.WardCategory</td>
+                <td>@hospitalInfo.Floors</td>
+                <td>@hospitalInfo.IsOccupied</td>
+                <td>@hospitalInfo.Stations</td>
+                <!-- Add other columns as needed -->
+                <td>
+                    <!-- Add buttons for editing and updating hospital information -->
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

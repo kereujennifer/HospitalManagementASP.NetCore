@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Patients\Admit.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     
     <PackageReference Include="MailKit" Version="4.1.0" />
     
@@ -45,6 +49,24 @@
 
   <ItemGroup>
     <Folder Include="Common\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\HospitalMngts\Create.cshtml" />
+    <None Include="Views\HospitalMngts\Delete.cshtml" />
+    <None Include="Views\HospitalMngts\Details.cshtml" />
+    <None Include="Views\HospitalMngts\Edit.cshtml" />
+    <None Include="Views\HospitalMngts\Index.cshtml" />
+    <None Include="Views\LabTestCategories\Create.cshtml" />
+    <None Include="Views\LabTestCategories\Delete.cshtml" />
+    <None Include="Views\LabTestCategories\Details.cshtml" />
+    <None Include="Views\LabTestCategories\Edit.cshtml" />
+    <None Include="Views\LabTestCategories\Index.cshtml" />
+    <None Include="Views\LabTests\Create.cshtml" />
+    <None Include="Views\LabTests\Delete.cshtml" />
+    <None Include="Views\LabTests\Details.cshtml" />
+    <None Include="Views\LabTests\Edit.cshtml" />
+    <None Include="Views\LabTests\Index.cshtml" />
   </ItemGroup>
 
 </Project>

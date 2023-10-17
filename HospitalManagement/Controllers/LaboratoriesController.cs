@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HospitalManagement.Data;
 using HospitalManagement.Models;
+using HospitalManagement.ViewModels;
 
 namespace HospitalManagement.Controllers
 {
@@ -22,10 +23,22 @@ namespace HospitalManagement.Controllers
         // GET: Laboratories
         public async Task<IActionResult> Index()
         {
-              return _context.Laboratory != null ? 
-                          View(await _context.Laboratory.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDBContext.Laboratory'  is null.");
+            var laboratories = _context.Laboratory.ToList();
+            var labTests = _context.LabTest.ToList();
+            var labTestCategory = _context.LabTestCategory.ToList();
+            var labRequests = _context.LabRequests.Include(lr => lr.Patient).ToList();
+
+            var viewModel = new IndexLabViewModel
+            {
+                Laboratories = laboratories,
+                LabRequests = labRequests,
+                LabTest = labTests,
+                LabTestCategories = labTestCategory
+            };
+       
+            return View(viewModel);
         }
+
 
         // GET: Laboratories/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -46,26 +59,61 @@ namespace HospitalManagement.Controllers
         }
 
         // GET: Laboratories/Create
-        public IActionResult Create()
+        public IActionResult Create(int labRequestId)
         {
-            return View();
+            // Find the lab request by Id from the database
+            var labRequest = _context.LabRequests.Include(lr => lr.Patient).FirstOrDefault(lr => lr.Id == labRequestId);
+
+            if (labRequest == null)
+            {
+                return NotFound();
+            }
+
+            var laboratory = new Laboratory
+            {
+                PatientName = labRequest.PatientName,
+                Patient = labRequest.Patient,
+                LabRequestId = labRequest.Id,
+                TestName = labRequest.RequestedTests,
+                // You can set other properties here based on the lab request if needed
+            };
+
+            return View(laboratory);
         }
 
         // POST: Laboratories/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Test,TestName,Report,Id,Priority,OrderDate,CollectionDate,SpecimenId,Specimen,CollectionMethod")] Laboratory laboratory)
+        public async Task<IActionResult> Create([Bind("Test,TestName,Report,Id,Priority,OrderDate,CollectionDate,SpecimenId,Specimen,CollectionMethod,LabRequestId,Patient.Id,Patient.FirstName,Patient.LastName")] Laboratory laboratory)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(laboratory);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+            
+                // Set the patient information in the laboratory record
+                if (ModelState.IsValid)
+                {
+                // Find the lab request by Id from the database
+                var labRequest = _context.LabRequests.Include(lr => lr.Patient).FirstOrDefault(lr => lr.Id == laboratory.LabRequestId);
+
+                if (labRequest != null)
+                    {
+                    // Set the patient information in the laboratory record
+                    laboratory.Patient = labRequest.Patient;
+                    laboratory.PatientName = labRequest.Patient.FirstName + " " + labRequest.Patient.LastName;
+
+                        _context.Add(laboratory);
+                        await _context.SaveChangesAsync();
+
+                        // Update the lab request status to "Processed"
+                        labRequest.Status = "Processed";
+                        await _context.SaveChangesAsync();
+
+                        return RedirectToAction(nameof(Index));
+                    }
+             
             }
+
             return View(laboratory);
         }
+
 
         // GET: Laboratories/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -158,6 +206,11 @@ namespace HospitalManagement.Controllers
         private bool LaboratoryExists(int id)
         {
           return (_context.Laboratory?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+        public IActionResult LaboratoryInterface()
+        {
+            var labRequests = _context.LabRequests.ToList();
+            return View(labRequests);
         }
     }
 }

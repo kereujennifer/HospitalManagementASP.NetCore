@@ -1,0 +1,28 @@
+﻿@model List<HospitalMngt>
+
+<h3>Beds Management</h3>
+<a href="@Url.Action("CreateBed", "HospitalMngts")" class="btn btn-primary">Create New Bed</a>
+<br />
+<!-- Add the HTML and Razor code to display and manage beds here -->
+<!-- For example, you can create a table to display bed information and add buttons to create, edit, and delete beds -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Bed</th>
+            <!-- Add other columns as needed -->
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bed in Model)
+        {
+            <tr>
+                <td>@bed.Beds</td>
+                <!-- Add other columns as needed -->
+                <td>
+                    <!-- Add buttons for editing and deleting beds -->
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

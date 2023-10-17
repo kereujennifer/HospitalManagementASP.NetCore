@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HospitalManagement.Models.Laboratory>
+﻿@model IndexLabViewModel
 
 @{
     ViewData["Title"] = "Laboratory";
@@ -9,13 +9,16 @@
 <div class="container">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-            <a class="nav-link active" id="testOrder-tab" data-bs-toggle="tab" href="#testOrder" role="tab" aria-controls="testOrder" aria-selected="true">Test Order Management</a>
+            <a class="nav-link active" id="labRequests-tab" data-bs-toggle="tab" href="#labRequests" role="tab" aria-controls="labRequests" aria-selected="true">Lab Requests</a>
         </li>
         <li class="nav-item" role="presentation">
-            <a class="nav-link" id="specimenTracking-tab" data-bs-toggle="tab" href="#specimenTracking" role="tab" aria-controls="specimenTracking" aria-selected="false">Specimen Tracking</a>
+            <a class="nav-link " id="testOrder-tab" data-bs-toggle="tab" href="#testOrder" role="tab" aria-controls="testOrder" aria-selected="true">Test Order Management</a>
         </li>
         <li class="nav-item" role="presentation">
-            <a class="nav-link" id="sampleAnalysis-tab" data-bs-toggle="tab" href="#sampleAnalysis" role="tab" aria-controls="sampleAnalysis" aria-selected="false">Sample Analysis</a>
+            <a class="nav-link" id="labTests-tab" data-bs-toggle="tab" href="#labTests" role="tab" aria-controls="labTests" aria-selected="false">Tests</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="labTestCategories-tab" data-bs-toggle="tab" href="#labTestCategories" role="tab" aria-controls="labTestCategories" aria-selected="false">Test Categories</a>
         </li>
        @* <li class="nav-item" role="presentation">
             <a class="nav-link" id="patients-tab" data-bs-toggle="tab" href="#patients" role="tab" aria-controls="patients" aria-selected="false">Patient List</a>
@@ -23,25 +26,83 @@
     </ul>
 
     <div class="tab-content">
-        <div id="testOrder" class="tab-pane fade show active" role="tabpanel" aria-labelledby="testOrder-tab">
-            <p>
+        <div id="labRequests" class="tab-pane fade show active" role="tabpanel" aria-labelledby="labRequests-tab">
+           
+           
+
+                <table class="table">
+                <thead>
+                    <tr>
+                        <th>Request ID</th>
+                        <th>Patient ID</th>
+                        <th>Patient Name</th>
+                        <th>Requested Tests</th>
+                        <th>Request Date</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                        @foreach (var labRequest in Model.LabRequests)
+                        {
+                        <tr>
+                            <td>@labRequest.Id</td>
+                            @if (labRequest.Patient != null)
+                            {
+                                <td>@labRequest.Patient.Id</td>
+                                <td>@(labRequest.Patient.FirstName + " " + labRequest.Patient.LastName)</td>
+                            }
+                            else
+                            {
+                                <td>N/A</td>
+                                <td>N/A</td>
+                            }
+                            <td>@labRequest.RequestedTests</td>
+                            <td>@labRequest.RequestDate</td>
+                            <td>@labRequest.Status</td>
+                            <td>
+                                @if (labRequest.Status != "Processed")
+                                {
+                                    <a asp-action="Create" asp-route-labRequestId="@labRequest.Id" class="btn btn-primary float-right">Add Lab Results</a>
+                                }
+                            </td>
+                          
+                                </tr>
+                    }
+                        
+                    </tbody>
+                </table>
+            
+            </div>
+        <div id="testOrder" class="tab-pane fade" role="tabpanel" aria-labelledby="testOrder-tab">
+           @* <p>
                 <a asp-action="Create" class="btn btn-primary float-right">Create New</a>
-            </p>
+            </p>*@
 
             <div class="card-deck">
-                @foreach (var item in Model)
+                @foreach (var item in Model.Laboratories)
                 {
                     <div class="card mb-4">
                         <div class="card-header">
-Test Order                         </div>
+                           @item.PatientName
+                        </div>
                         <div class="card-body">
                             <table class="table">
                                 <tbody>
-                                   @* <tr>
-                                        <th>Registration Number:</th>
-                                        <td>@Html.DisplayFor(modelItem => item.RegistrationNumber)</td>
-                                    </tr>*@
+                                    @if (item.Patient != null)
+                                    {
+                                        <tr>
+
+                                            <th>Patient ID:</th>
+                                            <td>@Html.DisplayFor(model => item.Patient.Id)</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Patient Name:</th>
+                                            <td>@Html.DisplayFor(model => item.Patient.FirstName) @Html.DisplayFor(model => item.Patient.LastName)</td>
+                                        </tr>
+                                    }
                                     <tr>
+                                        
                                         <th>Order Date:</th>
                                         <td>@Html.DisplayFor(modelItem => item.OrderDate)</td>
                                     </tr>
@@ -57,6 +118,22 @@ Test Order                         </div>
                                     <tr>
                                         <th>Test Type:</th>
                                         <td>@Html.DisplayFor(modelItem => item.TestType)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Collection Method:</th>
+                                        <td>@Html.DisplayFor(modelItem => item.CollectionMethod)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Collection Date:</th>
+                                        <td>@Html.DisplayFor(modelItem => item.SpecimenType)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Collection Site:</th>
+                                        <td>@Html.DisplayFor(modelItem => item.CollectionSite)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Collection Instructions:</th>
+                                        <td>@Html.DisplayFor(modelItem => item.CollectionInstructions)</td>
                                     </tr>
                                     <tr>
                                         <th>Test Performed By:</th>
@@ -83,78 +160,13 @@ Test Order                         </div>
             </div>
         </div>
 
-        <div id="specimenTracking" class="tab-pane fade" role="tabpanel" aria-labelledby="specimenTracking-tab">
-            <div class="card-deck">
-               
-                @foreach (var item in Model)
-                {
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            @Html.DisplayFor(modelItem => item.PatientName)
-                        </div>
-                        <div class="card-body">
-                            <table class="table">
-                                <tbody>
-                                    <!-- Other table rows for specimen tracking details -->
-                                    <tr>
-                                        <th>Collection Method:</th>
-                                        <td>@Html.DisplayFor(modelItem => item.CollectionMethod)</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Collection Date:</th>
-                                        <td>@Html.DisplayFor(modelItem => item.CollectionDate)</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Collection Site:</th>
-                                        <td>@Html.DisplayFor(modelItem => item.CollectionSite)</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Collection Instructions:</th>
-                                        <td>@Html.DisplayFor(modelItem => item.CollectionInstructions)</td>
-                                    </tr>
-                                    <!-- Other table rows for specimen tracking details -->
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="card-footer">
-                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
-                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
-                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
-                        </div>
-                    </div>
-                }
-            </div>
+        <div id="labTests" class="tab-pane fade" role="tabpanel" aria-labelledby="labTests-tab">
+            @Html.Partial("_LabTestsPartial", Model.LabTest) <!-- Render the LabTests partial view here -->
         </div>
 
-        <div id="sampleAnalysis" class="tab-pane fade" role="tabpanel" aria-labelledby="sampleAnalysis-tab">
-            <div class="card-deck">
-               
-                @foreach (var item in Model)
-                {
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            Sample Analysis
-                        </div>
-                        <div class="card-body">
-                            <table class="table">
-                                <tbody>
-                                    <!-- Other table rows for sample analysis details -->
-                                    <tr>
-                                        <th>Sample Taken:</th>
-@*                                        <td>@Html.DisplayFor(modelItem => item.RegistrationNumber)</td>
-*@                                    </tr>
-                                    <!-- Add other columns specific to the Sample Analysis here -->
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="card-footer">
-                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
-                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
-                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
-                        </div>
-                    </div>
-                }
-            </div>
+        <div id="labTestCategories" class="tab-pane fade" role="tabpanel" aria-labelledby="labTestCategories-tab">
+            @Html.Partial("_LabTestCategoriesPartial", Model.LabTestCategories) <!-- Render the LabTestCategories partial view here -->
+        </div>
         </div>
 
 @*        <div id="patients" class="tab-pane fade" role="tabpanel" aria-labelledby="patients-tab">

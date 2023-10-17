@@ -341,5 +341,60 @@ namespace HospitalManagement.Controllers
         {
           return (_context.Patient?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+        // GET: Patients/Admit/5
+        public async Task<IActionResult> AdmitPatient(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var patient = await _context.Patient.FindAsync(id);
+            if (patient == null)
+            {
+                return NotFound();
+            }
+
+            var wards = await _context.HospitalMngt.ToListAsync();
+            var rooms = await _context.HospitalMngt.ToListAsync();
+
+            var model = new AdmitViewModel
+            {
+                PatientId = patient.Id,
+                Wards = wards,
+                Rooms = rooms
+            };
+
+            return View(model);
+        }
+
+        // POST: Patients/Admit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AdmitPatient(int id, AdmitViewModel model)
+        {
+            if (id != model.PatientId)
+            {
+                return NotFound();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                // If the model is not valid, reload the ward and room data and return the view
+                model.Wards = await _context.HospitalMngt.ToListAsync();
+                model.Rooms = await _context.HospitalMngt.ToListAsync();
+                return View(model);
+            }
+
+            // Your logic to save the admission information goes here
+            // For example, you can create an Admission model and save the data to the database
+            // You can also update the Patient model with the ward and room information
+
+            // After successful admission, redirect to a success page or the patient details page
+            // For example, redirect to the patient details page:
+            return RedirectToAction("Details", new { id = model.PatientId });
+        }
+
+
     }
 }

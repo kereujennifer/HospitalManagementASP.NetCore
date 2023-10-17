@@ -13,5 +13,27 @@ namespace HospitalManagement.Models
 
         
         public string? Stations { get; set; }
+
+            public string RoomName { get; set; }
+            public int RoomTypeId { get; set; }
+            public string RoomType { get; set; }
+            // Add any other properties as needed
+        
+
+       
+            public int WardId { get; set; }
+            public string WardName { get; set; }
+            // Add any other properties as needed
+        
+
+       
+            public int BedId { get; set; }
+            // Add any other properties as needed
+
+     
+          
+            // Add any other properties as needed
+        
+
     }
 }

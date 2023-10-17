@@ -1,0 +1,28 @@
+﻿@model List<LabRequest>
+
+<h2>Laboratory Interface</h2>
+
+<!-- Display the lab requests in a table or list -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Request ID</th>
+            <th>Patient Name</th>
+            <th>Requested Tests</th>
+            <th>Request Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var request in Model)
+        {
+            <tr>
+                <td>@request.Id</td>
+                <td>@request.PatientName</td>
+                <td>@request.RequestedTests</td>
+                <td>@request.RequestDate</td>
+                <td>@request.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>

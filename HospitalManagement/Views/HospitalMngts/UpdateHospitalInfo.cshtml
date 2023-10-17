@@ -1,0 +1,34 @@
+﻿@model HospitalMngt
+
+<h3>Update Hospital Information</h3>
+
+<!-- Add the HTML and Razor code to create a form for updating hospital information -->
+<form asp-action="UpdateHospitalInfo" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label asp-for="WardCategory">Ward Category:</label>
+        <input asp-for="WardCategory" class="form-control" />
+        <span asp-validation-for="WardCategory" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Floors">Floors:</label>
+        <input asp-for="Floors" class="form-control" />
+        <span asp-validation-for="Floors" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="IsOccupied">Is Occupied:</label>
+        <input asp-for="IsOccupied" class="form-control" />
+        <span asp-validation-for="IsOccupied" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Stations">Stations:</label>
+        <input asp-for="Stations" class="form-control" />
+        <span asp-validation-for="Stations" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update Hospital Info</button>
+</form>

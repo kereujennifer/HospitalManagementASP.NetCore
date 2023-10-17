@@ -1,5 +1,8 @@
 ﻿@model IEnumerable<HospitalManagement.Models.Patients>
 
+
+@*    Adding discharge and admitting either means adding a tabbed page or add a dropdown button for that . # Don't forget.
+*@
 @{
     ViewData["Title"] = "Patients";
 }
@@ -55,6 +58,8 @@
                      <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
               
                     <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                     <a asp-action="AdmitPatient" asp-route-id="@item.Id" class="btn btn-secondary">Admit</a>
+
            </td>
         </tr>
 }

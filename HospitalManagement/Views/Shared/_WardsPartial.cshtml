@@ -1,0 +1,28 @@
+﻿@model List<HospitalMngt>
+
+<h3>Wards Management</h3>
+<a asp-action="CreateWard" asp-controller="HospitalMngts" class="btn btn-primary">Create New Ward</a>
+<br />
+<!-- Add the HTML and Razor code to display and manage wards here -->
+<!-- For example, you can create a table to display ward information and add buttons to create, edit, and delete wards -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ward Name</th>
+            <!-- Add other columns as needed -->
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ward in Model)
+        {
+            <tr>
+                <td>@ward.Wards</td>
+                <!-- Add other columns as needed -->
+                <td>
+                    <!-- Add buttons for editing and deleting wards -->
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -7,21 +7,28 @@
 }
 
 
-<h4>Laboratory</h4>
+<h4>Add Lab Result for @Model.PatientName</h4>
 <hr />
 <form asp-action="Create">
 <div class="row">
+
     <div class="col-md-4">
-    
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="form-group">
-                
+                <label asp-for="Patient.Id" class="control-label">Patient ID:</label>
+                <input asp-for="Patient.Id" class="form-control" disabled />
             </div>
             <div class="form-group">
-                <label asp-for="Test" class="control-label"></label>
-                <input asp-for="Test" class="form-control" />
-                <span asp-validation-for="Test" class="text-danger"></span>
+                <label asp-for="Patient.FirstName" class="control-label">Patient First Name:</label>
+                <input asp-for="Patient.FirstName" class="form-control" disabled />
             </div>
+            <div class="form-group">
+                <label asp-for="Patient.LastName" class="control-label">Patient Last Name:</label>
+                <input asp-for="Patient.LastName" class="form-control" disabled />
+            </div>
+        </div>
+
             <div class="form-group">
                 <label asp-for="TestName" class="control-label"></label>
                 <input asp-for="TestName" class="form-control" />
@@ -32,40 +39,23 @@
                 <input asp-for="Report" class="form-control" />
                 <span asp-validation-for="Report" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="OrderDate" class="control-label"></label>
-                <input asp-for="OrderDate" class="form-control" />
-                <span asp-validation-for="OrderDate" class="text-danger"></span>
-            </div>
+
             <div class="form-group">
                 <label asp-for="Priority" class="control-label"></label>
                 <input asp-for="Priority" class="form-control" />
                 <span asp-validation-for="Priority" class="text-danger"></span>
             </div>
-            </div>
+        </div>
+
+
     <div class="col-md-4">
-        <div class="form-group">
-            <label asp-for="CollectionMethod" class="control-label"></label>
-                <input asp-for="CollectionMethod" class="form-control" />
-                <span asp-validation-for="CollectionMethod" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="CollectionDate" class="control-label"></label>
-                <input asp-for="CollectionDate" class="form-control" />
-                <span asp-validation-for="CollectionDate" class="text-danger"></span>
-        </div>
+
         <div class="form-group">
             <label asp-for="CollectionInstructions" class="control-label"></label>
                 <input asp-for="CollectionInstructions" class="form-control" />
                 <span asp-validation-for="CollectionInstructions" class="text-danger"></span>
         </div>
-        <div class="form-group">
-            <label asp-for="CollectionSite" class="control-label"></label>
-                <input asp-for="CollectionSite" class="form-control" />
-                <span asp-validation-for="CollectionSite" class="text-danger"></span>
-        </div>
-    </div>
-        <div class="col-md-4">
+       
             <div class="form-group">
                 <label asp-for="SpecimenCollectionDetails" class="control-label"></label>
                 <input asp-for="SpecimenCollectionDetails" class="form-control" />
@@ -76,17 +66,13 @@
                 <input asp-for="SpecimenType" class="form-control" />
                 <span asp-validation-for="SpecimenType" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="SpecimenId" class="control-label"></label>
-                <input asp-for="SpecimenId" class="form-control" />
-                <span asp-validation-for="SpecimenId" class="text-danger"></span>
-            </div>
+           
         </div>
 
 
    
-</div>
-    
+    <input type="hidden" asp-for="LabRequestId" />
+
                 <input type="submit" value="Create" class="btn btn-primary" />
     
         <a asp-action="Index" class="btn btn-primary">Back to List</a>

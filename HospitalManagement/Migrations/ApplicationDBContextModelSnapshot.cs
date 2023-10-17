@@ -186,6 +186,9 @@ namespace HospitalManagement.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int>("BedId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Beds")
                         .HasColumnType("nvarchar(max)");
 
@@ -195,10 +198,28 @@ namespace HospitalManagement.Migrations
                     b.Property<bool>("IsOccupied")
                         .HasColumnType("bit");
 
+                    b.Property<string>("RoomName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoomType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RoomTypeId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Stations")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("WardCategory")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("WardId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("WardName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Wards")
@@ -250,6 +271,12 @@ namespace HospitalManagement.Migrations
 
                     b.Property<string>("Equipment")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("LabRequestId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LabResultId")
+                        .HasColumnType("int");
 
                     b.Property<int?>("LabResultsId")
                         .HasColumnType("int");
@@ -311,6 +338,38 @@ namespace HospitalManagement.Migrations
                     b.ToTable("Laboratory");
                 });
 
+            modelBuilder.Entity("HospitalManagement.Models.LabRequest", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("PatientId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PatientName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RequestDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RequestedTests")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PatientId");
+
+                    b.ToTable("LabRequests");
+                });
+
             modelBuilder.Entity("HospitalManagement.Models.LabResults", b =>
                 {
                     b.Property<int>("Id")
@@ -318,6 +377,9 @@ namespace HospitalManagement.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("LabRequestId")
+                        .HasColumnType("int");
 
                     b.Property<int>("PatientId")
                         .HasColumnType("int");
@@ -333,9 +395,54 @@ namespace HospitalManagement.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("LabRequestId");
+
                     b.HasIndex("PatientId");
 
                     b.ToTable("LabResults");
+                });
+
+            modelBuilder.Entity("HospitalManagement.Models.LabTest", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TestName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("LabTest");
+                });
+
+            modelBuilder.Entity("HospitalManagement.Models.LabTestCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LabTestCategory");
                 });
 
             modelBuilder.Entity("HospitalManagement.Models.MedicalHistories", b =>
@@ -882,6 +989,21 @@ namespace HospitalManagement.Migrations
                     b.ToTable("VitalSigns");
                 });
 
+            modelBuilder.Entity("LabRequestLaboratory", b =>
+                {
+                    b.Property<int>("LabRequestId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LaboratoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("LabRequestId", "LaboratoryId");
+
+                    b.HasIndex("LaboratoryId");
+
+                    b.ToTable("LabRequestLaboratory");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -1141,8 +1263,23 @@ namespace HospitalManagement.Migrations
                     b.Navigation("Patient");
                 });
 
+            modelBuilder.Entity("HospitalManagement.Models.LabRequest", b =>
+                {
+                    b.HasOne("HospitalManagement.Models.Patients", "Patient")
+                        .WithMany()
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Patient");
+                });
+
             modelBuilder.Entity("HospitalManagement.Models.LabResults", b =>
                 {
+                    b.HasOne("HospitalManagement.Models.LabRequest", null)
+                        .WithMany("LabResults")
+                        .HasForeignKey("LabRequestId");
+
                     b.HasOne("HospitalManagement.Models.Patients", "Patient")
                         .WithMany("LabResults")
                         .HasForeignKey("PatientId")
@@ -1150,6 +1287,15 @@ namespace HospitalManagement.Migrations
                         .IsRequired();
 
                     b.Navigation("Patient");
+                });
+
+            modelBuilder.Entity("HospitalManagement.Models.LabTest", b =>
+                {
+                    b.HasOne("HospitalManagement.Models.LabTestCategory", "LabTestCategory")
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
+
+                    b.Navigation("LabTestCategory");
                 });
 
             modelBuilder.Entity("HospitalManagement.Models.MedicalHistories", b =>
@@ -1262,6 +1408,21 @@ namespace HospitalManagement.Migrations
                     b.Navigation("Patient");
                 });
 
+            modelBuilder.Entity("LabRequestLaboratory", b =>
+                {
+                    b.HasOne("HospitalManagement.Models.LabRequest", null)
+                        .WithMany()
+                        .HasForeignKey("LabRequestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HospitalManagement.Models.Laboratory", null)
+                        .WithMany()
+                        .HasForeignKey("LaboratoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -1333,6 +1494,11 @@ namespace HospitalManagement.Migrations
             modelBuilder.Entity("HospitalManagement.Models.Insurance", b =>
                 {
                     b.Navigation("Bill");
+                });
+
+            modelBuilder.Entity("HospitalManagement.Models.LabRequest", b =>
+                {
+                    b.Navigation("LabResults");
                 });
 
             modelBuilder.Entity("HospitalManagement.Models.LabResults", b =>

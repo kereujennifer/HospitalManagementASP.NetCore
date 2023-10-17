@@ -1,0 +1,26 @@
+﻿@model List<LabTestCategory>
+<a asp-action="Create" asp-controller="LabTestCategories" class="btn btn-primary ">Add New</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Category</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var labTestCategory in Model)
+        {
+            <tr>
+                <td>@labTestCategory.Id</td>
+                <td>@labTestCategory.CategoryName</td>
+                <td>
+                    <a asp-action="Edit" asp-controller="LabTestCategories" asp-route-id="@labTestCategory.Id" class="btn btn-primary">Edit</a>
+                    <a asp-action="Details" asp-controller="LabTestCategories" asp-route-id="@labTestCategory.Id" class="btn btn-primary">Details</a>
+                    <a asp-action="Delete" asp-controller="LabTestCategories" asp-route-id="@labTestCategory.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -51,9 +51,11 @@ namespace HospitalManagement.ViewModels
         public List<Prescription> Prescriptions { get; set; } = new List<Prescription>();
         public List<LabResults> LabResults { get; set; } = new List<LabResults>();
         public List<VitalSigns> VitalSigns { get; set; } = new List<VitalSigns>();
+        public LabRequestViewModel LabRequest { get; set; }
 
 
-        
-}
+
+
+    }
 
 }

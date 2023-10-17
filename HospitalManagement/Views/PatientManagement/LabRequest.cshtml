@@ -1,0 +1,50 @@
+﻿@model LabRequestViewModel // Update the namespace with your actual namespace
+
+<h2>Lab Request Form</h2>
+<form asp-action="SendLabRequest" asp-controller="PatientManagement" method="post">
+    <input type="hidden" asp-for="Patient.Id" />
+    @if (Model.Patient != null)
+    {
+        <p>Patient Name: @Model.Patient.FirstName</p>
+        <p>Patient Age: @Model.Patient.Age</p>
+        <!-- Display other patient information as needed -->
+    }
+    <div class="form-group">
+        <label asp-for="RequestedTests">Requested Tests:</label>
+        <input asp-for="RequestedTests" class="form-control" />
+        <span asp-validation-for="RequestedTests" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Select Tests:</label>
+        @foreach (var test in Model.AvailableTests)
+        {
+            <div>
+                <input type="checkbox" name="SelectedTests[@test.Id]" value="true" id="test-@test.Id" />
+                <label for="test-@test.Id">@test.TestName</label>
+            </div>
+        }
+        <span asp-validation-for="SelectedTests" class="text-danger"></span>
+    </div>
+
+
+
+
+
+
+<label for="TestDescription">Test Description:</label>
+<textarea id="TestDescription" asp-for="TestDescription" class="form-control"></textarea>
+
+<label for="TestDate">Test Date:</label>
+<input type="date" id="TestDate" asp-for="TestDate" class="form-control" />
+
+<label>Priority:</label>
+<select id="Priority" asp-for="Priority" class="form-control">
+    <option value="Normal">Normal</option>
+    <option value="Urgent">Urgent</option>
+</select>
+
+<label for="RequestedBy">Requested By:</label>
+<input type="text" id="RequestedBy" asp-for="RequestedBy" class="form-control" required />
+
+<button type="submit" class="btn btn-primary">Send Request</button>
+</form>

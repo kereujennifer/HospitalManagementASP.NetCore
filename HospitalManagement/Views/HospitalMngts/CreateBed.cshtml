@@ -1,0 +1,16 @@
+﻿@model HospitalMngt
+
+<h3>Create New Bed</h3>
+
+<!-- Add the HTML and Razor code to create a form for adding a new bed -->
+<form asp-action="CreateBed" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label asp-for="Beds">Bed:</label>
+        <input asp-for="Beds" class="form-control" />
+        <span asp-validation-for="Beds" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Bed</button>
+</form>

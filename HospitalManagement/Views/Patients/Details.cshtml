@@ -149,6 +149,9 @@
                 <li class="nav-item" role="presentation">
                     <a class="nav-link" href="#laboratoryresults" data-bs-toggle="tab" role="tab" aria-controls="laboratoryresults" aria-selected="false">Lab Results</a>
                 </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" href="#labrequest" data-bs-toggle="tab" role="tab" aria-controls="labrequest" aria-selected="false">Lab Request</a>
+                </li>
             </ul>
         </div>
 
@@ -180,6 +183,12 @@
                 <a asp-action="LabResults" asp-controller="PatientManagement" id="addLabResultsButton" class="btn btn-primary" asp-route-PatientId="@Model.Patient.Id">Add New Lab Results</a>
 
             </div>
+            <div class="tab-pane" id="labrequest" role="tabpanel" aria-labelledby="labrequest-tab">
+                <!-- Include the _LabRequest partial view -->
+                @Html.Partial("_LabRequest", Model.LabRequest)
+                <a asp-action="LabRequest" asp-controller="PatientManagement" id="sendLabRequestButton" class="btn btn-primary" asp-route-PatientId="@Model.Patient.Id">Send Lab Request</a>
+            </div>
+
         </div>
     </div>
 </div>

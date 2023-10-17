@@ -1,0 +1,16 @@
+﻿@model HospitalMngt
+
+<h3>Create New Ward</h3>
+
+<!-- Add the HTML and Razor code to create a form for adding a new ward -->
+<form asp-action="CreateWard" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label asp-for="Wards">Ward Name:</label>
+        <input asp-for="Wards" class="form-control" />
+        <span asp-validation-for="Wards" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Ward</button>
+</form>

@@ -1,0 +1,28 @@
+﻿@model List<HospitalMngt>
+
+<h3>Room Types Management</h3>
+<a href="@Url.Action("CreateRoomType", "HospitalMngts")" class="btn btn-primary">Create New Room Type</a>
+<br />
+<!-- Add the HTML and Razor code to display and manage room types here -->
+<!-- For example, you can create a table to display room type information and add buttons to create, edit, and delete room types -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Room Type</th>
+            <!-- Add other columns as needed -->
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var roomType in Model)
+        {
+            <tr>
+                <td>@roomType.RoomType</td>
+                <!-- Add other columns as needed -->
+                <td>
+                    <!-- Add buttons for editing and deleting room types -->
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

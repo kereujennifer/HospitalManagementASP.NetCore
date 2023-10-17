@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HospitalManagement.Models
 {
-    public class Laboratory 
+    public class Laboratory
     {
         public int Id { get; set; }
         //public string? RegistrationNumber { get; set; }
@@ -26,13 +27,24 @@ namespace HospitalManagement.Models
         public string? Label { get; set; }
         public DateTime CollectionDate { get; set; }
         public string? CollectionMethod { get; set; }
-     
+
         public string? CollectionSite { get; set; }
         public string? CollectionInstructions { get; set; }
         public int SpecimenId { get; set; }
         public decimal ResultValue { get; set; }
         public DateTime ResultDate { get; set; }
         public int DoctorId { get; set; }
+        public int LabRequestId { get; set; }
+
+        public int LabResultId { get; set; }
+        public List<LabRequest>? LabRequest { get; set; }
+
+
+
+
+
+
 
     }
 }
+

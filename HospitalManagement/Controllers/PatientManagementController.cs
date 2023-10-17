@@ -197,6 +197,7 @@ public async Task<IActionResult> MedicalHistory(MedicalHistories model)
         {
             if (ModelState.IsValid)
             {
+              
                 var patient = await context.Patient.FirstOrDefaultAsync(p => p.Id == model.PatientId);
 
                 if (patient != null)
@@ -207,7 +208,7 @@ public async Task<IActionResult> MedicalHistory(MedicalHistories model)
                     context.LabResults.Add(model);
                     await context.SaveChangesAsync();
                 }
-
+                
                 return RedirectToAction("Details", "Patients", new { id = model.PatientId });
             }
 
@@ -219,6 +220,83 @@ public async Task<IActionResult> MedicalHistory(MedicalHistories model)
             ViewBag.Staff = new SelectList(staff, "StaffId", "Name");
 
             return View(model);
+        }
+        [HttpGet]
+        public async Task<IActionResult> LabRequest(int patientId)
+        {
+            var patient = await context.Patient.FirstOrDefaultAsync(p => p.Id == patientId);
+
+            if (patient != null)
+            {
+                var model = new LabRequestViewModel
+                {
+                    PatientId = patient.Id,
+                    Patient = patient,// Set the Patient property to the patient object
+                     AvailableTests = await context.LabTest.ToListAsync(),
+                    SelectedTests = new Dictionary<int, bool>() // Initialize the dictionary here
+                };
+                // Fetch the list of available tests and assign them to the model
+                model.AvailableTests = await context.LabTest.ToListAsync();
+                return View(model);
+            }
+
+            // Handle case when patient is not found
+            return RedirectToAction("PatientNotFound", "Error");
+        }
+        [HttpPost]
+        public IActionResult SendLabRequest(LabRequestViewModel labRequest)
+        {
+            if (ModelState.IsValid)
+            {
+               
+                var patient = context.Patient.FirstOrDefault(p => p.Id == labRequest.Patient.Id);
+
+                if (patient == null)
+                {
+                    // Handle case when patient is not found
+                    return RedirectToAction("PatientNotFound", "Error");
+                }
+                var selectedTestIds = labRequest.SelectedTests
+                .Where(kv => kv.Value)
+                .Select(kv => kv.Key)
+                .ToList();
+
+                // Map the data from LabRequestViewModel to the LabRequest entity (database model)
+                var labRequestEntity = new LabRequest
+                {
+                    Patient = patient, // Set the entire Patient object
+                    PatientName= patient.FirstName,
+                    RequestedTests = labRequest.RequestedTests,
+                    RequestDate = DateTime.Now,
+                    Status = "Pending", // Set an initial status for the lab request
+                    //SelectedTest = selectedTestIds,
+
+                    Requestedtest = selectedTestIds.Select(testId => context.LabTest.FirstOrDefault(test => test.Id == testId)).ToList()
+                    // Add any other properties as needed
+                };
+
+
+                context.LabRequests.Add(labRequestEntity);
+                context.SaveChanges();
+
+                // Set LabRequestId for passing to Create action
+                //var labRequestId = labRequestEntity.Id;
+
+                // Redirect to the Create action in Laboratories controller
+                //return RedirectToAction("Create", "Laboratories", new { labRequestId });
+
+                // Redirect to the confirmation view or any other relevant action
+                return RedirectToAction("LabRequestConfirmation");
+            }
+
+            // If the model state is invalid, return to the lab request form view to show validation errors
+            return View("LabRequest", labRequest);
+        }
+
+        public IActionResult LabRequestConfirmation()
+        {
+            // This action can display a confirmation message or any other relevant information
+            return View();
         }
 
     }

@@ -1,0 +1,16 @@
+﻿@model HospitalMngt
+
+<h3>Create New Room Type</h3>
+
+<!-- Add the HTML and Razor code to create a form for adding a new room type -->
+<form asp-action="CreateRoomType" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label asp-for="RoomType">Room Type:</label>
+        <input asp-for="RoomType" class="form-control" />
+        <span asp-validation-for="RoomType" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Room Type</button>
+</form>

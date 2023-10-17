@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Hospital Management";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="wards-tab" data-bs-target="#wards" data-bs-toggle="tab" href="#" role="tab" aria-controls="wards" aria-selected="true">Wards</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="roomTypes-tab" data-bs-target="#roomTypes" data-bs-toggle="tab" href="#" role="tab" aria-controls="roomTypes" aria-selected="false">Room Types</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="beds-tab" data-bs-target="#beds" data-bs-toggle="tab" href="#" role="tab" aria-controls="beds" aria-selected="false">Beds</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="hospitalInfo-tab" data-bs-target="#hospitalInfo" data-bs-toggle="tab" href="#" role="tab" aria-controls="hospitalInfo" aria-selected="false">Hospital Info</a>
+    </li>
+</ul>
+
+<div class="tab-content" id="myTabContent">
+    <!-- Wards Tab -->
+    <div class="tab-pane fade show active" id="wards" role="tabpanel" aria-labelledby="wards-tab">
+        @await Html.PartialAsync("_WardsPartial")
+    </div>
+
+    <!-- Room Types Tab -->
+    <div class="tab-pane fade" id="roomTypes" role="tabpanel" aria-labelledby="roomTypes-tab">
+        @await Html.PartialAsync("_RoomTypesPartial")
+    </div>
+
+    <!-- Beds Tab -->
+    <div class="tab-pane fade" id="beds" role="tabpanel" aria-labelledby="beds-tab">
+        @await Html.PartialAsync("_BedsPartial")
+    </div>
+
+    <!-- Hospital Info Tab -->
+    <div class="tab-pane fade" id="hospitalInfo" role="tabpanel" aria-labelledby="hospitalInfo-tab">
+        @await Html.PartialAsync("_HospitalInfoPartial")
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.nav-tabs a').click(function () {
+            $(this).tab('show');
+        });
+    });
+</script>

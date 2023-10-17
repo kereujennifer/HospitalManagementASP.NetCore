@@ -1,0 +1,24 @@
+﻿@model AdmitViewModel
+
+<!-- Your existing HTML and layout -->
+
+<div class="modal fade" id="admitModal" tabindex="-1" role="dialog" aria-labelledby="admitModalLabel" aria-hidden="true">
+    <!-- Modal content and form elements here -->
+    <!-- Example: Selecting wards and rooms using HTML form elements -->
+    <form asp-action="Admit" asp-route-id="@Model.PatientId" method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <!-- Modal content and form elements here -->
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- JavaScript code to show the modal when the page loads -->
+<script>
+    $(document).ready(function () {
+        $('#admitModal').modal('show');
+    });
+</script>

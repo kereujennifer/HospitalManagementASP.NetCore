@@ -39,8 +39,19 @@ namespace HospitalManagement.Data
         public DbSet<HospitalManagement.Models.LabResults>? LabResults { get; set; }
 
         public DbSet<HospitalManagement.Models.OutPatient>? OutPatient { get; set; }
+        public DbSet<HospitalManagement.Models.LabTest>? LabTest { get; set; }
 
+        public DbSet<HospitalManagement.Models.LabTestCategory>? LabTestCategory { get; set; }
         public DbSet<HospitalManagement.Models.HospitalMngt>? HospitalMngt { get; set; }
+        //public DbSet<HospitalManagement.Models.HospitalMngt.Bed>? Beds { get; set; }
+        //public DbSet<HospitalManagement.Models.HospitalMngt.Ward>? Wards { get; set; }
+        //public DbSet<HospitalManagement.Models.HospitalMngt.Room>? Rooms { get; set; }
+        //public DbSet<HospitalManagement.Models.HospitalMngt.RoomType>? RoomTypes { get; set; }
+
+
+
+
+        public DbSet<HospitalManagement.Models.LabRequest> LabRequests { get; set; }
 
         public DbSet<HospitalManagement.Models.Department> Department { get; set; }
         public DbSet<HospitalManagement.Models.Staff> Staff { get; set; }

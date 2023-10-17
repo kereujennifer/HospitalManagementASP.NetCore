@@ -11,6 +11,5 @@
         public List<Staff>? Staff { get; set; }
         public List<Laboratory>? Laboratories { get; set; }
 
-
     }
 }
